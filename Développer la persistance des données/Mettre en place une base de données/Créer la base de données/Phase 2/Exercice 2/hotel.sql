@@ -41,7 +41,7 @@ CREATE TABLE Client (
 );
 
 CREATE TABLE Reservation (
-    reserv_id                   INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+
     reserv_date_debut           DATE,
     reserv_date_fin             DATE,
     reserv_date                 DATE,
@@ -49,6 +49,7 @@ CREATE TABLE Reservation (
     reserv_prix_total           INT,
     chamb_id                    INT NOT NULL,
     cli_id                      INT NOT NULL,
+    PRIMARY KEY (chamb_id,cli_id),
     FOREIGN KEY (chamb_id) REFERENCES Chambre(chamb_id),
     FOREIGN KEY (cli_id) REFERENCES Client(cli_id)
 
