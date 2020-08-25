@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS phase2;
-CREATE DATABASE phase2;
-USE phase2;
+DROP DATABASE IF EXISTS grouppers;
+CREATE DATABASE grouppers;
+USE grouppers;
 
 CREATE TABLE Personne (
 
