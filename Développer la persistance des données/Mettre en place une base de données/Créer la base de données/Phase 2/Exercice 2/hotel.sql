@@ -16,6 +16,7 @@ CREATE TABLE Hotel (
     hotel_capa      INT,
     hotel_categ     VARCHAR(255),
     hotel_adresse   VARCHAR(255),
+    stat_id         INT NOT NULL,
     FOREIGN KEY (stat_id) REFERENCES Station(stat_id)
 );
 
@@ -26,6 +27,7 @@ CREATE TABLE Chambre (
     chamb_deg_conf      VARCHAR(255),
     chamb_expo          VARCHAR(255),
     chamb_type          VARCHAR(255),
+    hotel_id            INT NOT NULL,
     FOREIGN KEY (hotel_id) REFERENCES Hotel(hotel_id)
 );
 
@@ -45,6 +47,8 @@ CREATE TABLE Reservation (
     reserv_date                 DATE,
     reserv_montant_arr          INT,
     reserv_prix_total           INT,
+    chamb_id                    INT NOT NULL,
+    cli_id                      INT NOT NULL,
     FOREIGN KEY (chamb_id) REFERENCES Chambre(chamb_id),
     FOREIGN KEY (cli_id) REFERENCES Client(cli_id)
 
