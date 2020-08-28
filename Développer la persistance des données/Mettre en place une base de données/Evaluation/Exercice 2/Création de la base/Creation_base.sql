@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS papyrusLMD;
-CREATE DATABASE papyrusLMD;
-USE papyrusLMD;
+DROP DATABASE IF EXISTS papyrusEval;
+CREATE DATABASE papyrusEval;
+USE papyrusEval;
 
 CREATE TABLE produit (
 
@@ -68,33 +68,3 @@ FOREIGN KEY (NUMCOM) REFERENCES entcom(NUMCOM),
 FOREIGN KEY (CODART) REFERENCES produit(CODART)
 
 );
-
-/* 
-
-L'ordre à adopter pour alimenter la BDD pourrait être :
-
-produit, fournis, vente, ligcom et entcom
-
-Cet ordre est idéal puisque les deux premières tables n'ont pas de clés étrangères selon
-le MCD de Papyrus, du coup aucun conflits liés à ces clés étrangères ne peut
-arriver
-
-*/
-
-INSERT INTO fournis (NUMFOU, NOMFOU, RUEFOU, POSFOU, VILFOU, CONFOU, SATISF)
-VALUES  ('00120', 'GROBRIGAN', '20 rue du papier', '92200', 'Papercity', 'Georges', 08),
-        ('00540', 'ECLIPSE', '53 rue laisse flotter les rubans', '78250', 'Bugbugville', 'Nestor', 07),
-        ('08700', 'MEDICIS', '120 rue des plantes', '75014', 'Paris', 'Lison', NULL),
-        ('09120', 'DISCOBOL', '11 rue des sports', '85100', 'La Roche sur Yon', 'Hercule', 08),
-        ('09150', 'DEPANPAP', '26 avenue des locomotives', '59987', 'Coroncountry', 'Pollux', 05),
-        ('09180', 'HURRYTAPE ', '68 boulevard des octets', '04044', 'Dumpville', 'Track', NULL);
-        
-
-
-LOAD DATA LOCAL INFILE 'C:\\Users\\80010-91-10\\Documents\\Travaux_CDA\\vente.csv'
-INTO TABLE vente
-FIELDS TERMINATED BY ';' 
-LINES TERMINATED BY '\r\n'
-IGNORE 1 LINES
-(NUMFOU,CODART,DELLIV,QTE1,PRIX1,QTE2,PRIX2,QTE3,PRIX3);
-
