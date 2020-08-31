@@ -24,20 +24,20 @@ pro_description     VARCHAR(50)
 CREATE TABLE Commande (
 
 com_num             INT NOT NULL PRIMARY KEY,
-cli_num             INT,
+com_cli_num         INT,
 com_date            DATETIME,
 com_obs             VARCHAR(50),
-FOREIGN KEY (cli_num) REFERENCES Client(cli_num)
+FOREIGN KEY (com_cli_num) REFERENCES Client(cli_num)
 
 );
 
-CREATE TABLE est_compose (
+CREATE TABLE EstCompose (
 
-com_num             INT NOT NULL,
-pro_num             INT NOT NULL,
+est_com_num             INT NOT NULL,
+est_pro_num             INT NOT NULL,
 est_qte             INT,
-PRIMARY KEY (com_num, pro_num),
-FOREIGN KEY (com_num) REFERENCES Commande(com_num),
-FOREIGN KEY (pro_num) REFERENCES Produit(pro_num)
+PRIMARY KEY (est_com_num, est_pro_num),
+FOREIGN KEY (est_com_num) REFERENCES Commande(com_num),
+FOREIGN KEY (est_pro_num) REFERENCES Produit(pro_num)
 
 );

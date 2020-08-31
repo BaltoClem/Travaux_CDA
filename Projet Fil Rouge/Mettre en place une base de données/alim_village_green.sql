@@ -1,0 +1,103 @@
+INSERT INTO fournisseur (four_id, four_nom, four_type)
+VALUES  (1, 'Fournisseur1', 'Constructeur'),
+        (2, 'Fournisseur2', 'Importateur'),
+        (3, 'Fournisseur3', 'Constructeur'),
+        (4, 'Fournisseur4', 'Importateur'),
+        (5, 'Fournisseur5', 'Constructeur');
+
+INSERT INTO rubrique (rub_id, rub_nom)
+VALUES  (1, "Guitares/Basses"),
+        (2, "Batteries"),
+        (3, "Clavier"),
+        (4, "Studio"),
+        (5, "Sono"),
+        (6, "Eclairage"),
+        (7, "DJ"),
+        (8, "Cases"),
+        (9, "Accessoires");
+
+INSERT INTO sous_rubrique (s_rub_id, s_rub_nom, s_rub_rub_id)
+VALUES  (1, "Guitares Electriques", 1),
+        (2, "Guitares Classiques", 1),
+        (3, "Guitares Acoustiques", 1),
+        (4, "Basses Electriques", 1),
+        (5, "Basses Acoustiques", 1),
+        (6, "Ukulélés", 1),
+        (7, "Batteries Acoustiques", 2),
+        (8, "Batteries Electroniques", 2),
+        (9, "Cymbales", 2),
+        (10, "Baguettes et Maillets", 2),
+        (11, "Percussions", 2),
+        (12, "Claviers Arrangeurs", 3),
+        (13, "Synthétiseurs", 3),
+        (14, "Claviers Maîtres", 3),
+        (15, "Pianos de Scène", 3),
+        (16, "Pianos Numériques", 3),
+        (17, "Pianos à Queue", 3),
+        (18, "Accordéons", 3),
+        (19, "Interfaces Audio", 4),
+        (20, "Microphones", 4),
+        (21, "Logiciels Studio", 4),
+        (22, "Enregistreurs Numériques", 4),
+        (23, "Casques et Amplificateurs", 4),
+        (24, "Consoles Numériques", 4),
+        (25, "Enceintes", 5),
+        (26, "Tables de Mixage", 5),
+        (27, "Amplificateurs", 5),
+        (28, "Microphones", 5),
+        (29, "Pieds", 5),
+        (30, "Câbles", 5),
+        (31, "Projecteurs", 6),
+        (32, "Eclairage", 6),
+        (33, "Machines à fumée", 6),
+        (34, "Lasers", 6),
+        (35, "Stroboscopes", 6),
+        (36, "Contrôleurs DJ", 7),
+        (37, "Lecteurs", 7),
+        (38, "Platines", 7),
+        (39, "Tables de Mixage", 7),
+        (40, "Logiciels DJ", 7),
+        (41, "Effets DJ", 7),
+        (42, "Casques DJ", 7),
+        (43, "Flight Cases", 8),
+        (44, "Housses et Etuis", 8),
+        (45, "Mobilier de Studio", 8),
+        (46, "Systèmes de Transport", 8),
+        (47, "Racks", 8),
+        (48, "Sièges", 9),
+        (49, "Protections", 9),
+        (50, "Métronomes", 9),
+        (51, "Baguettes", 9),
+        (52, "Entretiens", 9);
+
+INSERT INTO produit (pro_id, pro_lib, pro_descr, pro_prix_achat, pro_photo, pro_stock, pro_actif, pro_s_rub_id)
+VALUES  (1, "Harley Benton SC-1000", "Progressive Line / Table bombée / Corps en acajou", 198, "https://images.static-thomann.de/pics/prod/314901.jpg", 5, 1, 1),
+        (2, "Harley Benton DC-Junior", "Corps en acajou / Manche collé en acajou / Touche en ébène", 248, "https://images.static-thomann.de/pics/prod/478683.jpg", 5, 1, 1),
+        (3, "Harley Benton GL-2NT", "Guitare classique 1/8 / Table en épicéa / Fond et éclisses en acajou (Entandrophragma cylindricum)", 49, "https://images.static-thomann.de/pics/prod/371679.jpg", 3, 1, 2),
+        (4, "Startone CG 851", "Taille : 1/8 / Corps en tilleul / Manche en nato", 31, "https://images.static-thomann.de/pics/prod/219218.jpg", 5, 1, 2),
+        (5, "Harley Benton D-120CE BK", "Dreadnought / Pan coupé / Table en épicéa", 79, "https://thumbs.static-thomann.de/thumb/orig/pics/prod/157819.jpg", 5, 1, 3),
+        (6, "Harley Benton D-120CE NT", "Série Standard / Dreadnought / Pan coupé", 79, "https://thumbs.static-thomann.de/thumb/orig/pics/prod/336998.jpg", 5, 1, 3),
+        (7, "Harley Benton JB-75MN NA Vintage Series", "4 cordes / Série Vintage / Corps en frêne américain", 158, "https://thumbs.static-thomann.de/thumb/orig/pics/prod/224321.jpg", 5, 1, 4),
+        (8, "Marcus Miller V7 Swamp Ash-4 NT 2nd Gen", "4 cordes / Fabriquée par Sire / Corps en frêne des marais", 499, "https://thumbs.static-thomann.de/thumb/orig/pics/prod/446264.jpg", 5, 1, 4),
+        (9, "Harley Benton Kahuna CLU-Bass Ukulele", "Electro-acoustique / Série Custom Line Kahuna / Taille Traveller", 148, "https://thumbs.static-thomann.de/thumb/orig/pics/bdb/319677/11351477_800.jpg", 5, 1, 5),
+        (10, "Harley Benton B-30BK Acoustic Bass Series", "4 cordes / Série Acoustic Bass / Super Jumbo", 148, "https://thumbs.static-thomann.de/thumb/orig/pics/prod/165299.jpg", 5, 1, 5),
+        (11, "Harley Benton UK-12 Black", "Corps en tilleul / Manche en tilleul / Touche en Roseacer", 19.90, "https://thumbs.static-thomann.de/thumb/orig/pics/bdb/257768/14757106_800.jpg", 5, 1, 6),
+        (12, "Harley Benton Ukulele UK-11DW Brown", "Table laminée / Fond et éclisses en tilleul / Touche en Roseacer", 18.90, "https://thumbs.static-thomann.de/thumb/orig/pics/bdb/320760/15089265_800.jpg", 5, 1, 6),
+        (13, "Pearl EXX725BR/C Export Jet Black", "Série Export / Fûts en acajou asiatique/peuplier / Accastillage chromé", 758, "https://thumbs.static-thomann.de/thumb/orig/pics/bdb/320760/15089265_800.jpg", 5, 1, 7),
+        (14, "Millenium MX222BX Standard Set BK", "Pied droit de cymbale / Pédale de charleston / Pédale de grosse caisse", 248, "https://thumbs.static-thomann.de/thumb/orig/pics/bdb/156270/11461086_800.jpg", 5, 1, 7);
+        /* Reprendre le INSERT INTO à partir d'ici*/
+        
+INSERT INTO commercial (com_id, com_nom, com_prenom)
+VALUES  (1, "DURAND", "Gérard"),
+        (2, "DUPONT", "Jean"),
+        (3, "MUSQUIN", "Marie-Ange"),
+        (4, "MORTEZ", "Pierre"),
+        (5, "EPOUSIX", "Josette");
+
+INSERT INTO client (cli_id, cli_nom, cli_prenom, cli_adresse, cli_cp, cli_ville, cli_regl, cli_categ, cli_coeff, cli_com_id)
+VALUES  (1, "RICHARD", "François", "1 rue de la République", "80000", "Amiens", "Immédiat", "Particulier", 1, 1),
+        (2, "DUBOIS", "Jean", "2 rue de la Liberté", "80000", "Amiens", "Différé", "Professionnel", 2, 2),
+        (3, "THOMAS", "Evelyne", "3 rue de la Fraternité", "80000", "Amiens", "Immédiat", "Particulier", 1, 3),
+        (4, "MARTIN", "Martine", "4 rue de la Démocratie", "80000", "Amiens", "Immédiat", "Particulier", 1, 4),
+        (5, "LANDON", "Catherine", "5 rue de la Révolution", "80000", "Amiens", "Immédiat", "Particulier", 1, 5);
+
