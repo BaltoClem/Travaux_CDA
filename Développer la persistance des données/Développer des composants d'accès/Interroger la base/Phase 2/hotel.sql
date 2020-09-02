@@ -1,4 +1,4 @@
-DROP DATABASE hotel2;
+DROP DATABASE IF EXISTS hotel2;
 
 CREATE DATABASE hotel2; 
 USE hotel2;
@@ -30,7 +30,7 @@ CREATE TABLE chambre (
 	PRIMARY KEY (cha_id)
 );
 
-CREATE TABLE CLIENT (
+CREATE TABLE client (
 	cli_id INT NOT NULL AUTO_INCREMENT ,
 	cli_nom VARCHAR(50),
 	cli_prenom VARCHAR(50),
