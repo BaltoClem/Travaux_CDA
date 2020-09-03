@@ -18,30 +18,23 @@ WHERE prix2 = 0;
 dont le fournisseur a un indice de satisfaction <5 */
 
 UPDATE entcom 
-SET obscom = '*****'
-FROM entcom
 JOIN fournis
 ON entcom.numfou = fournis.numfou 
+SET obscom = '*****'
 WHERE satisf <5;
 
 /* 4. Suppression du produit I110 */
 
 DELETE FROM vente
-JOIN produit
-ON produit.codart = vente.codart
-WHERE produit.codart = 'I110';
+WHERE codart IN (SELECT codart FROM produit WHERE codart = 'I110');
 
 DELETE FROM ligcom
-JOIN produit
-ON produit.codart = ligcom.codart
-WHERE produit.codart = 'I110';
+WHERE codart IN (SELECT codart FROM produit WHERE codart = 'I110');
 
 DELETE FROM produit
-WHERE produit.codart = 'I110';
+WHERE codart = 'I110';
 
 /*5. Suppression des entête de commande qui n'ont aucune ligne*/
 
 DELETE FROM entcom
-JOIN ligcom
-ON ligcom.numcom = entcom.numcom
-WHERE entcom.numcom IN (SELECT ligcom.numcom FROM ligcom, entcom WHERE entcom.numcom <> ligcom.numcom);
+WHERE numcom NOT IN (SELECT numcom FROM ligcom);
