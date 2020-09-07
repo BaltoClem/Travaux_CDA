@@ -19,8 +19,8 @@ d'autres utilisateurs (ouvrez une nouvelle fenêtre de requête
 pour interroger le fournisseur 120 par une instruction 
 SELECT) ? --------------? */
 
-/* Non, d'autres utilisateurs ne peuvent pas accéder 
-à l'interrogation */
+/* Non */
+
 
 /* ------------ La transaction est-elle terminée ? --------------? */
 
@@ -49,4 +49,4 @@ START TRANSACTION;
     SELECT nomfou FROM fournis WHERE numfou=120;
 
 ROLLBACK;
-/*Seulement si le commit n'a pas été effectué*/
+/*Seulement si le commit n'a pas été effectué (quasi inutile avec une seule requête)*/
