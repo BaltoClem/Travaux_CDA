@@ -23,3 +23,19 @@ GROUP BY CompanyName
 ORDER BY COUNT(products.SupplierID) DESC;
 
 /* 4 - Liste des clients Français ayant plus de 10 commandes */
+
+SELECT CompanyName AS "Client", COUNT(orders.CustomerID) AS "Nombre de Commandes"
+FROM orders, customers
+WHERE orders.CustomerID = customers.CustomerID
+AND Country = "France" 
+GROUP BY CompanyName
+HAVING COUNT(orders.CustomerID) > 10;
+
+/* 5 - Liste des clients ayant un chiffre d’affaires > 30.000 */
+
+SELECT CompanyName AS "Client", SUM(UnitPrice*Quantity) AS "Chiffre d'affaires", Country AS "Pays"
+FROM `order details`, customers, orders
+WHERE `order details`.OrderID = orders.OrderID AND orders.CustomerID = customers.CustomerID
+GROUP BY CompanyName, Country
+HAVING SUM(UnitPrice*Quantity) > 30000
+ORDER BY SUM(UnitPrice*Quantity) DESC;
