@@ -41,12 +41,35 @@ CREATE TRIGGER insert_reservation AFTER INSERT ON reservation
     FOR EACH ROW
     BEGIN
     DECLARE reserv INT;
-        SET reserv = (SELECT hot_id FROM hotel JOIN chambre, reservation
-        WHERE hot_id = cha_hot_id AND res_cha_id = cha_id);
-        IF COUNT(reserv)>10 THEN
-    SIGNAL SQLSTATE '40000' SET MESSAGE_TEXT = 'Capacité maximum atteinte !';
+    SET reserv = (SELECT COUNT(cha_hot_id)
+    FROM reservation, chambre, hotel
+    WHERE res_cha_id = cha_id AND cha_hot_id = hot_id);
+    IF reserv > 10 THEN
+        SIGNAL SQLSTATE '40000' SET MESSAGE_TEXT = 'Capacité insuffisante !';
     END IF;
     END;
 //
 
 DELIMITER ;
+
+/* Interdire les réservations si le client possède déjà 3 réservations.*/
+
+DELIMITER //
+
+CREATE TRIGGER insert_reservation2 BEFORE INSERT ON reservation
+    FOR EACH ROW
+    BEGIN
+    DECLARE clireserv INT;
+    SET clireserv = (SELECT COUNT(res_cli_id) FROM reservation 
+    GROUP BY res_cli_id LIMIT 1);
+    IF clireserv > 3 THEN
+        SIGNAL SQLSTATE '40000' SET MESSAGE_TEXT = 'Trop de réservations de la part du client!';
+    END IF;
+    END;
+//
+
+DELIMITER ;
+
+/* Lors d'une insertion, on calcule le total des capacités des chambres pour l'hôtel, 
+si ce total est supérieur à 50, on interdit l'insertion de la chambre.*/
+
