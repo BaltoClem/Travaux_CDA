@@ -22,12 +22,14 @@ BEGIN
                         FROM suppliers, products, `order details` 
                         WHERE suppliers.SupplierID = products.SupplierID
                         AND products.ProductID = `order details`.ProductID
-                        AND `order details`.OrderID = num_order);
+                        AND `order details`.OrderID = num_order
+                        LIMIT 1);
     SET cust_country = (SELECT Country 
                         FROM customers, orders, `order details`
                         WHERE customers.CustomerID = orders.CustomerID
                         AND orders.OrderID = `order details`.OrderID
-                        AND`order details`.OrderID = num_order);  
+                        AND`order details`.OrderID = num_order
+                        LIMIT 1);  
                                           
         IF sup_country != cust_country THEN
         SIGNAL SQLSTATE '40000' SET MESSAGE_TEXT = 'Commande impossible ! Pays différents !';
