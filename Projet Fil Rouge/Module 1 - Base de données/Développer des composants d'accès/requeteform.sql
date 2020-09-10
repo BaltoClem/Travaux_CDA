@@ -45,7 +45,7 @@ LIMIT 10;
 SELECT  YEAR(commande.cmd_date) AS "Année",
         pro_id AS "Référence",
         pro_lib AS "Nom du produit",
-        SUM(se_compose_pro_prix_vente - pro_prix_achat) AS "Marge",
+        se_compose_pro_prix_vente - pro_prix_achat AS "Marge",
         four_nom AS "Fournisseur"
 FROM produit, se_compose_de, fournisseur, envoie, commande
 WHERE fournisseur.four_id = envoie.env_four_id
@@ -53,8 +53,8 @@ AND envoie.env_pro_id = produit.pro_id
 AND produit.pro_id = se_compose_de.se_compose_pro_id
 AND commande.cmd_id = se_compose_de.se_compose_cmd_id
 AND YEAR(commande.cmd_date) = "2020"
-GROUP BY pro_id, pro_lib, four_nom, YEAR(commande.cmd_date)
-ORDER BY SUM(se_compose_pro_prix_vente - pro_prix_achat) DESC
+GROUP BY pro_id, pro_lib, four_nom, YEAR(commande.cmd_date), se_compose_pro_prix_vente - pro_prix_achat
+ORDER BY se_compose_pro_prix_vente - pro_prix_achat DESC
 LIMIT 10;
 
 /*Top 10 des clients en nombre de commandes ou chiffre d'affaires*/
