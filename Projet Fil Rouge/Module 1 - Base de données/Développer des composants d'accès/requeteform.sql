@@ -79,6 +79,17 @@ GROUP BY client.cli_nom
 ORDER BY SUM(se_compose_cmd_prix_tot) DESC
 LIMIT 10;
 
+/* Top 10 réunis */
+
+SELECT client.cli_nom AS "Nom du client", SUM(se_compose_cmd_prix_tot) AS "Chiffre d'affaires",COUNT(passe.passe_cli_id) AS "Nombre de commandes"
+FROM client, passe,commande, se_compose_de
+WHERE client.cli_id = passe_cli_id
+AND passe.passe_cmd_id = commande.cmd_id
+AND commande.cmd_id = se_compose_de.se_compose_cmd_id
+GROUP BY client.cli_nom
+ORDER BY COUNT(passe.passe_cli_id) DESC
+LIMIT 10;
+
 /*Répartition du chiffre d'affaires par type de client*/
 
 SELECT DISTINCT client.cli_categ AS "Type de client", SUM(se_compose_cmd_prix_tot) AS "Chiffre d'affaires"
