@@ -59,11 +59,40 @@ LIMIT 10;
 
 /*Top 10 des clients en nombre de commandes ou chiffre d'affaires*/
 
+/* Top 10 des clients en nombre de commandes */
 
+SELECT client.cli_nom AS "Nom du client", COUNT(passe.passe_cli_id) AS "Nombre de commandes"
+FROM client, passe
+WHERE client.cli_id = passe_cli_id
+GROUP BY client.cli_nom
+ORDER BY COUNT(passe.passe_cli_id) DESC
+LIMIT 10;
+
+/* Top 10 des clients en chiffre d'affaires */
+
+SELECT client.cli_nom AS "Nom du client", SUM(se_compose_cmd_prix_tot) AS "Chiffre d'affaires"
+FROM client, passe, commande, se_compose_de
+WHERE client.cli_id = passe_cli_id
+AND passe.passe_cmd_id = commande.cmd_id
+AND commande.cmd_id = se_compose_de.se_compose_cmd_id
+GROUP BY client.cli_nom
+ORDER BY SUM(se_compose_cmd_prix_tot) DESC
+LIMIT 10;
 
 /*Répartition du chiffre d'affaires par type de client*/
 
-/*Nombre de commandes en cours de livraison.*/
+SELECT DISTINCT client.cli_categ AS "Type de client", SUM(se_compose_cmd_prix_tot) AS "Chiffre d'affaires"
+FROM client, passe, commande, se_compose_de
+WHERE client.cli_id = passe_cli_id
+AND passe.passe_cmd_id = commande.cmd_id
+AND commande.cmd_id = se_compose_de.se_compose_cmd_id
+GROUP BY client.cli_categ;
+
+/* Nombre de commandes en cours de livraison. */
+
+SELECT COUNT(liv_etat) AS "Nombre de commandes en cours de livraison"
+FROM livraison
+WHERE liv_etat = "En cours de livraison";
 
 /* 2 - Exportez les tables principales (entité) 
 vers des tableaux d’un tableur de votre choix. */
