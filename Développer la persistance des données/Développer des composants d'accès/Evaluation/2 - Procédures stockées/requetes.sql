@@ -21,17 +21,14 @@ CALL lastDate('Du monde entier');
 
 DELIMITER |
 
-CREATE PROCEDURE delaiMoy (
-    IN ship DATETIME, 
-    IN orderdate DATETIME
-    )
+CREATE PROCEDURE delaiMoy (IN comm INT)
 
 BEGIN
    SELECT ROUND(AVG(DATEDIFF(ShippedDate, OrderDate))) AS "Délai moyen de livraison en jours"
     FROM orders
-    WHERE ShippedDate = ship AND OrderDate = orderdate;
+    WHERE OrderID = comm;
 END |
 
 DELIMITER ;
 
-CALL delaiMoy('1996-07-16', '1996-07-04');
+CALL delaiMoy(10248);
