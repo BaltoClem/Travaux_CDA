@@ -21,8 +21,7 @@ RUEFOU      VARCHAR(50) NOT NULL,
 POSFOU      CHAR(5) NOT NULL,
 VILFOU      VARCHAR(30) NOT NULL,
 CONFOU      VARCHAR(15) NOT NULL,
-SATISF      TINYINT(2)
-
+SATISF      ENUM ('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10')
 );
 
 CREATE TABLE vente (
