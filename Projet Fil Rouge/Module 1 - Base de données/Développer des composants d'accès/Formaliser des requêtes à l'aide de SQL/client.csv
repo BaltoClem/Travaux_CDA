@@ -1,6 +1,0 @@
-"cli_id";"cli_nom";"cli_prenom";"cli_adresse";"cli_cp";"cli_ville";"cli_regl";"cli_categ";"cli_coeff";"cli_com_id"
-"1";"RICHARD";"François";"1 rue de la République";"80000";"Amiens";"Immédiat";"Particulier";"1.00";"1"
-"2";"DUBOIS";"Jean";"2 rue de la Liberté";"80000";"Amiens";"Différé";"Professionnel";"2.00";"2"
-"3";"THOMAS";"Evelyne";"3 rue de la Fraternité";"80000";"Amiens";"Immédiat";"Particulier";"1.00";"3"
-"4";"MARTIN";"Martine";"4 rue de la Démocratie";"80000";"Amiens";"Immédiat";"Particulier";"1.00";"4"
-"5";"LANDON";"Catherine";"5 rue de la Révolution";"80000";"Amiens";"Immédiat";"Particulier";"1.00";"5"
