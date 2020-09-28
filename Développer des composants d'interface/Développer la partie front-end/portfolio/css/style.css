@@ -3,16 +3,16 @@
 
 /* Start Navigation */
 
-#logo{
-    padding: 0 2rem 0 5rem;
+.navbar-brand{
+    padding: 0 2rem 0 5rem !important;
 }
 
-#nav{
-    padding: 1rem 20rem;
+.navbar{
+    padding: 1rem 20rem !important;
 }
 
 .nav-link{
-    color: red;
-    !important;
+    color: red !important;
 }
+
 /* End Navigation */
