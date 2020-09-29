@@ -1,10 +1,13 @@
-/* import fonts from fonts.css file */
+/* Import fonts from fonts.css file */
 @import url(./fonts.css);
-
 
 /* Variables CSS */
 
 @import url(./partials/_variables.css);
+
+/* Import Global Styling */
+
+@import url(./partials/_globale.css);
 
 
 /* Start Navigation */
@@ -42,9 +45,9 @@
 
 /* Banner Area */
 
-.site-main .site-banner{
+/*.site-main .site-banner{
     background: url(../img/banner/home-banner.jpg) no-repeat 0% 50%;
-}
+}*/
 
 .site-main .site-banner .site-title h3{
     padding-top: 35%;
@@ -58,9 +61,18 @@
     display: inline-block;
     margin-left: 5%;
     transform: translateY(-10px);
-
 }
 
+.site-main .site-banner .site-title h1{
+   font-size: 5rem;
+}
+.site-main .site-banner .site-title h4{
+    font-size: 1.5rem;
+}
 
+.site-main .site-banner .banner-image > img{
+    padding: 7rem 0;
+    width: 90rem;
+}
 
 /* End Banner Area */
