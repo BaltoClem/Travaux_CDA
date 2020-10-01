@@ -15,6 +15,10 @@
 
     <link rel="stylesheet" href="./css/all.min.css">
 
+    <!--  Magnific Popup CSS File  -->
+
+    <link rel="stylesheet" href="./vendor/Magnific-Popup/dist/magnific-popup.css">
+
     <!-- Custom CSS File -->
 
     <link rel="stylesheet" href="css/style.css">
@@ -227,10 +231,9 @@
                                 <img src="./img/skills/mysql-logo.png" alt="Skills-4">
                             </div>
                             <div class="card-body text-center">
-                                <h5 class="card-title text-uppercase font-roboto">MySQL</h5>
+                                <h5 class="card-title text-uppercase font-roboto"><br>MySQL</h5>
                                 <p class="card-text text-secondary">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, totam! Lorem
-                                    ipsum dolor sit amet.
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, totam!
                                 </p>
                             </div>
                         </div>
@@ -305,18 +308,24 @@
             </div>
 
             <div class="button-group">
-                <button type="button" class="active">All</button>
-                <button type="button">Popular</button>
-                <button type="button">Latest</button>
-                <button type="button">Following</button>
-                <button type="button">Upcoming</button>
+                <button type="button" class="active" id="btn1" data-filter="*">All</button>
+                <button type="button" data-filter=".popular">Popular</button>
+                <button type="button" data-filter=".latest">Latest</button>
+                <button type="button" data-filter=".following">Following</button>
+                <button type="button" data-filter=".upcoming">Upcoming</button>
             </div>
 
             <div class="row grid">
-                <div class="clo-lg-4 col-md-6 col-sm-12 element-item latest">
+                <div class="col-lg-4 col-md-6 col-sm-12 element-item latest">
                     <div class="our-project">
                         <div class="img">
-                            <img src="./img/portfolio/tondeuse.jpg" alt="portfolio-1">
+                            <a class="test-popup-link" href="./img/portfolio/japan-garden.jpg">
+                                <a class="test-popup-link" href="./img/portfolio/bassin.jpg">
+                                    <a class="test-popup-link" href="./img/portfolio/petit_jardin.jpg">
+                                    <img src="./img/portfolio/tondeuse.jpg" alt="japan garden">
+                                    </a>
+                                </a>
+                            </a>
                         </div>
                         <div class="title py-4">
                             <h4 class="text-uppercase">Projets Jarditou</h4>
@@ -324,7 +333,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="clo-lg-4 col-md-6 col-sm-12 element-item popular">
+                <div class="col-lg-4 col-md-6 col-sm-12 element-item popular">
                     <div class="our-project">
                         <div class="img">
                             <img src="./img/portfolio/test1.jpg" alt="portfolio-2">
@@ -335,7 +344,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="clo-lg-4 col-md-6 col-sm-12 element-item popular">
+                <div class="col-lg-4 col-md-6 col-sm-12 element-item popular">
                     <div class="our-project">
                         <div class="img">
                             <img src="./img/portfolio/test2.jpg" alt="portfolio-3">
@@ -350,20 +359,38 @@
         </div>
     </section>
 
-    <!-- ============================================= End Project Area ============================================-->
+    <!-- ============================================= End Project Area =============================================-->
+
+    <!-- ============================================= About Me Area ================================================-->
+
+    <section class="about-area">
+
+    </section>
+
+    <!-- =========================================== End About Me Area ==============================================-->
 
 </main>
 <!-- ============================================= End Main Area ====================================================-->
 
     <!-- JQuery JS File -->
 
-    <script src="./js/jquery.3.5.1.js"></script>
+<script src="./js/jquery.3.5.1.js"></script>
 
     <!-- Bootstrap JS File -->
 
 <script src="./js/bootstrap.min.js"></script>
 
+    <!-- Isotope JS Library -->
 
+<script src="./vendor/isotope/isotope.min.js"></script>
+
+    <!--  Magnific popup script File  -->
+
+<script src="./vendor/Magnific-Popup/dist/jquery.magnific-popup.min.js"></script>
+
+    <!-- Custom JS File -->
+
+<script src="./js/main.js"></script>
 
 </body>
 </html>
