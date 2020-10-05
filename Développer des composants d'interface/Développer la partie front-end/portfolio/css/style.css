@@ -327,7 +327,7 @@ footer.footer-area .social h5{
     font: normal 500 23px/30px var(--roboto);
 }
 
-footer.footer-area .social a>i{
+/*footer.footer-area .social a>i{
     font-size: 22px;
     padding: 2rem;
     color: var(--border-color);
@@ -335,6 +335,23 @@ footer.footer-area .social a>i{
 
 footer.footer-area .social a:hover > i{
     color: var(--primary-color);
+}*/
+
+.social ul{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.social ul li{
+    list-style: none;
+    margin: 0 40px;
+}
+.social ul li a .fab{
+    font-size: 40px;
 }
 
 /* End Footer Area */
