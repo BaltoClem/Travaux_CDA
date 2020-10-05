@@ -120,7 +120,7 @@
 }
 
 .site-main .brand-area .first-row .col-lg-4 > .single-brand >img{
-    width: 100%;
+    width: 95%;
 }
 
 .site-main .brand-area .first-row .col-lg-4 > .single-brand:hover{
@@ -189,14 +189,19 @@
     border-radius: 20px;
     border: lightgrey solid 1px;
     background: white;
-    padding: 2rem 0;
+    padding: 1rem 0;
+    height: 18rem;
     width: 16rem;
-    margin: 2rem .5rem;
+    margin: .5rem .5rem;
     transition: box-shadow .7s ease;
 }
 
 .site-main > .skills-area .skills:hover{
     box-shadow: var(--box-shadow);
+}
+
+.card-title{
+    font-weight: bold;
 }
 
 /* End Skills Area*/
@@ -333,3 +338,13 @@ footer.footer-area .social a:hover > i{
 }
 
 /* End Footer Area */
+
+/* Ancrage */
+
+#intro, #exp, #compet, #projet, #contact
+{
+    display: block;
+    height: 75px;
+    margin-top: -75px;
+    visibility: hidden;
+}
