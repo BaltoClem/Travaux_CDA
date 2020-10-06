@@ -22,7 +22,6 @@
         width: 13rem;
     }
 }
-
 /* ================================= Si la dimension est égale à 792px ou moins ======================================*/
 @media only screen and (max-width: 792px){
     .site-main .about-area .about-title h2 > span{

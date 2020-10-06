@@ -99,7 +99,26 @@
 
 .site-main .brand-area{
     padding: 1rem 20rem;
-    margin-bottom: 4rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.video-section{
+    position: relative;
+    width: 100%;
+    max-height: 550px;
+    overflow: hidden;
+}
+
+#video-elem{
+    width: 100%;
+}
+
+video::-webkit-media-controls{
+    display: none !important;
 }
 
 .site-main .brand-area .first-row .col-lg-4{
@@ -117,6 +136,7 @@
     height: 100px;
     cursor: pointer;
     transition: transform .4s ease;
+    background-color: #FFFFFF;
 }
 
 .site-main .brand-area .first-row .col-lg-4 > .single-brand >img{
@@ -137,7 +157,7 @@
 }
 
 .site-main .brand-area .experience-area .years-area{
-    background: url(../img/client-info-bg.png) no-repeat 45px 20px;
+
     padding: 2rem 0;
     width: 40rem;
     height: 18rem;
@@ -163,6 +183,7 @@
 
 .site-main .brand-area .experience-area .years-area h2>span{
     font: normal 600 22px/30px var(--roboto);
+    color: white;
 }
 
 .site-main .brand-area .experience-area .call-area{
@@ -323,20 +344,6 @@ footer.footer-area{
     padding: 5rem 0;
     background: url(../img/footer-bg.png) no-repeat;
 }
-
-footer.footer-area .social h5{
-    font: normal 500 23px/30px var(--roboto);
-}
-
-/*footer.footer-area .social a>i{
-    font-size: 22px;
-    padding: 2rem;
-    color: var(--border-color);
-}
-
-footer.footer-area .social a:hover > i{
-    color: var(--primary-color);
-}*/
 
 .social ul{
     position: absolute;
