@@ -150,6 +150,8 @@ asort($capitales);
 
 <!-- 3. Départements -->
 
+<!-- Affichez la liste des régions (par ordre alphabétique) suivie du nom des départements -->
+
 <?php
 $departements = array(
     "Hauts-de-france" => array("Aisne", "Nord", "Oise", "Pas-de-Calais", "Somme"),
@@ -161,13 +163,32 @@ ksort($departements);
 ?>
 <table border=4>
         <tr>
-            <th>Région</th>
-            <th>Départements</th>
+            <th>Region</th>
+            <th>Département</th>
         </tr>
-        <?php foreach($departements as $region){?>
-            <?php foreach($region as $dep=>$nomdep){?>
+            <?php 
+            foreach ($departements as $region => $value) { ?>
+            <tr>
+                <td><?php echo $region; ?></td>
+                <td>
+                <?php
+                foreach ($value as $depVal => $nomDep) {?>
+                <?php echo "$nomDep&nbsp"; }} ?>
+                </td>
+            </tr>
+    </table>
+
+<!-- Affichez la liste des régions suivie du nombre de départements -->
+
+<table border=4>
         <tr>
-            <td><?php echo "$dep";?></td>
-            <td><?php echo "$nomdep"; }}?></td>
+            <th>Region</th>
+            <th>Département</th>
         </tr>
-</table>
+            <?php 
+            foreach ($departements as $region => $value) { ?>
+            <tr>
+                <td><?php echo $region; ?></td>
+                <td><?php echo count($value); }?></td>
+            </tr>
+    </table>
