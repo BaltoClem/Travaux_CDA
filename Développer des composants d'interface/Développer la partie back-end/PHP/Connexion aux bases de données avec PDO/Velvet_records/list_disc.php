@@ -8,6 +8,10 @@ include("index.php");
 <div id="list_disc">
     <div class="container">
 
+    <video id="video-elem" preload autoplay loop muted>
+               <source src="./assets/video/Turntable.mp4" type="video/mp4">
+            </video>
+
         <h1>Liste des disques (15)</h1>
 
             <a href="./ajout_disc.php"><button type="button" class="btn btn-success">Ajouter</button></a>
