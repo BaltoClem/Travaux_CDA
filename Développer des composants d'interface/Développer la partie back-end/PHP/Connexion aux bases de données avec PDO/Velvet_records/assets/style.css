@@ -1,3 +1,59 @@
+/* Général */
+
+header, body{
+    background-color: antiquewhite;
+}
+
+/* Intégration de la vidéo des listes */
+
+.video-section-list{
+    position: relative;
+    width: 100%;
+    max-height: 400px;
+    overflow: hidden;
+    opacity: 0.75;
+    object-fit: cover;
+}
+
+.video-section-list h1{
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index:4;
+    color: burlywood;
+    text-align: center;
+    margin-top: 32px;
+    margin-left: 70px;
+    font-size: 65px;
+}
+
+#video-elem-list{
+    width: 100%;
+    margin-top: -100px;
+}
+
+video::-webkit-media-controls{
+    display: none !important;
+}
+
+/* Intégration de la vidéo de l'ajout */
+
+.video-section-add{
+    position: relative;
+    width: 100%;
+    max-height: 400px;
+    overflow: hidden;
+    opacity: 0.75;
+    object-fit: cover;
+}
+
+#video-elem-add{
+    width: 100%;
+    margin-top: -100px;
+}
+
+/* Liste des disques */
+
 #list_disc
 {
     margin: 0;
@@ -11,3 +67,7 @@
 .card {
     width: 30%;
 }
+
+/* Bouton "Ajouter un disque" */
+
+

@@ -4,17 +4,28 @@ include("process.php");
 include("index.php");
 
 ?>
+<header>
 
-<div id="list_disc">
-    <div class="container">
+        <div class="header-video container">
+            <div class="video-section-list">
+                <h1>Liste des disques</h1>
+                    <video id="video-elem-list" preload autoplay loop muted>
+                        <source src="./assets/video/Turntable.mp4" type="video/mp4">
+                    </video>
+            </div>
+        </div>
 
-    <video id="video-elem" preload autoplay loop muted>
-               <source src="./assets/video/Turntable.mp4" type="video/mp4">
-            </video>
+</header>
 
-        <h1>Liste des disques (15)</h1>
+    <body>
 
-            <a href="./ajout_disc.php"><button type="button" class="btn btn-success">Ajouter</button></a>
+    <div id="list_disc">
+        <div class="container">
+            <br>
+
+            <div class="row justify-content-center">
+            <a href="add_disc.php"><button type="button" class="btn btn-success">Ajouter un disque</button></a>
+            </div>
 
         <div class="row d-flex justify-content-center mt-5">
 
@@ -33,7 +44,7 @@ include("index.php");
                             <p class="card-text text-truncate">Label&nbsp:&nbsp<?= $disc->disc_label ?></p>
                             <p class="card-text text-truncate">Year&nbsp:&nbsp<?= $disc->disc_year ?></p>
                             <p class="card-text text-truncate">Genre&nbsp:&nbsp<?= $disc->disc_genre ?></p>
-                            <a href="" class="btn btn-primary">Détails</a>
+                            <a href="details_disc.php?disc_id=<?= $disc->disc_id ?>" class="btn btn-info">Détails</a>
                 </div>
 
             </div>

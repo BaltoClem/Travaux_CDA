@@ -18,5 +18,5 @@ $tableau_card = $requete_card->fetchAll(PDO::FETCH_OBJ);
 $requete_card->closeCursor();
 ?>
 
-<!-- Requête d'affichage des détails dans la liste des cards des disques -->
+<!-- Requête d'insertion de nouveaux vinyles' -->
 
