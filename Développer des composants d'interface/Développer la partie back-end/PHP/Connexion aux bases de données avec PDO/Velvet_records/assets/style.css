@@ -15,7 +15,7 @@ header, body{
     object-fit: cover;
 }
 
-.video-section-list h1{
+.video-section-list .h1{
     position: absolute;
     left: 0;
     top: 0;
