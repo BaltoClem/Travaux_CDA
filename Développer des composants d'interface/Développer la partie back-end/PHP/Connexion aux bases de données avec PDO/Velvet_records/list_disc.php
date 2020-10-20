@@ -3,7 +3,7 @@
 include("process.php");
 include("index.php");
 
-$requete_card = $db->query("SELECT * FROM disc JOIN artist WHERE disc.artist_id = artist.artist_id");
+$requete_card = $db->query("SELECT * FROM disc JOIN artist ON disc.artist_id = artist.artist_id");
 $tableau_card = $requete_card->fetchAll(PDO::FETCH_OBJ);
 $requete_card->closeCursor();
 

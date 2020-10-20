@@ -54,7 +54,7 @@ $requete_detail->closeCursor();
 
     <div class="row justify-content-center m-3">
 
-        <a href=""><button type="button" class="btn btn-info m-2">Modifier</button></a>
+        <a href="edit_disc.php?disc_id=<?= $tableau_detail->disc_id ?>"><button type="button" class="btn btn-info m-2">Modifier</button></a>
         <a href=""><button type="button" class="btn btn-danger m-2">Supprimer</button></a>
         <a href="list_disc.php"><button type="button" class="btn btn-secondary m-2">Retour</button></a>
 
@@ -62,3 +62,4 @@ $requete_detail->closeCursor();
 
 </div>
 </body>
+</html>
