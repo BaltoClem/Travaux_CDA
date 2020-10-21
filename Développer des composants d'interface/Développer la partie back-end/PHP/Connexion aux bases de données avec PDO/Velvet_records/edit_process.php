@@ -2,9 +2,7 @@
 
 include("process.php");
 
-$discId = $_GET["disc_id"];
-
-$pdoStat = $db->prepare("UPDATE disc SET disc_id=:disc_id, disc_title=:disc_title, disc_year=:disc_year, disc_picture=:disc_picture, 
+$pdoStat = $db->prepare("UPDATE disc SET disc_id=:disc_id,disc_title=:disc_title, disc_year=:disc_year, disc_picture=:disc_picture, 
                                     disc_label=:disc_label, disc_genre=:disc_genre, disc_price=:disc_price, artist_id=:artist_id
                                     WHERE disc_id=:disc_id");
 
@@ -43,6 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Error: " . $_FILES["userfile"]["error"];
     }
 }
+
 $pdoStat->bindValue(':disc_title', $_POST['title'], PDO::PARAM_STR);
 $pdoStat->bindValue(':disc_year', $_POST['year'], PDO::PARAM_INT);
 $pdoStat->bindValue(':disc_picture', $filename, PDO::PARAM_STR);
@@ -50,17 +49,6 @@ $pdoStat->bindValue(':disc_label', $_POST['label'], PDO::PARAM_STR);
 $pdoStat->bindValue(':disc_genre', $_POST['genre'], PDO::PARAM_STR);
 $pdoStat->bindValue(':disc_price', $_POST['price'], PDO::PARAM_STR);
 $pdoStat->bindValue(':artist_id', $_POST['artist'], PDO::PARAM_INT);
-$pdoStat->bindValue(':disc_id', $_GET['disc_id'], PDO::PARAM_INT);
+$pdoStat->bindValue(':disc_id', $_POST['discId'], PDO::PARAM_INT);
 
-
-$InsertIsOk = $pdoStat->execute();//la variable $InsertIsOk stocke l'exécution, si toutes les bindValue sont opérationnelles et sans erreurs, alors l'exécution pourra avoir lieu
-
-if ($InsertIsOk)//Si l'exécution dans la variable est sans erreur
-{
-
-    $message = "Insertion réussie";//alors une redirection sera effectué vers le tableau des produits
-
-} else {
-
-    $message = "Echec de l'insertion";//Sinon une page apparaîtra pour signaler l'échec de l'insertion
-}
+$pdoStat->execute();//la variable $InsertIsOk stocke l'exécution, si toutes les bindValue sont opérationnelles et sans erreurs, alors l'exécution pourra avoir lieu
