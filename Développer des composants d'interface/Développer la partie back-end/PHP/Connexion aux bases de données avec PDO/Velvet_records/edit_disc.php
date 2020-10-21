@@ -34,11 +34,21 @@ $requete_art->closeCursor();
             </div>
             <div class="form-group col-md-6">
                 <label for="inputArtist">Artist</label>
-                <select class="form-control" id="inputArtist" name="artist" value= "<?= $tableau_edit->artist_id ?>">
-                    <?php foreach($tableau_art as $artist)
+                <select class="form-control" id="inputArtist" name="artist">
+                    <?php
+                    foreach($tableau_art as $artist)
                     {
                         ?>
-                        <option value="<?= $artist->artist_id ?>"><?= $artist->artist_name ?></option>
+                            <option value="<?= $artist->artist_id ?>"
+                        <?php
+
+                            if($artist->artist_id == $tableau_edit->artist_id){
+                                echo "selected";
+                            }
+
+                            ?>
+                            >
+                        <?= $artist->artist_name ?></option>
                         <?php
                     }
                     ?>
@@ -61,17 +71,18 @@ $requete_art->closeCursor();
                 <input type="text" class="form-control" id="inputLabel" name="label" value="<?= $tableau_edit->disc_label ?>">
             </div>
             <div class="form-group col-md-6">
-                <label for="inputPrice">Price</label>
+                <label for="inputPrice">Price(&nbsp;&euro;&nbsp;)</label>
                 <input type="text" class="form-control" id="inputPrice" name="price" value="<?= $tableau_edit->disc_price ?>" €>
             </div>
         </div>
         <div class="form-group">
             <label for="inputFile">Picture</label>
-            <input type="file" class="form-control-file" id="inputFile" value="<?= $tableau_edit->disc_picture ?>" name="userfile">
+            <input type="hidden" value="<?= $tableau_edit->disc_picture ?>" name="picture">
+            <input type="file" class="form-control-file" id="inputFile" name="userfile">
         </div>
         <div class="row justify-content-center m-3">
             <a href="delete_process.php?disc_id=<?= $tableau_edit->disc_id ?>"><button type="button" class="btn btn-danger m-2">Supprimer</button></a>
-            <button type="submit" class="btn btn-success mt-2" name="valid_edit">Valider les modifications</button>
+            <a href=""><button type="submit" class="btn btn-success mt-2" name="valid_edit">Valider les modifications</button></a>
             <a href="list_disc.php"><button type="button" class="btn btn-secondary m-2">Retour</button></a>
         </div>
     </form>

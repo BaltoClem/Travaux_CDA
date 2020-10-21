@@ -43,11 +43,16 @@ $pdoStat = $db->prepare("UPDATE disc
                                 WHERE disc_id=:disc_id");
 $pdoStat->bindValue(':disc_title', $_POST['title'], PDO::PARAM_STR);
 $pdoStat->bindValue(':disc_year', $_POST['year'], PDO::PARAM_INT);
+if(isset($filename)){
 $pdoStat->bindValue(':disc_picture', $filename, PDO::PARAM_STR);
+}
+else{
+    $pdoStat->bindValue(':disc_picture', $_POST['picture'], PDO::PARAM_STR);
+}
 $pdoStat->bindValue(':disc_label', $_POST['label'], PDO::PARAM_STR);
 $pdoStat->bindValue(':disc_genre', $_POST['genre'], PDO::PARAM_STR);
 $pdoStat->bindValue(':disc_price', $_POST['price'], PDO::PARAM_STR);
 $pdoStat->bindValue(':artist_id', $_POST['artist'], PDO::PARAM_INT);
 $pdoStat->bindValue(':disc_id', $_POST['discId'], PDO::PARAM_INT);
 
-$pdoStat->execute();//la variable $InsertIsOk stocke l'exécution, si toutes les bindValue sont opérationnelles et sans erreurs, alors l'exécution pourra avoir lieu
+$pdoStat->execute();

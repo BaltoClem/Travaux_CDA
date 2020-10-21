@@ -50,8 +50,8 @@ $requete_detail->closeCursor();
                 <input type="text" class="form-control" id="inputLabel" value="<?= $tableau_detail->disc_label ?>" readonly>
             </div>
             <div class="form-group col-md-6">
-                <label for="inputPrice">Price</label>
-                <input type="text" class="form-control" id="inputPrice" value="<?= $tableau_detail->disc_price ?>&nbsp&euro;" readonly>
+                <label for="inputPrice">Price&nbsp;(&euro;)</label>
+                <input type="number" class="form-control" id="inputPrice" value="<?= $tableau_detail->disc_price ?>" readonly>
             </div>
         </div>
     </form>
