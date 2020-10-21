@@ -3,7 +3,7 @@
 include("process.php");
 
 $pdoStat = $db->prepare("INSERT INTO disc(disc_title, disc_year, disc_picture, disc_label,disc_genre, disc_price, artist_id)
-        VALUES(:disc_title,:disc_year, :disc_picture, :disc_label,:disc_genre,:disc_price,:artist_id)");
+                                VALUES(:disc_title,:disc_year, :disc_picture, :disc_label,:disc_genre,:disc_price,:artist_id)");
 
 //les ":" devant les noms de colonne sont la nomenclature officielle de la fonction, cela sert à déterminer les coloones concernées plus tard dans le script
 //bindValue associe une valeur à un paramètre

@@ -5,7 +5,11 @@ include("index.php");
 
 $discId = $_GET["disc_id"];
 
-$requete_detail = $db->query("SELECT * FROM disc JOIN artist WHERE disc.artist_id = artist.artist_id AND disc.disc_id =" . $discId);
+$requete_detail = $db->query("SELECT * 
+                                        FROM disc 
+                                        JOIN artist 
+                                        WHERE disc.artist_id = artist.artist_id 
+                                        AND disc.disc_id =" . $discId);
 $tableau_detail = $requete_detail->fetch(PDO::FETCH_OBJ);
 $requete_detail->closeCursor();
 
@@ -55,7 +59,7 @@ $requete_detail->closeCursor();
     <div class="row justify-content-center m-3">
 
         <a href="edit_disc.php?disc_id=<?= $tableau_detail->disc_id ?>"><button type="button" class="btn btn-info m-2">Modifier</button></a>
-        <a href=""><button type="button" class="btn btn-danger m-2">Supprimer</button></a>
+        <a href="delete_process.php?disc_id=<?= $tableau_detail->disc_id ?>"><button type="button" class="btn btn-danger m-2">Supprimer</button></a>
         <a href="list_disc.php"><button type="button" class="btn btn-secondary m-2">Retour</button></a>
 
     </div>

@@ -2,13 +2,6 @@
 
 include("process.php");
 
-$pdoStat = $db->prepare("UPDATE disc SET disc_id=:disc_id,disc_title=:disc_title, disc_year=:disc_year, disc_picture=:disc_picture, 
-                                    disc_label=:disc_label, disc_genre=:disc_genre, disc_price=:disc_price, artist_id=:artist_id
-                                    WHERE disc_id=:disc_id");
-
-//les ":" devant les noms de colonne sont la nomenclature officielle de la fonction, cela sert à déterminer les colonnes concernées plus tard dans le script
-//bindValue associe une valeur à un paramètre
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Vérifie si le fichier a été uploadé sans erreur.
     if (isset($_FILES["userfile"]) && $_FILES["userfile"]["error"] == 0) {
@@ -42,6 +35,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
+// METTRE LA REQUETE APRES LA CONDITION DE TELECHARGEMENT POUR EVITER LES ERREURS PHP !!!
+
+$pdoStat = $db->prepare("UPDATE disc 
+                                SET disc_id=:disc_id,disc_title=:disc_title, disc_year=:disc_year, disc_picture=:disc_picture, 
+                                disc_label=:disc_label, disc_genre=:disc_genre, disc_price=:disc_price, artist_id=:artist_id
+                                WHERE disc_id=:disc_id");
 $pdoStat->bindValue(':disc_title', $_POST['title'], PDO::PARAM_STR);
 $pdoStat->bindValue(':disc_year', $_POST['year'], PDO::PARAM_INT);
 $pdoStat->bindValue(':disc_picture', $filename, PDO::PARAM_STR);

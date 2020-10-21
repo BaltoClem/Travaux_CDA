@@ -4,7 +4,11 @@ include("index.php");
 
 $discId = $_GET["disc_id"];
 
-$requete_edit = $db->query("SELECT * FROM disc JOIN artist ON disc.artist_id = artist.artist_id WHERE disc.disc_id =" . $discId);
+$requete_edit = $db->query("SELECT * 
+                                    FROM disc 
+                                    JOIN artist 
+                                    ON disc.artist_id = artist.artist_id 
+                                    WHERE disc.disc_id =".$discId);
 $tableau_edit = $requete_edit->fetch(PDO::FETCH_OBJ);
 $requete_edit->closeCursor();
 
@@ -30,8 +34,7 @@ $requete_art->closeCursor();
             </div>
             <div class="form-group col-md-6">
                 <label for="inputArtist">Artist</label>
-                <select class="form-control" id="inputArtist" name="artist">
-                    <option selected disabled> <?= $tableau_edit->artist_name ?></option>
+                <select class="form-control" id="inputArtist" name="artist" value= "<?= $tableau_edit->artist_id ?>">
                     <?php foreach($tableau_art as $artist)
                     {
                         ?>
@@ -59,15 +62,15 @@ $requete_art->closeCursor();
             </div>
             <div class="form-group col-md-6">
                 <label for="inputPrice">Price</label>
-                <input type="text" class="form-control" id="inputPrice" name="price" value="<?= $tableau_edit->disc_price ?>">
+                <input type="text" class="form-control" id="inputPrice" name="price" value="<?= $tableau_edit->disc_price ?>" €>
             </div>
         </div>
         <div class="form-group">
             <label for="inputFile">Picture</label>
-            <input type="file" class="form-control-file" id="inputFile" name="userfile">
+            <input type="file" class="form-control-file" id="inputFile" value="<?= $tableau_edit->disc_picture ?>" name="userfile">
         </div>
         <div class="row justify-content-center m-3">
-            <a href=""><button type="button" class="btn btn-danger m-2">Supprimer</button></a>
+            <a href="delete_process.php?disc_id=<?= $tableau_edit->disc_id ?>"><button type="button" class="btn btn-danger m-2">Supprimer</button></a>
             <button type="submit" class="btn btn-success mt-2" name="valid_edit">Valider les modifications</button>
             <a href="list_disc.php"><button type="button" class="btn btn-secondary m-2">Retour</button></a>
         </div>
