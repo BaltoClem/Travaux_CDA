@@ -1,12 +1,58 @@
+<?php
 
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Velvet Records</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" 
-        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-        <link rel="stylesheet" href=".\assets\style.css">
-</head>
+include("process.php");
+include("header.php");
 
+$requete_card = $db->query("SELECT * 
+                                    FROM disc 
+                                    JOIN artist 
+                                    ON disc.artist_id = artist.artist_id");
+$tableau_card = $requete_card->fetchAll(PDO::FETCH_OBJ);
+$requete_card->closeCursor();
+
+?>
+<header>
+        <div class="header-video container">
+            <div class="video-section-list">
+                <p class="h1">Liste des disques</p>
+                    <video id="video-elem-list" preload autoplay loop muted>
+                        <source src="./assets/video/Turntable.mp4" type="video/mp4">
+                    </video>
+            </div>
+        </div>
+</header>
+
+    <body>
+    <div id="list_disc">
+        <div class="container">
+            <br>
+            <div class="row justify-content-center">
+            <a href="add_form.php"><button type="button" class="btn btn-success">Ajouter un disque</button></a>
+            </div>
+        <div class="row d-flex justify-content-center mt-5">
+            <?php
+                foreach($tableau_card as $disc)
+                {
+            ?>
+            <div class="card text-center mb-2 ml-2">
+                <div class="card-header">
+                    <img src="./assets/pictures/<?= $disc->disc_picture?>" class="card-img-top" alt="Photo album">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title"><?= $disc->disc_title ?></h5>
+                        <h6 class="card-title"><?= $disc->artist_name ?></h6>
+                            <p class="card-text text-truncate">Label&nbsp:&nbsp<?= $disc->disc_label ?></p>
+                            <p class="card-text text-truncate">Year&nbsp:&nbsp<?= $disc->disc_year ?></p>
+                            <p class="card-text text-truncate">Genre&nbsp:&nbsp<?= $disc->disc_genre ?></p>
+                            <a href="details.php?disc_id=<?= $disc->disc_id ?>" class="btn btn-info">Détails</a>
+                </div>
+            </div>
+            <?php
+            } 
+            ?>
+        </div>
+    </div>
+</div>
+<?php
+include("footer.php");
+?>

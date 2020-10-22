@@ -1,6 +1,6 @@
 <?php
 include("process.php");
-include("index.php");
+include("header.php");
 
 $discId = $_GET["disc_id"];
 
@@ -25,7 +25,7 @@ $requete_art->closeCursor();
         <img src="assets/pictures/<?= $tableau_edit->disc_picture ?>" class="img-fluid" alt="album">
     </div>
     <br>
-    <form enctype="multipart/form-data" method="post" action="edit_process.php">
+    <form enctype="multipart/form-data" method="post" action="update_script.php">
         <input type="hidden" value="<?= $tableau_edit->disc_id ?>" name="discId">
         <div class="form-row">
             <div class="form-group col-md-6">
@@ -72,7 +72,7 @@ $requete_art->closeCursor();
             </div>
             <div class="form-group col-md-6">
                 <label for="inputPrice">Price(&nbsp;&euro;&nbsp;)</label>
-                <input type="text" class="form-control" id="inputPrice" name="price" value="<?= $tableau_edit->disc_price ?>" €>
+                <input type="number" step="any" class="form-control" id="inputPrice" name="price" value="<?= $tableau_edit->disc_price ?>" €>
             </div>
         </div>
         <div class="form-group">
@@ -81,11 +81,12 @@ $requete_art->closeCursor();
             <input type="file" class="form-control-file" id="inputFile" name="userfile">
         </div>
         <div class="row justify-content-center m-3">
-            <a href="delete_process.php?disc_id=<?= $tableau_edit->disc_id ?>"><button type="button" class="btn btn-danger m-2">Supprimer</button></a>
+            <a href="delete_script.php?disc_id=<?= $tableau_edit->disc_id ?>"><button id="delete_button" type="button" class="btn btn-danger m-2">Supprimer</button></a>
             <a href=""><button type="submit" class="btn btn-success mt-2" name="valid_edit">Valider les modifications</button></a>
-            <a href="list_disc.php"><button type="button" class="btn btn-secondary m-2">Retour</button></a>
+            <a href="index.php"><button type="button" class="btn btn-secondary m-2">Retour</button></a>
         </div>
     </form>
 </div>
-</body>
-</html>
+<?php
+include("footer.php");
+?>

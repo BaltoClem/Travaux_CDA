@@ -1,6 +1,14 @@
+
 <?php
 
+include("header.php");
 include("process.php");
+
+$pdoStat = $db->prepare("INSERT INTO disc(disc_title, disc_year, disc_picture, disc_label,disc_genre, disc_price, artist_id)
+                                VALUES(:disc_title,:disc_year, :disc_picture, :disc_label,:disc_genre,:disc_price,:artist_id)");
+
+//les ":" devant les noms de colonne sont la nomenclature officielle de la fonction, cela sert à déterminer les coloones concernées plus tard dans le script
+//bindValue associe une valeur à un paramètre
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Vérifie si le fichier a été uploadé sans erreur.
@@ -22,10 +30,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (in_array($filetype, $allowed)) {
             // Vérifie si le fichier existe avant de le télécharger.
             if (file_exists("assets/pictures/" . $_FILES["userfile"]["name"])) {
-                echo $_FILES["userfile"]["name"] . " existe déjà.";
+
             } else {
                 move_uploaded_file($_FILES["userfile"]["tmp_name"], "assets/pictures/" . $_FILES["userfile"]["name"]);
-                echo "Votre fichier a été téléchargé avec succès.";
             }
         } else {
             echo "Error: Il y a eu un problème de téléchargement de votre fichier. Veuillez réessayer.";
@@ -34,25 +41,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Error: " . $_FILES["userfile"]["error"];
     }
 }
-
-// METTRE LA REQUETE APRES LA CONDITION DE TELECHARGEMENT POUR EVITER LES ERREURS PHP !!!
-
-$pdoStat = $db->prepare("UPDATE disc 
-                                SET disc_id=:disc_id,disc_title=:disc_title, disc_year=:disc_year, disc_picture=:disc_picture, 
-                                disc_label=:disc_label, disc_genre=:disc_genre, disc_price=:disc_price, artist_id=:artist_id
-                                WHERE disc_id=:disc_id");
 $pdoStat->bindValue(':disc_title', $_POST['title'], PDO::PARAM_STR);
 $pdoStat->bindValue(':disc_year', $_POST['year'], PDO::PARAM_INT);
-if(isset($filename)){
 $pdoStat->bindValue(':disc_picture', $filename, PDO::PARAM_STR);
-}
-else{
-    $pdoStat->bindValue(':disc_picture', $_POST['picture'], PDO::PARAM_STR);
-}
 $pdoStat->bindValue(':disc_label', $_POST['label'], PDO::PARAM_STR);
 $pdoStat->bindValue(':disc_genre', $_POST['genre'], PDO::PARAM_STR);
 $pdoStat->bindValue(':disc_price', $_POST['price'], PDO::PARAM_STR);
 $pdoStat->bindValue(':artist_id', $_POST['artist'], PDO::PARAM_INT);
-$pdoStat->bindValue(':disc_id', $_POST['discId'], PDO::PARAM_INT);
 
-$pdoStat->execute();
+$insertOk = $pdoStat->execute();
+
+if($insertOk){
+
+    header("Location:index.php");
+}
+
+include("footer.php");

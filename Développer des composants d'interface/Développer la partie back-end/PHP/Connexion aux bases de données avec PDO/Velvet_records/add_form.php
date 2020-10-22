@@ -1,6 +1,6 @@
 <?php
 
-include("index.php");
+include("header.php");
 include("process.php");
 
 $requete_add = $db->query("SELECT * 
@@ -27,7 +27,7 @@ $requete_add->closeCursor();
         <div class="row justify-content-center">
             <h1>Ajout d'un vinyle</h1>
         </div>
-        <form enctype="multipart/form-data" name="add_form" method="post" action="add_process.php">
+        <form enctype="multipart/form-data" name="add_form" method="post" action="add_script.php">
             <div class="form-group">
                 <label for="inputTitle">Title</label>
                     <input type="text" class="form-control" id="inputTitle" placeholder="Ajouter un titre" name="title">
@@ -59,7 +59,7 @@ $requete_add->closeCursor();
             </div>
             <div class="form-group">
                 <label for="inputPrice">Price</label>
-                    <input type="text" class="form-control" id="inputPrice" placeholder="Ajouter le prix" name="price">
+                    <input type="number" step="any" class="form-control" id="inputPrice" placeholder="Ajouter le prix" name="price">
             </div>
             <div class="form-group">
                 <label for="inputFile">Picture</label>
@@ -67,10 +67,11 @@ $requete_add->closeCursor();
             </div>
             <div class="row justify-content-center">
                 <button type="submit" class="btn btn-success" name="valid_add">Valider l'ajout</button>
-                <a href="list_disc.php"><button type="button" class="btn btn-secondary ml-4">Retour</button></a>
+                <a href="index.php"><button type="button" class="btn btn-secondary ml-4">Retour</button></a>
             </div>
             <br>
         </form>
     </div>
-</body>
-</html>
+<?php
+include("footer.php");
+?>

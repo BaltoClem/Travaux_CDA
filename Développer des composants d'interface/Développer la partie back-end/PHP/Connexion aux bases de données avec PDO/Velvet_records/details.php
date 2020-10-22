@@ -1,7 +1,7 @@
 <?php
 
 include("process.php");
-include("index.php");
+include("header.php");
 
 $discId = $_GET["disc_id"];
 
@@ -58,12 +58,12 @@ $requete_detail->closeCursor();
 
     <div class="row justify-content-center m-3">
 
-        <a href="edit_disc.php?disc_id=<?= $tableau_detail->disc_id ?>"><button type="button" class="btn btn-info m-2">Modifier</button></a>
-        <a href="delete_process.php?disc_id=<?= $tableau_detail->disc_id ?>"><button type="button" class="btn btn-danger m-2">Supprimer</button></a>
-        <a href="list_disc.php"><button type="button" class="btn btn-secondary m-2">Retour</button></a>
+        <a href="update_form.php?disc_id=<?= $tableau_detail->disc_id ?>"><button type="button" class="btn btn-info m-2">Modifier</button></a>
+        <a href="delete_script.php?disc_id=<?= $tableau_detail->disc_id ?>"><button type="button" class="btn btn-danger m-2" onclick="conf_delete()">Supprimer</button></a>
+        <a href="index.php"><button type="button" class="btn btn-secondary m-2">Retour</button></a>
 
     </div>
-
 </div>
-</body>
-</html>
+<?php
+include("footer.php");
+?>
