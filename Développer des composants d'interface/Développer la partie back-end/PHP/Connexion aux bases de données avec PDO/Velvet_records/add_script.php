@@ -7,7 +7,7 @@ include("process.php");
 $pdoStat = $db->prepare("INSERT INTO disc(disc_title, disc_year, disc_picture, disc_label,disc_genre, disc_price, artist_id)
                                 VALUES(:disc_title,:disc_year, :disc_picture, :disc_label,:disc_genre,:disc_price,:artist_id)");
 
-///////////////////////////////////////////////Conditions pour le TITRE ////////////////////////////////////////////////
+/////////////////////////////////////////////// Conditions pour le TITRE ///////////////////////////////////////////////
 
 if($_POST['title'] != ""){
     $pdoStat->bindValue(':disc_title', $_POST['title'], PDO::PARAM_STR);
@@ -15,34 +15,63 @@ if($_POST['title'] != ""){
 else{
     echo "Erreur: Veuillez renseigner le titre de l'album";
     echo "<br>";
-    header("Refresh:15;url=add_form.php");
+    header("Refresh:20;url=add_form.php");
 }
 
-///////////////////////////////////////////////Conditions pour l'ANNEE /////////////////////////////////////////////////
+/////////////////////////////////////////////// Conditions pour l'ANNEE ////////////////////////////////////////////////
 
 if($_POST['year'] != "" && preg_match("/^(19|[2-9][0-9])\d{2}$/", $_POST['year'])){
     $pdoStat->bindValue(':disc_year', $_POST['year'], PDO::PARAM_INT);
 }
 else{
     echo "Erreur: Année de parution manquante ou invalide";
-    header("Refresh:15;url=add_form.php");
+    echo "<br>";
+    header("Refresh:20;url=add_form.php");
 }
 
-///////////////////////////////////////////////Conditions pour le LABEL ////////////////////////////////////////////////
+/////////////////////////////////////////////// Conditions pour le LABEL ///////////////////////////////////////////////
 
 if($_POST['label'] != ""){
 $pdoStat->bindValue(':disc_label', $_POST['label'], PDO::PARAM_STR);
 }
 else{
     echo "Erreur: Veuillez renseigner un label";
-    header("Refresh:3;url=add_form.php");
-    exit();
+    echo "<br>";
+    header("Refresh:20;url=add_form.php");
 }
-$pdoStat->bindValue(':disc_genre', $_POST['genre'], PDO::PARAM_STR);
-$pdoStat->bindValue(':disc_price', $_POST['price'], PDO::PARAM_STR);
-$pdoStat->bindValue(':artist_id', $_POST['artist'], PDO::PARAM_INT);
 
-//Conditions de téléchargements de l'album du vinyle
+/////////////////////////////////////////////// Conditions pour le GENRE ///////////////////////////////////////////////
+
+if($_POST['genre'] != "") {
+    $pdoStat->bindValue(':disc_genre', $_POST['genre'], PDO::PARAM_STR);
+}
+else{
+    echo "Erreur: Veuillez renseigner un genre";
+    echo "<br>";
+    header("Refresh:20;url=add_form.php");
+}
+/////////////////////////////////////////////// Conditions pour le PRIX ////////////////////////////////////////////////
+if($_POST['price'] != "" && preg_match("/^[0-9]+$/", $_POST['price'])){
+$pdoStat->bindValue(':disc_price', $_POST['price'], PDO::PARAM_STR);
+}
+else{
+    echo "Erreur: Prix manquant ou incorrect";
+    echo "<br>";
+    header("Refresh:20;url=add_form.php");
+}
+
+/////////////////////////////////////////////// Conditions pour l'ARTISTE ///////////////////////////////////////////////
+
+if(isset($_POST['artist'])) {
+    $pdoStat->bindValue(':artist_id', $_POST['artist'], PDO::PARAM_INT);
+}
+else{
+    echo "Erreur: Veuillez renseigner un artiste";
+    echo "<br>";
+    header("Refresh:20;url=add_form.php");
+}
+
+//////////////////////////////////Conditions de téléchargements de l'album du vinyle////////////////////////////////////
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Vérifie si le fichier a été uploadé sans erreur.
@@ -72,14 +101,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             echo "Error: Il y a eu un problème de téléchargement de votre fichier. Veuillez réessayer.";
         }
-    } else {
-        echo "Error: " . $_FILES["userfile"]["error"];
     }
 }
 
 //Définition des valeurs à envoyer et sécurisation de l'envoi des données
-
+if(isset($filename)){
 $pdoStat->bindValue(':disc_picture', $filename, PDO::PARAM_STR);
+}
+else{
+    echo "Erreur: Veuillez attribuer une image pour l'album";
+    echo "<br>";
+    header("Refresh:20;url=add_form.php");
+    exit();
+}
 
 $pdoStat->execute();
 
