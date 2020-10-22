@@ -34,7 +34,7 @@ $requete_add->closeCursor();
             </div>
             <div class="form-group">
                 <label for="inputArtist">Artist</label>
-                    <select class="form-control" id="inputArtist" name="artist">
+                    <select class="form-control" id="inputArtist" name="artist" required>
                         <option selected disabled> -- Choisir un artiste --</option>
                         <?php foreach($tableau_add as $artist)
                         {
@@ -46,12 +46,12 @@ $requete_add->closeCursor();
                     </select>
             </div>
             <div class="form-group">
-                <label for="inputTitle">Year</label>
+                <label for="inputYear">Year</label>
                     <input type="text" class="form-control" id="inputYear" placeholder="Ajouter l'année de parution" name="year">
             </div>
             <div class="form-group">
                 <label for="inputGenre">Genre</label>
-                    <input type="text" class="form-control" id="inputGenre" placeholder="Ajouter le genre du disque" name="genre">
+                    <input type="text" class="form-control" id="inputGenre" placeholder="Ajouter le genre du disque" name="genre" required>
             </div>
             <div class="form-group">
                 <label for="inputLabel">Label</label>
@@ -59,11 +59,11 @@ $requete_add->closeCursor();
             </div>
             <div class="form-group">
                 <label for="inputPrice">Price</label>
-                    <input type="number" step="any" class="form-control" id="inputPrice" placeholder="Ajouter le prix" name="price">
+                    <input type="number" step="any" class="form-control" id="inputPrice" placeholder="Ajouter le prix" name="price" required>
             </div>
             <div class="form-group">
                 <label for="inputFile">Picture</label>
-                    <input type="file" class="form-control-file" id="inputFile" name="userfile">
+                    <input type="file" class="form-control-file" id="inputFile" name="userfile" required>
             </div>
             <div class="row justify-content-center">
                 <button type="submit" class="btn btn-success" name="valid_add">Valider l'ajout</button>

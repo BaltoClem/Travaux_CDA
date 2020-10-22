@@ -24,7 +24,6 @@ function conf_add() {
     Swal.fire({
         icon: 'success',
         title: 'Great !',
-        text: 'New disc in the list!',
-        timer: 3000
+        text: 'A new disc appears in the list!'
     })
 }
