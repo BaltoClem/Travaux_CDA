@@ -30,29 +30,93 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             echo "Error: Il y a eu un problème de téléchargement de votre fichier. Veuillez réessayer.";
         }
-    } else {
-        echo "Error: " . $_FILES["userfile"]["error"];
     }
 }
 
 // METTRE LA REQUETE APRES LA CONDITION DE TELECHARGEMENT POUR EVITER LES ERREURS PHP !!!
 
 $pdoStat = $db->prepare("UPDATE disc 
-                                SET disc_id=:disc_id,disc_title=:disc_title, disc_year=:disc_year, disc_picture=:disc_picture, 
-                                disc_label=:disc_label, disc_genre=:disc_genre, disc_price=:disc_price, artist_id=:artist_id
+                                SET disc_id=:disc_id,disc_title=:disc_title, disc_year=:disc_year, 
+                                disc_picture=:disc_picture, disc_label=:disc_label, disc_genre=:disc_genre, 
+                                disc_price=:disc_price, artist_id=:artist_id
                                 WHERE disc_id=:disc_id");
-$pdoStat->bindValue(':disc_title', $_POST['title'], PDO::PARAM_STR);
-$pdoStat->bindValue(':disc_year', $_POST['year'], PDO::PARAM_INT);
+
+/////////////////////////////////////////////// Conditions pour le TITRE ///////////////////////////////////////////////
+
+if($_POST['title'] != "") {
+    $pdoStat->bindValue(':disc_title', $_POST['title'], PDO::PARAM_STR);
+}
+else{
+    echo "Erreur: Veuillez renseigner le titre de l'album";
+    echo "<br>";
+    header("Refresh:3;url=update_form.php?disc_id=".$_POST['discId']);
+}
+
+/////////////////////////////////////////////// Conditions pour l'ANNEE ////////////////////////////////////////////////
+
+if($_POST['year'] != "" && preg_match("/^(19|[2-9][0-9])\d{2}$/", $_POST['year'])){
+    $pdoStat->bindValue(':disc_year', $_POST['year'], PDO::PARAM_INT);
+}
+else{
+    echo "Erreur: Année de parution manquante ou invalide";
+    echo "<br>";
+    header("Refresh:3;url=update_form.php?disc_id=".$_POST['discId']);
+}
+
+/////////////////////////////////////////////// Conditions pour l'ALBUM ////////////////////////////////////////////////
+
 if(isset($filename)){
 $pdoStat->bindValue(':disc_picture', $filename, PDO::PARAM_STR);
 }
 else{
     $pdoStat->bindValue(':disc_picture', $_POST['picture'], PDO::PARAM_STR);
 }
-$pdoStat->bindValue(':disc_label', $_POST['label'], PDO::PARAM_STR);
-$pdoStat->bindValue(':disc_genre', $_POST['genre'], PDO::PARAM_STR);
-$pdoStat->bindValue(':disc_price', $_POST['price'], PDO::PARAM_STR);
-$pdoStat->bindValue(':artist_id', $_POST['artist'], PDO::PARAM_INT);
+
+/////////////////////////////////////////////// Conditions pour le LABEL ///////////////////////////////////////////////
+
+if($_POST['label'] != ""){
+    $pdoStat->bindValue(':disc_label', $_POST['label'], PDO::PARAM_STR);
+}
+else{
+    echo "Erreur: Veuillez renseigner un label";
+    echo "<br>";
+    header("Refresh:3;url=update_form.php?disc_id=".$_POST['discId']);
+}
+
+/////////////////////////////////////////////// Conditions pour le GENRE ///////////////////////////////////////////////
+
+if($_POST['genre'] != "") {
+    $pdoStat->bindValue(':disc_genre', $_POST['genre'], PDO::PARAM_STR);
+}
+else{
+    echo "Erreur: Veuillez renseigner un genre";
+    echo "<br>";
+    header("Refresh:3;url=update_form.php?disc_id=".$_POST['discId']);
+}
+
+
+/////////////////////////////////////////////// Conditions pour le PRIX ////////////////////////////////////////////////
+if($_POST['price'] != "" && preg_match("/^[0-9]{1,3}(,[0-9]{3})*(([\\.,]{1}[0-9]*)|())$/", $_POST['price'])){
+    $pdoStat->bindValue(':disc_price', $_POST['price'], PDO::PARAM_STR);
+}
+else{
+    echo "Erreur: Prix manquant ou incorrect";
+    echo "<br>";
+    header("Refresh:3;url=update_form.php?disc_id=".$_POST['discId']);
+}
+
+/////////////////////////////////////////////// Conditions pour l'ARTISTE //////////////////////////////////////////////
+
+if(isset($_POST['artist'])) {
+    $pdoStat->bindValue(':artist_id', $_POST['artist'], PDO::PARAM_INT);
+}
+else{
+    echo "Erreur: Veuillez renseigner un artiste";
+    echo "<br>";
+    header("Refresh:3;url=update_form.php?disc_id=".$_POST['discId']);
+    exit();
+}
+
 $pdoStat->bindValue(':disc_id', $_POST['discId'], PDO::PARAM_INT);
 
 $pdoStat->execute();

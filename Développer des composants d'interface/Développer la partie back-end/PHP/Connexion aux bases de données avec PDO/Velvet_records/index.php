@@ -10,26 +10,49 @@ $requete_card = $db->query("SELECT *
 $tableau_card = $requete_card->fetchAll(PDO::FETCH_OBJ);
 $requete_card->closeCursor();
 
+$requete_nb_disc = $db->query("SELECT COUNT(disc_id) AS nb_disc FROM disc");
+$result_nb_disc = $requete_nb_disc->fetch(PDO::FETCH_OBJ);
+$requete_nb_disc->closeCursor();
+$nb_disc = $result_nb_disc->nb_disc;
+
+$requete_last_disc = $db->query("SELECT disc_title AS nom_disc, disc_id, disc_picture AS img_album FROM disc ORDER BY disc_id DESC LIMIT 5");
+$result_last_disc = $requete_last_disc->fetchAll(PDO::FETCH_OBJ);
+$requete_last_disc->closeCursor();
+
 ?>
+    <div id="list_disc">
+    <div class="container">
+        <?php include("navbar.php");?>
+
 <header>
-        <div class="header-video container">
             <div class="video-section-list">
-                <p class="h1">Liste des disques</p>
+                <div class="row justify-content-left">
+                <p class="h1">Liste des disques&nbsp(<?php echo $nb_disc ?>)</p>
+                </div>
                     <video id="video-elem-list" preload autoplay loop muted>
                         <source src="./assets/video/Turntable.mp4" type="video/mp4">
                     </video>
             </div>
-        </div>
 </header>
 
     <body>
-    <div id="list_disc">
-        <div class="container">
             <br>
             <div class="row justify-content-center">
             <a href="add_form.php"><button type="button" class="btn btn-success">Ajouter un disque</button></a>
             </div>
-        <div class="row d-flex justify-content-center mt-5">
+            <br>
+            <div class="row justify-content-center">
+            <p>Récemment ajoutés&nbsp:&nbsp</p>
+                <ul class="list-group striped-list">
+                    <?php foreach($result_last_disc as $last_disc){?>
+                        <li class="list-group-item">
+                            <img src="assets/pictures/<?= $last_disc -> img_album?>" alt="album" class="thumbnail">&nbsp<?= $last_disc -> nom_disc?> &nbsp
+                        </li>
+                    <?php } ?>
+                </ul>
+            </div>
+
+        <div class="row d-flex justify-content-center mt-5 col-lg-12">
             <?php
                 foreach($tableau_card as $disc)
                 {

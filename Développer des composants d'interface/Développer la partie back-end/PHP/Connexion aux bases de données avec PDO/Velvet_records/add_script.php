@@ -51,7 +51,7 @@ else{
     header("Refresh:20;url=add_form.php");
 }
 /////////////////////////////////////////////// Conditions pour le PRIX ////////////////////////////////////////////////
-if($_POST['price'] != "" && preg_match("/^[0-9]+$/", $_POST['price'])){
+if($_POST['price'] != "" && preg_match("/^[0-9]{1,3}(,[0-9]{3})*(([\\.,]{1}[0-9]*)|())$/", $_POST['price'])){
 $pdoStat->bindValue(':disc_price', $_POST['price'], PDO::PARAM_STR);
 }
 else{

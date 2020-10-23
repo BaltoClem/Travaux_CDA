@@ -4,6 +4,12 @@ header, body{
     background-color: antiquewhite;
 }
 
+/* Navbar */
+
+nav{
+    background-color:tan;
+}
+
 /* Intégration de la vidéo des listes */
 
 .video-section-list{
@@ -24,7 +30,7 @@ header, body{
     text-align: center;
     margin-top: 32px;
     margin-left: 70px;
-    font-size: 65px;
+    font-size: 50px;
 }
 
 #video-elem-list{
@@ -67,7 +73,55 @@ video::-webkit-media-controls{
 .card {
     width: 30%;
 }
+.thumbnail{
+    width: 50px;
+    height: 50px;
+}
 
-/* Bouton "Ajouter un disque" */
+.list-group-item{
+    background-color: lightgrey;
+}
+
+/* Media Queries */
+
+@media screen and (max-width: 425px){
+    .video-section-list .h1{
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index:4;
+        color: burlywood;
+        text-align: center;
+        margin-top: 32px;
+        margin-left: 70px;
+        font-size: 35px;
+    }
+}
+
+@media screen and (max-width: 375px){
+    .video-section-list .h1{
+        left: 0;
+        top: 0;
+        z-index:4;
+        color: burlywood;
+        margin-left:95px;
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 320px){
+    .video-section-list .h1{
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index:4;
+        color: burlywood;
+        text-align: center;
+        margin-top: 32px;
+        margin-left: 70px;
+        font-size: 20px;
+    }
+}
+
 
 
