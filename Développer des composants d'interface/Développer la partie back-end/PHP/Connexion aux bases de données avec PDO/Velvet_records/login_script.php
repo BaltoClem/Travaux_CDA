@@ -5,9 +5,7 @@ include("process.php");
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-$user = $db->query("SELECT * FROM users WHERE user_email =".$email);
-$user_detail = $user->fetch(PDO::FETCH_OBJ);
-$user ->closeCursor();
+$pdoStat= $db->prepare("SELECT * FROM users WHERE user_email =".$email);
 
 $password_verify = password_verify($password, $user_detail->user_password);
 
