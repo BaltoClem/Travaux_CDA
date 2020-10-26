@@ -9,6 +9,9 @@ header, body{
 nav{
     background-color:tan;
 }
+.dropdown-menu{
+    background-color: #D2B48C;
+}
 
 /* Intégration de la vidéo des listes */
 
@@ -57,32 +60,28 @@ video::-webkit-media-controls{
     width: 100%;
     margin-top: -100px;
 }
+/* Section "Récemment ajoutés"*/
 
-/* Liste des disques */
-
-#list_disc
-{
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-}
-
-.card {
-    width: 30%;
-}
 .thumbnail{
     width: 50px;
     height: 50px;
 }
 
 .list-group-item{
-    background-color: lightgrey;
+    background-color: #D2B48C;
 }
 
-/* Media Queries */
+/* Liste des disques */
+
+.card {
+    width: 22rem;
+}
+
+.img-fluid, .card-img-top{
+    height: 20rem;
+}
+
+/* -----------------------------------------------Media Queries ------------------------------------------------------*/
 
 @media screen and (max-width: 425px){
     .video-section-list .h1{
@@ -92,8 +91,7 @@ video::-webkit-media-controls{
         z-index:4;
         color: burlywood;
         text-align: center;
-        margin-top: 32px;
-        margin-left: 70px;
+        margin-top: 15px;
         font-size: 35px;
     }
 }
