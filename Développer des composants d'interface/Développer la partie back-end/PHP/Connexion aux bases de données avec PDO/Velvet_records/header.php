@@ -1,4 +1,8 @@
+<?php
 
+session_start()
+
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -10,5 +14,5 @@
     <link rel="stylesheet" href=".\assets\CSS\style.css">
 </head>
 <div class="container">
-<?php include("navbar.php");?>
+<?php include("navbar_header.php");?>
 </div>

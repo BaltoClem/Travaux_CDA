@@ -73,6 +73,8 @@ $requete_add->closeCursor();
             <br>
         </form>
     </div>
+
+    <div class="container">
 <?php
 include("footer.php");
 ?>

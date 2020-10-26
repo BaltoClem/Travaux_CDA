@@ -15,8 +15,8 @@
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Espace Client</a>
             <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">S'inscrire</a>
-                <a class="dropdown-item" href="#">Connexion</a>
+                <a class="dropdown-item" href="registration_form.php">S'inscrire</a>
+                <a class="dropdown-item" href="login_form.php">Connexion</a>
             </div>
         </li>
     </ul>

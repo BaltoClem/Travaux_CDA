@@ -74,9 +74,6 @@ $requete_last_disc->closeCursor();
                         }
                         ?>
                     </div>
-
-        </div>
-
 <?php
 include("footer.php");
 ?>

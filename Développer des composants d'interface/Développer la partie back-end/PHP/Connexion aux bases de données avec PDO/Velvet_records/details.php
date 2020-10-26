@@ -63,7 +63,6 @@ $requete_detail->closeCursor();
         <a href="index.php"><button type="button" class="btn btn-secondary m-2">Retour</button></a>
 
     </div>
-</div>
 <?php
 include("footer.php");
 ?>

@@ -4,7 +4,7 @@ header, body{
     background-color: antiquewhite;
 }
 
-/* Navbar */
+/* Navbar Header*/
 
 nav{
     background-color:tan;
@@ -80,6 +80,8 @@ video::-webkit-media-controls{
 .img-fluid, .card-img-top{
     height: 20rem;
 }
+
+/* Navbar Footer*/
 
 /* -----------------------------------------------Media Queries ------------------------------------------------------*/
 
