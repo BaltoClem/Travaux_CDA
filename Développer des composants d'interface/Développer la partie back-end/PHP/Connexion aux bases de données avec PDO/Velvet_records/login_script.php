@@ -1,7 +1,7 @@
 <?php
+include("process.php");
 
 session_start();
-include("process.php");
 
 $email = $_POST['email'];
 
@@ -14,12 +14,15 @@ $user = $pdoStat ->fetch(PDO::FETCH_OBJ);
 if(password_verify($_POST['password'], $user->user_password)){
     $_SESSION["auth"] = "ok";
     echo "Utilisateur trouvé !";
-    var_dump($_SESSION["auth"]);
     echo"- session ID : ".session_id();
+    $_SESSION["id"] = $email;
+    var_dump($_SESSION["id"]);
+//    $_SESSION["nom"] = $nom;
+//    $_SESSION["prenom"] = $prenom;
     header("Refresh:5;url=index.php");
 }
 else{
-    echo "Erreur : l'identifiant ou le mot de passe sont incorrects !";
+    echo "Erreur : l'identifiant et/ou le mot de passe sont incorrects !";
 
         if(!isset($_SESSION['essai'])){
             $_SESSION['essai'] = 1;
@@ -27,17 +30,23 @@ else{
         else{
             $_SESSION['essai'] ++;
             var_dump($_SESSION['essai']);
-                if($_SESSION['essai'] === 4){
+                if($_SESSION['essai'] > 3){
                     echo "Nombre d'essais trop important";
+                    $user_block = $db->prepare("UPDATE users
+                                                        SET user_block= :user_block
+                                                        WHERE user_email=:user_email");
+                    $user_block->bindValue(':user_email', $email, PDO::PARAM_STR);
+                    $user_block->bindValue(':user_block', true, PDO::PARAM_BOOL);
+                    $user_block->execute();
+
+                    echo "Compte bloqué";
                 }
         }
+//    unset($_SESSION["auth"]);
+//    if (ini_get("session.use_cookies"))
+//    {
+//        setcookie(session_name(), '', time()-42000);
+//    }
+//    session_destroy();
 
 }
-
-//unset($_SESSION["auth"]);
-//if (ini_get("session.use_cookies"))
-//{
-//    setcookie(session_name(), '', time()-42000);
-//}
-//session_destroy();
-//echo "Erreur";

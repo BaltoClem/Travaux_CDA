@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-// METTRE LA REQUETE APRES LA CONDITION DE TELECHARGEMENT POUR EVITER LES ERREURS PHP !!!
+// METTRE LA REQUETE APRES LA CONDITION DE TELECHARGEMENT POUR EVITER LES ERREURS PHP
 
 $pdoStat = $db->prepare("UPDATE disc 
                                 SET disc_id=:disc_id,disc_title=:disc_title, disc_year=:disc_year, 
