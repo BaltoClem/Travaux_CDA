@@ -1,6 +1,6 @@
 <?php
 
-include("header.php");
+require('header.php');
 include("process.php");
 
 $requete_add = $db->query("SELECT * 
@@ -15,7 +15,7 @@ $requete_add->closeCursor();
     <div class="header-video container">
         <div class="video-section-add">
             <video id="video-elem-add" preload autoplay loop muted>
-                <source src="./assets/video/Concert.mp4" type="video/mp4">
+                <source src="assets/video/Concert.mp4" type="video/mp4">
             </video>
         </div>
     </div>
@@ -27,7 +27,7 @@ $requete_add->closeCursor();
         <div class="row justify-content-center">
             <h1>Ajout d'un vinyle</h1>
         </div>
-        <form enctype="multipart/form-data" name="add_form" method="post" action="add_script.php">
+        <form enctype="multipart/form-data" name="add_form" method="post" action="../script/add_script.php">
             <div class="form-group">
                 <label for="inputTitle">Title</label>
                     <input type="text" class="form-control" id="inputTitle" placeholder="Ajouter un titre" name="title">

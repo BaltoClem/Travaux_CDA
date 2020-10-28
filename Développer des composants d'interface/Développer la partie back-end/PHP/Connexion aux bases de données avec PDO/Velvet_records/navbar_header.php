@@ -15,8 +15,12 @@
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Espace Client</a>
             <div class="dropdown-menu">
-                <a class="dropdown-item" href="registration_form.php">S'inscrire</a>
-                <a class="dropdown-item" href="login_form.php">Connexion</a>
+                <?php if(!isset($_SESSION["auth"])){ ?>
+                    <a class="dropdown-item" href="registration_form.php">S'inscrire</a>
+                    <a class="dropdown-item" href="login_form.php">Connexion</a>
+                <?php } else{ ?>
+                <a class="dropdown-item" href="sign_out_script.php">Déconnexion</a>
+                <?php } ?>
             </div>
         </li>
     </ul>

@@ -18,7 +18,13 @@ include('header.php');
             <label for="exampleInputPassword1">Password</label>
             <input type="password" class="form-control" id="exampleInputPassword1" name="password">
         </div>
+        <div class="form-group">
+            <p>Pas encore inscrit ? <a href="registration_form.php">Inscrivez-vous</a></p>
+            <p>Mot de passe oublié ? <a href="forgot_password_form.php">Cliquez&nbsp;ici</a></p>
+        </div>
+        <div class="row justify-content-center">
         <button type="submit" class="btn btn-success">Submit</button>
+        </div>
     </form>
     <br>
 

@@ -59,7 +59,7 @@ $requete_detail->closeCursor();
     <div class="row justify-content-center m-3">
 
         <a href="update_form.php?disc_id=<?= $tableau_detail->disc_id ?>"><button type="button" class="btn btn-info m-2">Modifier</button></a>
-        <a href="delete_script.php?disc_id=<?= $tableau_detail->disc_id ?>"><button type="button" class="btn btn-danger m-2" onclick="conf_delete()">Supprimer</button></a>
+        <a href="delete_script.php?disc_id=<?= $tableau_detail->disc_id ?>"><button type="button" class="btn btn-danger m-2">Supprimer</button></a>
         <a href="index.php"><button type="button" class="btn btn-secondary m-2">Retour</button></a>
 
     </div>

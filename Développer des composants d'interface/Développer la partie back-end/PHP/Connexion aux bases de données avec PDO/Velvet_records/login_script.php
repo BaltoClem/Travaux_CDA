@@ -21,6 +21,11 @@ if(password_verify($_POST['password'], $user->user_password)){
 //    $_SESSION["prenom"] = $prenom;
     header("Refresh:5;url=index.php");
 }
+elseif(empty($user)){
+    echo "Compte non existant";
+    header("Refresh:5;url=login_form.php");
+    exit();
+}
 else{
     echo "Erreur : l'identifiant et/ou le mot de passe sont incorrects !";
 

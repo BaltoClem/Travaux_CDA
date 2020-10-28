@@ -29,7 +29,7 @@ $requete_last_disc->closeCursor();
                                 <p class="h1">Liste des disques&nbsp(<?php echo $nb_disc ?>)</p>
                                 </div>
                                     <video id="video-elem-list" preload autoplay loop muted>
-                                        <source src="./assets/video/Turntable.mp4" type="video/mp4">
+                                        <source src="assets/video/Turntable.mp4" type="video/mp4">
                                     </video>
                             </div>
                 </header>
@@ -59,7 +59,7 @@ $requete_last_disc->closeCursor();
                         ?>
                         <div class="card text-center mb-2 ml-2">
                             <div class="card-header">
-                                <img src="./assets/pictures/<?= $disc->disc_picture?>" class="card-img-top" alt="Photo album">
+                                <img src="assets/pictures/<?= $disc->disc_picture?>" class="card-img-top" alt="Photo album">
                             </div>
                             <div class="card-body">
                                 <p class="card-title h5"><?= $disc->disc_title ?></p>

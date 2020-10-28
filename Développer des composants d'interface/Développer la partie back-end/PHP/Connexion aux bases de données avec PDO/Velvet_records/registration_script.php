@@ -2,8 +2,11 @@
 
 include("process.php");
 
-$new_user = $db->prepare("INSERT INTO users(user_email, user_password)
-                                VALUES(:user_email, :user_password)");
+$block = false;
+$role = "user";
+
+$new_user = $db->prepare("INSERT INTO users(user_email, user_password, user_role, user_block)
+                                VALUES(:user_email, :user_password, :user_role, :user_block)");
 
 $password_hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
@@ -37,6 +40,9 @@ $user = $stmt->fetch();
         echo "Mot de passe manquant ou trop faible";
         exit();
     }
+
+$new_user->bindValue(':user_block', $block, PDO::PARAM_BOOL);
+$new_user->bindValue(':user_role', $role, PDO::PARAM_STR);
 
 //Insertion du nouvel utilisateur
 $new_user->execute();
