@@ -16,17 +16,20 @@ $new_password = $db->prepare("UPDATE users SET user_password=:user_password WHER
 $new_password->bindValue(':user_email', $userMail,PDO::PARAM_STR);
 
 $password_hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
-
-if($_POST['password'] != $_POST['confPassword']){
-    echo "Mots de passe différents";
+if($_POST['password'] === "" || $_POST['confPassword'] === ""){
+    echo "Votre mot de passe doit être renseigné";
     exit();
 }
-elseif(preg_match("/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/", ($_POST["password"])) && $_POST["password"] != ""){
+    elseif($_POST['password'] != $_POST['confPassword']){
+        echo "Mots de passe différents";
+        exit();
+    }
+        elseif(preg_match("/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/", ($_POST["password"]))){
 
-    $new_password->bindValue(':user_password', $password_hash, PDO::PARAM_STR);
-}
+            $new_password->bindValue(':user_password', $password_hash, PDO::PARAM_STR);
+        }
 else{
-    echo "Mot de passe manquant ou trop faible";
+    echo "Mot de passe trop faible";
     exit();
 }
 

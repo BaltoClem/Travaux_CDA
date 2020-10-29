@@ -27,10 +27,11 @@ $requete_add->closeCursor();
         <div class="row justify-content-center">
             <h1>Ajout d'un vinyle</h1>
         </div>
-        <form enctype="multipart/form-data" name="add_form" method="post" action="../script/add_script.php">
+        <form enctype="multipart/form-data" name="add_form" method="post" action="add_script.php">
             <div class="form-group">
                 <label for="inputTitle">Title</label>
                     <input type="text" class="form-control" id="inputTitle" placeholder="Ajouter un titre" name="title">
+                <span id="title_missed"></span><div id="alerttitle"></div>
             </div>
             <div class="form-group">
                 <label for="inputArtist">Artist</label>
@@ -45,10 +46,12 @@ $requete_add->closeCursor();
                         }
                         ?>
                     </select>
+                <span id="artist_missed"></span><div id="alertartist"></div>
             </div>
             <div class="form-group">
                 <label for="inputYear">Year</label>
                     <input type="text" class="form-control" id="inputYear" placeholder="Ajouter l'année de parution" name="year">
+                <span id="year_missed"></span><div id="alertyear"></div>
             </div>
             <div class="form-group">
                 <label for="inputGenre">Genre</label>
@@ -67,7 +70,7 @@ $requete_add->closeCursor();
                     <input type="file" class="form-control-file" id="inputFile" name="userfile">
             </div>
             <div class="row justify-content-center">
-                <button type="submit" class="btn btn-success" name="valid_add">Valider l'ajout</button>
+                <button type="submit" class="btn btn-success" name="valid_add" id="add_button">Valider l'ajout</button>
                 <a href="index.php"><button type="button" class="btn btn-secondary ml-4">Retour</button></a>
             </div>
             <br>
@@ -78,3 +81,4 @@ $requete_add->closeCursor();
 <?php
 include("footer.php");
 ?>
+        <script src="assets/JS/JQuery/add_query.js"></script>

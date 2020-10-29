@@ -15,7 +15,7 @@ if($_POST['title'] != ""){
 else{
     echo "Erreur: Veuillez renseigner le titre de l'album";
     echo "<br>";
-    header("Refresh:20;url=add_form.php");
+    header("Refresh:3;url=add_form.php");
 }
 
 /////////////////////////////////////////////// Conditions pour l'ANNEE ////////////////////////////////////////////////
@@ -26,7 +26,7 @@ if($_POST['year'] != "" && preg_match("/^(19|[2-9][0-9])\d{2}$/", $_POST['year']
 else{
     echo "Erreur: Année de parution manquante ou invalide";
     echo "<br>";
-    header("Refresh:20;url=add_form.php");
+    header("Refresh:3;url=add_form.php");
 }
 
 /////////////////////////////////////////////// Conditions pour le LABEL ///////////////////////////////////////////////
@@ -37,7 +37,7 @@ $pdoStat->bindValue(':disc_label', $_POST['label'], PDO::PARAM_STR);
 else{
     echo "Erreur: Veuillez renseigner un label";
     echo "<br>";
-    header("Refresh:20;url=add_form.php");
+    header("Refresh:3;url=add_form.php");
 }
 
 /////////////////////////////////////////////// Conditions pour le GENRE ///////////////////////////////////////////////
@@ -48,7 +48,7 @@ if($_POST['genre'] != "") {
 else{
     echo "Erreur: Veuillez renseigner un genre";
     echo "<br>";
-    header("Refresh:20;url=add_form.php");
+    header("Refresh:3;url=add_form.php");
 }
 /////////////////////////////////////////////// Conditions pour le PRIX ////////////////////////////////////////////////
 if($_POST['price'] != "" && preg_match("/^[0-9]{1,3}(,[0-9]{3})*(([\\.,]{1}[0-9]*)|())$/", $_POST['price'])){
@@ -57,7 +57,7 @@ $pdoStat->bindValue(':disc_price', $_POST['price'], PDO::PARAM_STR);
 else{
     echo "Erreur: Prix manquant ou incorrect";
     echo "<br>";
-    header("Refresh:20;url=add_form.php");
+    header("Refresh:3;url=add_form.php");
 }
 
 /////////////////////////////////////////////// Conditions pour l'ARTISTE ///////////////////////////////////////////////
@@ -68,7 +68,7 @@ if(isset($_POST['artist'])) {
 else{
     echo "Erreur: Veuillez renseigner un artiste";
     echo "<br>";
-    header("Refresh:20;url=add_form.php");
+    header("Refresh:3;url=add_form.php");
 }
 
 //////////////////////////////////Conditions de téléchargements de l'album du vinyle////////////////////////////////////
@@ -111,10 +111,8 @@ $pdoStat->bindValue(':disc_picture', $filename, PDO::PARAM_STR);
 else{
     echo "Erreur: Veuillez attribuer une image pour l'album";
     echo "<br>";
-    header("Refresh:20;url=add_form.php");
+    header("Refresh:3;url=add_form.php");
     exit();
 }
 
 $pdoStat->execute();
-
-header("Location:index.php");
