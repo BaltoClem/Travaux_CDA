@@ -9,6 +9,8 @@ $pdoStat -> execute();
 
 $user = $pdoStat ->fetch(PDO::FETCH_OBJ);
 
+$userMail = $user->user_email;
+
 if($email===""){
     echo "Veuillez renseigner votre adresse email";
     header("Refresh:3;url=forgot_password_form.php");
@@ -21,7 +23,7 @@ elseif(empty($user)){
 }
 else{
 
-    $to = $user->user_email;
+    $to = $userMail;
     $subject = 'Réinitialisation de mot de passe';
     $message = '<!DOCTYPE html>
             <html lang="fr">
@@ -52,13 +54,13 @@ else{
                     <div class="row">
                         <div class="col-12">
                             <p>Voici le lien pour réinitialiser votre mot de passe :</p>
-                            <a href="C:\laragon\www\PHP\Connexion aux bases de données avec PDO\Velvet_records\new_password_form.php">Cliquez&nbsp;ici</a>
+                            <a href="http://localhost:81/PHP/Connexion%20aux%20bases%20de%20donn%c3%a9es%20avec%20PDO/Velvet_records/new_password_form.php?user_email='.$userMail.'">Cliquez&nbsp;ici</a>
                             
                         </div>    
                     </div>   
                     <div class="row">
                         <div class="col-12">
-                            <img src="C:/laragon/www/PHP/Connexion aux bases de données avec PDO/Velvet_records/assets/pictures/After the Gold Rush.jpeg" title="Logo" alt="Logo" class="img-fluid">
+                            <img src="http://localhost:81/PHP/Connexion%20aux%20bases%20de%20donn%c3%a9es%20avec%20PDO/Velvet_records/assets/pictures/aladdin-sane-10large.jpg" title="Logo" alt="Logo" class="img-fluid">
                         </div>    
                     </div>   
                 </div> 
@@ -68,7 +70,7 @@ else{
                 </html>';
     $headers = array(
         'MIME-Version' => '1.0',
-        'Content-Type' => 'text/html; charset=utf-8',
+        'Content-Type' => 'text/html; image/jpg; charset=utf-8',
         'From' => 'webmaster@example.com',
         'Reply-To' => 'webmaster@example.com',
         'X-Mailer' => 'PHP/' . phpversion()
