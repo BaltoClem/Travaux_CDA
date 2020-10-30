@@ -56,6 +56,7 @@ $requete_add->closeCursor();
             <div class="form-group">
                 <label for="inputGenre">Genre</label>
                     <input type="text" class="form-control" id="inputGenre" placeholder="Ajouter le genre du disque" name="genre">
+                <span id="genre_missed"></span><div id="alertgenre"></div>
             </div>
             <div class="form-group">
                 <label for="inputLabel">Label</label>
