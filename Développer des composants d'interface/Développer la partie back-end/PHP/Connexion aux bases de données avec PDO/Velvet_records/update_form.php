@@ -19,7 +19,7 @@ $requete_art->closeCursor();
 
 <body>
 <div class="container">
-    <h1 class="text-center">Modification des informations</h1>
+    <p class="text-center h1">Modification des informations</p>
     <br>
     <div class="row justify-content-center">
         <img src="assets/pictures/<?= $tableau_edit->disc_picture ?>" class="img-fluid" alt="album">

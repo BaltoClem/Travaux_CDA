@@ -68,13 +68,69 @@ function verif() {
         $("#inputGenre").css("border-color", "#FF0000");
         var html = "<div class='alert alert-danger'role='alert'>Vous n'avez pas renseigné le genre de l'album !</div>";
         $("#genre_missed").append(html);
-        return false;
     }
     else {
         $("#genre_missed").empty();
         $("#inputGenre").css("border-color", "#008000");
         var html = "<div class='alert alert-success'role='alert'>Ok !</div>";
         $("#alertgenre").append(html);
+    }
+    ///////////////////////////////////////////////////////////LABEL////////////////////////////////////////////////////
+
+    var label = $("#inputLabel").val();
+
+    if (label === "") {
+        $("#label_missed").empty();
+        $("#inputLabel").css("border-color", "#FF0000");
+        var html = "<div class='alert alert-danger'role='alert'>Vous n'avez pas renseigné le label de l'album !</div>";
+        $("#label_missed").append(html);
+    }
+    else {
+        $("#label_missed").empty();
+        $("#inputLabel").css("border-color", "#008000");
+        var html = "<div class='alert alert-success'role='alert'>Ok !</div>";
+        $("#alertlabel").append(html);
+    }
+    ///////////////////////////////////////////////////////////PRIX////////////////////////////////////////////////////
+
+    var prix = $("#inputPrice").val();
+    var reg2 = reg1 = /^[0-9]+$/;
+
+    if (prix === "") {
+        $("#price_missed").empty();
+        $("#inputPrice").css("border-color", "#FF0000");
+        var html = "<div class='alert alert-danger'role='alert'>Vous n'avez pas renseigné le prix de l'album !</div>";
+        $("#price_missed").append(html);
+
+    }
+    else if (reg2.test(prix) === false) {
+        $("#price_missed").empty();
+        $("#inputPrice").css("border-color", "#FFA500");
+        var html ="<div class='alert alert-warning'role='alert'>"+"Veuillez renseigner un prix valide !"+"</div>";
+        $("#alertprice").append(html);
+    }
+    else {
+        $("#price_missed").empty();
+        $("#inputPrice").css("border-color", "#008000");
+        var html = "<div class='alert alert-success'role='alert'>Ok !</div>";
+        $("#alertprice").append(html);
+    }
+    ///////////////////////////////////////////////////////////PRIX////////////////////////////////////////////////////
+
+    var image = $("#inputFile").val();
+
+    if (image === "") {
+        $("#file_missed").empty();
+        $("#inputFile").css("border-color", "#FF0000");
+        var html = "<div class='alert alert-danger'role='alert'>Vous n'avez pas renseigné l'image de l'album !</div>";
+        $("#file_missed").append(html);
+        return false;
+    }
+    else {
+        $("#file_missed").empty();
+        $("#inputFile").css("border-color", "#008000");
+        var html = "<div class='alert alert-success'role='alert'>Ok !</div>";
+        $("#alertfile").append(html);
     }
     document.forms[0].submit();
 }

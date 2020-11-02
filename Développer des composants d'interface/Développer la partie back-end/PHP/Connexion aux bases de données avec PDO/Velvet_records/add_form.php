@@ -25,13 +25,21 @@ $requete_add->closeCursor();
 <body>
     <div class="container">
         <div class="row justify-content-center">
-            <h1>Ajout d'un vinyle</h1>
+            <p class="h1">Ajout d'un vinyle</p>
         </div>
         <form enctype="multipart/form-data" name="add_form" method="post" action="add_script.php">
             <div class="form-group">
                 <label for="inputTitle">Title</label>
                     <input type="text" class="form-control" id="inputTitle" placeholder="Ajouter un titre" name="title">
                 <span id="title_missed"></span><div id="alerttitle"></div>
+                <?php
+                if (isset($_GET["title"]))
+                {
+                ?>
+                <div class="alert alert-danger">Vous n'avez pas renseigné le titre</div>
+                <?php
+                }
+                ?>
             </div>
             <div class="form-group">
                 <label for="inputArtist">Artist</label>
@@ -61,17 +69,20 @@ $requete_add->closeCursor();
             <div class="form-group">
                 <label for="inputLabel">Label</label>
                     <input type="text" class="form-control" id="inputLabel" placeholder="Ajouter le label" name="label">
+                <span id="label_missed"></span><div id="alertlabel"></div>
             </div>
             <div class="form-group">
                 <label for="inputPrice">Price(&nbsp;&euro;&nbsp;)</label>
                     <input type="number" step="any" class="form-control" id="inputPrice" placeholder="Ajouter le prix" name="price" >
+                <span id="price_missed"></span><div id="alertprice"></div>
             </div>
             <div class="form-group">
                 <label for="inputFile">Picture</label>
                     <input type="file" class="form-control-file" id="inputFile" name="userfile">
+                <span id="file_missed"></span><div id="alertfile"></div>
             </div>
             <div class="row justify-content-center">
-                <button type="submit" class="btn btn-success" name="valid_add" id="add_button">Valider l'ajout</button>
+                <input type="submit" class="btn btn-success" name="valid_add" id="add_button" value="Valider">
                 <a href="index.php"><button type="button" class="btn btn-secondary ml-4">Retour</button></a>
             </div>
             <br>
@@ -82,4 +93,4 @@ $requete_add->closeCursor();
 <?php
 include("footer.php");
 ?>
-        <script src="assets/JS/JQuery/add_query.js"></script>
+        <!--<script src="assets/JS/JQuery/add_query.js"></script>-->

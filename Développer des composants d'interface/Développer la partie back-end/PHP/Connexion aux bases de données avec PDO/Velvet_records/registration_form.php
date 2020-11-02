@@ -22,7 +22,7 @@ include('header.php');
             <label for="exampleInputPassword2">Confirm Password</label>
             <input type="password" class="form-control" id="exampleInputPassword2" name="confirmPassword">
         </div>
-        <button type="submit" class="btn btn-success">Submit</button>
+        <button type="submit" class="btn btn-success" id="registr_button">Submit</button>
     </form>
     <br>
 
@@ -31,3 +31,5 @@ include('header.php');
     include('footer.php');
 
     ?>
+
+    <script src="assets/JS/JQuery/registration_query.js"></script>

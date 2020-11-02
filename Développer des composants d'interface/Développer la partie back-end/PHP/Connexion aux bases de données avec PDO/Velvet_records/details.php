@@ -17,7 +17,7 @@ $requete_detail->closeCursor();
 
 <body>
 <div class="container">
-    <h1 class="text-center">Détail du disque</h1>
+    <p class="text-center h1">Détail du disque</p>
     <br>
     <div class="row justify-content-center">
         <img src="assets/pictures/<?= $tableau_detail->disc_picture ?>" class="img-fluid" alt="album">

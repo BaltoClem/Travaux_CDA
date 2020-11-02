@@ -2,31 +2,66 @@
 
 include("process.php");
 
-//Requête d'insertion des données
+if (isset ($_POST['valid_add'])){
+
+/////////////////////////////////////////////DECLARATION REGEX//////////////////////////////////////////////////////////
+
+$yearPattern = "/^(19|[2-9][0-9])\d{2}$/";
+$pricePattern = "/^[0-9]{1,3}(,[0-9]{3})*(([\\.,]{1}[0-9]*)|())$/";
+
+////////////////////////////////////////////TABLEAU ERREUR /////////////////////////////////////////////////////////////
+$formError = [];
+///////////////////////////////////////////REQUETE PREPAREE/////////////////////////////////////////////////////////////
 
 $pdoStat = $db->prepare("INSERT INTO disc(disc_title, disc_year, disc_picture, disc_label,disc_genre, disc_price, artist_id)
                                 VALUES(:disc_title,:disc_year, :disc_picture, :disc_label,:disc_genre,:disc_price,:artist_id)");
 
-/////////////////////////////////////////////// Conditions pour le TITRE ///////////////////////////////////////////////
+/////////////////////////////////////////////// CONDITIONS D'INSERTION /////////////////////////////////////////////////
 
-if($_POST['title'] != ""){
-    $pdoStat->bindValue(':disc_title', $_POST['title'], PDO::PARAM_STR);
-}
-else{
-    echo "Erreur: Veuillez renseigner le titre de l'album";
-    echo "<br>";
-    header("Refresh:3;url=add_form.php");
+    /* Titre */
+if(isset($_POST['title'])) {
+    $title = $_POST['title'];
+    }
+else {
+    $formError['title'] = 'Titre manquant';
 }
 
-/////////////////////////////////////////////// Conditions pour l'ANNEE ////////////////////////////////////////////////
-
-if($_POST['year'] != "" && preg_match("/^(19|[2-9][0-9])\d{2}$/", $_POST['year'])){
-    $pdoStat->bindValue(':disc_year', $_POST['year'], PDO::PARAM_INT);
+    /*Artiste*/
+if(isset($_POST['artist'])) {
+    $artist = $_POST['artist'];
+    }
+else {
+    $formError['artist'] = 'Artiste manquant';
 }
-else{
-    echo "Erreur: Année de parution manquante ou invalide";
-    echo "<br>";
-    header("Refresh:3;url=add_form.php");
+
+    /* Année */
+if(isset($_POST['year'])) {
+    if(preg_match($yearPattern, $_POST['year'])){
+        $year = $_POST['year'];
+    }
+    else{
+        $formError['year'] = "Année invalide, format incorrect";
+    }
+}
+else {
+    $formError['year'] = 'Année manquante';
+}
+
+    /* Genre */
+if(isset($_POST['genre'])) {
+    $genre = $_POST['genre'];
+}
+else {
+    $formError['genre'] = 'Genre manquant';
+}
+
+if(count($formError) === 0) {
+
+    $pdoStat->bindValue(':disc_title', $title, PDO::PARAM_STR);
+    $pdoStat->bindValue(':artist_id', $artist, PDO::PARAM_INT);
+    $pdoStat->bindValue(':disc_year', $year, PDO::PARAM_INT);
+    $pdoStat->bindValue(':disc_genre', $genre, PDO::PARAM_STR);
+
 }
 
 /////////////////////////////////////////////// Conditions pour le LABEL ///////////////////////////////////////////////
@@ -40,16 +75,6 @@ else{
     header("Refresh:3;url=add_form.php");
 }
 
-/////////////////////////////////////////////// Conditions pour le GENRE ///////////////////////////////////////////////
-
-if($_POST['genre'] != "") {
-    $pdoStat->bindValue(':disc_genre', $_POST['genre'], PDO::PARAM_STR);
-}
-else{
-    echo "Erreur: Veuillez renseigner un genre";
-    echo "<br>";
-    header("Refresh:3;url=add_form.php");
-}
 /////////////////////////////////////////////// Conditions pour le PRIX ////////////////////////////////////////////////
 if($_POST['price'] != "" && preg_match("/^[0-9]{1,3}(,[0-9]{3})*(([\\.,]{1}[0-9]*)|())$/", $_POST['price'])){
 $pdoStat->bindValue(':disc_price', $_POST['price'], PDO::PARAM_STR);
@@ -73,7 +98,7 @@ else{
 
 //////////////////////////////////Conditions de téléchargements de l'album du vinyle////////////////////////////////////
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
     // Vérifie si le fichier a été uploadé sans erreur.
     if (isset($_FILES["userfile"]) && $_FILES["userfile"]["error"] == 0) {
         $allowed = array("jpg" => "image/jpg", "jpeg" => "image/jpeg", "gif" => "image/gif", "png" => "image/png");
@@ -102,7 +127,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "Error: Il y a eu un problème de téléchargement de votre fichier. Veuillez réessayer.";
         }
     }
-}
+
 
 //Définition des valeurs à envoyer et sécurisation de l'envoi des données
 if(isset($filename)){
@@ -116,3 +141,5 @@ else{
 }
 
 $pdoStat->execute();
+
+}
