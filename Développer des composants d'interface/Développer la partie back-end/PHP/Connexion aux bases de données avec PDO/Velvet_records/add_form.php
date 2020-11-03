@@ -22,12 +22,11 @@ include('select_artist.php');
         <div class="row justify-content-center">
             <p class="h1">Ajout d'un vinyle</p>
         </div>
-        <form enctype="multipart/form-data" name="add_form" method="post" action="add_script.php">
+        <form enctype="multipart/form-data" name="add_form" method="post" action="add_script.php" id="form">
             <div class="form-group">
                 <label for="inputTitle">Title</label>
                     <input type="text" class="form-control" id="inputTitle" placeholder="Ajouter un titre" name="title">
-                <span id="title_missed"></span><div id="alerttitle"></div>
-
+                <small class="form-text" id="alerttitle"></small>
             <?php
             if (isset($_GET["title"]))
             {
@@ -40,7 +39,6 @@ include('select_artist.php');
             <div class="form-group">
                 <label for="inputArtist">Artist</label>
                     <select class="form-control" id="inputArtist" name="artist">
-
                         <option selected disabled> -- Choisir un artiste --</option>
                         <?php foreach($tableau_add as $artist)
                         {
@@ -50,7 +48,7 @@ include('select_artist.php');
                         }
                         ?>
                     </select>
-                <span id="artist_missed"></span><div id="alertartist"></div>
+                <small class="form-text" id="alertartist"></small>
                 <?php
                 if (isset($_GET["artist"]))
                 {
@@ -63,7 +61,7 @@ include('select_artist.php');
             <div class="form-group">
                 <label for="inputYear">Year</label>
                     <input type="text" class="form-control" id="inputYear" placeholder="Ajouter l'année de parution" name="year">
-                <span id="year_missed"></span><div id="alertyear"></div>
+                <small class="form-text" id="alertyear"></small>
                 <?php
                 if (isset($_GET["year"]))
                 {
@@ -76,7 +74,7 @@ include('select_artist.php');
             <div class="form-group">
                 <label for="inputGenre">Genre</label>
                     <input type="text" class="form-control" id="inputGenre" placeholder="Ajouter le genre du disque" name="genre">
-                <span id="genre_missed"></span><div id="alertgenre"></div>
+                <small class="form-text" id="alertgenre"></small>
                 <?php
                 if (isset($_GET["genre"]))
                 {
@@ -85,11 +83,12 @@ include('select_artist.php');
                     <?php
                 }
                 ?>
+
             </div>
             <div class="form-group">
                 <label for="inputLabel">Label</label>
                     <input type="text" class="form-control" id="inputLabel" placeholder="Ajouter le label" name="label">
-                <span id="label_missed"></span><div id="alertlabel"></div>
+                <small class="form-text" id="alertlabel"></small>
                 <?php
                 if (isset($_GET["label"]))
                 {
@@ -98,11 +97,12 @@ include('select_artist.php');
                     <?php
                 }
                 ?>
+
             </div>
             <div class="form-group">
                 <label for="inputPrice">Price(&nbsp;&euro;&nbsp;)</label>
                     <input type="number" step="any" class="form-control" id="inputPrice" placeholder="Ajouter le prix" name="price" >
-                <span id="price_missed"></span><div id="alertprice"></div>
+                <small class="form-text" id="alertprice"></small>
                 <?php
                 if (isset($_GET["price"]))
                 {
@@ -115,7 +115,7 @@ include('select_artist.php');
             <div class="form-group">
                 <label for="inputFile">Picture</label>
                     <input type="file" class="form-control-file" id="inputFile" name="userfile">
-                <span id="file_missed"></span><div id="alertfile"></div>
+                <small class="form-text" id="alertpicture"></small>
                 <?php
                 if (isset($_GET["image"]))
                 {
