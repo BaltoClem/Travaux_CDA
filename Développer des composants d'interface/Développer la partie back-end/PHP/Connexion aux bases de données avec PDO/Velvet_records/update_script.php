@@ -2,123 +2,143 @@
 
 include("process.php");
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Vérifie si le fichier a été uploadé sans erreur.
-    if (isset($_FILES["userfile"]) && $_FILES["userfile"]["error"] == 0) {
-        $allowed = array("jpg" => "image/jpg", "jpeg" => "image/jpeg", "gif" => "image/gif", "png" => "image/png");
-        $filename = $_FILES["userfile"]["name"];
-        $filetype = $_FILES["userfile"]["type"];
-        $filesize = $_FILES["userfile"]["size"];
+if (isset ($_POST['valid_edit'])){
 
-        // Vérifie l'extension du fichier
-        $ext = pathinfo($filename, PATHINFO_EXTENSION);
-        if (!array_key_exists($ext, $allowed)) die("Erreur : Veuillez sélectionner un format de fichier valide.");
+/////////////////////////////////////////////DECLARATION REGEX//////////////////////////////////////////////////////////
 
-        // Vérifie la taille du fichier - 5Mo maximum
-        $maxsize = 5 * 1024 * 1024;
-        if ($filesize > $maxsize) die("Error: La taille du fichier est supérieure à la limite autorisée.");
+    $yearPattern = "/^(?:(?:19|20)[0-9]{2})$/";
+    $pricePattern = "/^[0-9]{1,3}(,[0-9]{3})*(([\\.,]{1}[0-9]*)|())$/";
 
-        // Vérifie le type MIME du fichier
-        if (in_array($filetype, $allowed)) {
-            // Vérifie si le fichier existe avant de le télécharger.
-            if (file_exists("assets/pictures/" . $_FILES["userfile"]["name"])) {
-                echo $_FILES["userfile"]["name"] . " existe déjà.";
-            } else {
-                move_uploaded_file($_FILES["userfile"]["tmp_name"], "assets/pictures/" . $_FILES["userfile"]["name"]);
-                echo "Votre fichier a été téléchargé avec succès.";
-            }
-        } else {
-            echo "Error: Il y a eu un problème de téléchargement de votre fichier. Veuillez réessayer.";
-        }
-    }
-}
-
-// METTRE LA REQUETE APRES LA CONDITION DE TELECHARGEMENT POUR EVITER LES ERREURS PHP
-
-$pdoStat = $db->prepare("UPDATE disc 
+////////////////////////////////////////////TABLEAU ERREUR /////////////////////////////////////////////////////////////
+    $formError = [];
+///////////////////////////////////////////REQUETE PREPAREE/////////////////////////////////////////////////////////////
+    $pdoStat = $db->prepare("UPDATE disc 
                                 SET disc_id=:disc_id,disc_title=:disc_title, disc_year=:disc_year, 
                                 disc_picture=:disc_picture, disc_label=:disc_label, disc_genre=:disc_genre, 
                                 disc_price=:disc_price, artist_id=:artist_id
                                 WHERE disc_id=:disc_id");
 
-/////////////////////////////////////////////// Conditions pour le TITRE ///////////////////////////////////////////////
 
-if($_POST['title'] != "") {
-    $pdoStat->bindValue(':disc_title', $_POST['title'], PDO::PARAM_STR);
-}
-else{
-    echo "Erreur: Veuillez renseigner le titre de l'album";
-    echo "<br>";
-    header("Refresh:3;url=update_form.php?disc_id=".$_POST['discId']);
-}
+/////////////////////////////////////////////// CONDITIONS D'INSERTION /////////////////////////////////////////////////
 
-/////////////////////////////////////////////// Conditions pour l'ANNEE ////////////////////////////////////////////////
-
-if($_POST['year'] != "" && preg_match("/^(19|[2-9][0-9])\d{2}$/", $_POST['year'])){
-    $pdoStat->bindValue(':disc_year', $_POST['year'], PDO::PARAM_INT);
+/* Titre */
+if(!empty($_POST['title'])) {
+    $title = $_POST['title'];
 }
-else{
-    echo "Erreur: Année de parution manquante ou invalide";
-    echo "<br>";
-    header("Refresh:3;url=update_form.php?disc_id=".$_POST['discId']);
+else {
+    $formError['title'] = 'title=true';
 }
 
-/////////////////////////////////////////////// Conditions pour l'ALBUM ////////////////////////////////////////////////
-
-if(isset($filename)){
-$pdoStat->bindValue(':disc_picture', $filename, PDO::PARAM_STR);
-}
-else{
-    $pdoStat->bindValue(':disc_picture', $_POST['picture'], PDO::PARAM_STR);
-}
-
-/////////////////////////////////////////////// Conditions pour le LABEL ///////////////////////////////////////////////
-
-if($_POST['label'] != ""){
-    $pdoStat->bindValue(':disc_label', $_POST['label'], PDO::PARAM_STR);
-}
-else{
-    echo "Erreur: Veuillez renseigner un label";
-    echo "<br>";
-    header("Refresh:3;url=update_form.php?disc_id=".$_POST['discId']);
-}
-
-/////////////////////////////////////////////// Conditions pour le GENRE ///////////////////////////////////////////////
-
-if($_POST['genre'] != "") {
-    $pdoStat->bindValue(':disc_genre', $_POST['genre'], PDO::PARAM_STR);
-}
-else{
-    echo "Erreur: Veuillez renseigner un genre";
-    echo "<br>";
-    header("Refresh:3;url=update_form.php?disc_id=".$_POST['discId']);
-}
-
-
-/////////////////////////////////////////////// Conditions pour le PRIX ////////////////////////////////////////////////
-if($_POST['price'] != "" && preg_match("/^[0-9]{1,3}(,[0-9]{3})*(([\\.,]{1}[0-9]*)|())$/", $_POST['price'])){
-    $pdoStat->bindValue(':disc_price', $_POST['price'], PDO::PARAM_STR);
-}
-else{
-    echo "Erreur: Prix manquant ou incorrect";
-    echo "<br>";
-    header("Refresh:3;url=update_form.php?disc_id=".$_POST['discId']);
-}
-
-/////////////////////////////////////////////// Conditions pour l'ARTISTE //////////////////////////////////////////////
-
+/*Artiste*/
 if(isset($_POST['artist'])) {
-    $pdoStat->bindValue(':artist_id', $_POST['artist'], PDO::PARAM_INT);
+    $artist = $_POST['artist'];
+}
+else {
+    $formError['artist'] = 'artist=true';
+
+}
+
+/* Année */
+if(isset($_POST['year'])) {
+    if(preg_match($yearPattern, $_POST['year'])){
+        $year = $_POST['year'];
+    }
+    else{
+        $formError['year'] = "year=true";
+
+    }
+}
+else {
+    $formError['year'] = 'year=true';
+
+}
+
+/* Genre */
+if(!empty($_POST['genre'])) {
+    $genre = $_POST['genre'];
+}
+else {
+    $formError['genre'] = 'genre=true';
+
+}
+
+/* Label */
+if(!empty($_POST['label'])) {
+    $label = $_POST['label'];
+}
+else {
+    $formError['label'] = 'label=true';
+
+}
+
+/* Prix */
+if(isset($_POST['price'])) {
+    if(preg_match($pricePattern, $_POST['price'])){
+        $prix = $_POST['price'];
+    }
+    else{
+        $formError['price'] = 'price=true';
+
+    }
+}
+else {
+    $formError['price'] = 'price=true';
+
+}
+
+/* Image */
+
+// Vérifie si le fichier a été uploadé sans erreur.
+if (!empty($_FILES["userfile"]) && $_FILES["userfile"]["error"] == 0) {
+    $allowed = array("jpg" => "image/jpg", "jpeg" => "image/jpeg", "gif" => "image/gif", "png" => "image/png");
+    $filename = $_FILES["userfile"]["name"];
+    $filetype = $_FILES["userfile"]["type"];
+    $filesize = $_FILES["userfile"]["size"];
+
+    // Vérifie l'extension du fichier
+    $ext = pathinfo($filename, PATHINFO_EXTENSION);
+    if (!array_key_exists($ext, $allowed)) {
+        $formError['image'] = "image=true";};
+
+    // Vérifie la taille du fichier - 5Mo maximum
+    $maxsize = 5 * 1024 * 1024;
+    if ($filesize > $maxsize) {
+        $formError['image'] = "image=true";};
+
+    // Vérifie le type MIME du fichier
+    if (in_array($filetype, $allowed)) {
+        // Vérifie si le fichier existe avant de le télécharger.
+        if (file_exists("assets/pictures/" . $_FILES["userfile"]["name"])) {
+            $image = $filename;
+        } else {
+            move_uploaded_file($_FILES["userfile"]["tmp_name"], "assets/pictures/" . $_FILES["userfile"]["name"]);
+            $image = $filename;
+        }
+    }
 }
 else{
-    echo "Erreur: Veuillez renseigner un artiste";
-    echo "<br>";
-    header("Refresh:3;url=update_form.php?disc_id=".$_POST['discId']);
-    exit();
+    $image = $_POST['picture'];
 }
 
-$pdoStat->bindValue(':disc_id', $_POST['discId'], PDO::PARAM_INT);
+$id = $_POST['discId'];
 
-$pdoStat->execute();
+if(count($formError) === 0) {
 
-header("Location:index.php");
+    $pdoStat->bindValue(':disc_id', $id, PDO::PARAM_STR);
+    $pdoStat->bindValue(':disc_title', $title, PDO::PARAM_STR);
+    $pdoStat->bindValue(':artist_id', $artist, PDO::PARAM_INT);
+    $pdoStat->bindValue(':disc_year', $year, PDO::PARAM_INT);
+    $pdoStat->bindValue(':disc_genre', $genre, PDO::PARAM_STR);
+    $pdoStat->bindValue(':disc_label', $label, PDO::PARAM_STR);
+    $pdoStat->bindValue(':disc_price', $prix, PDO::PARAM_STR);
+    $pdoStat->bindValue(':disc_picture', $image, PDO::PARAM_STR);
+
+    $pdoStat->execute();
+    header("Location:index.php");
+}
+else{
+    $sUrl = implode("&", $formError);//On regroupe toutes les erreurs
+    header("Location:update_form.php?disc_id=".$id."&".$sUrl);//On affiche les erreurs dans le formulaire add_form.php
+    exit;
+}
+}

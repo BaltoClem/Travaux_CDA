@@ -3,6 +3,7 @@ $(document).ready(function(){
     var resultat = true;
     var regYear = /^(?:(?:19|20)[0-9]{2})$/;
     var regPrice = /^[0-9]{1,3}(,[0-9]{3})*(([\\.,]{1}[0-9]*)|())$/;
+    var regFile = /(.jpg|.jpeg|.png|.gif)$/i;;
 
    $('#form').submit(function(){
    resultat=true;
@@ -53,7 +54,7 @@ $(document).ready(function(){
 
             resultat = false;
         }
-       if(document.getElementById("inputFile").value === ""){
+       if(document.getElementById("inputFile").value.length === 0){
            $('#inputPicture').addClass('is-invalid');
            $('#alertpicture').text('Ce champ est requis').css("color", "#FF0000");
            resultat = false;
@@ -61,6 +62,10 @@ $(document).ready(function(){
        else if(document.getElementById("inputFile").size > 5 * 1024 * 1024){
            $('#inputPicture').addClass('is-invalid');
            $('#alertpicture').text('Taille trop grande').css("color", "#FF0000");
+       }
+       else if(regFile.test($('#inputFile').val())=== false){
+               $('#inputPicture').addClass('is-invalid');
+               $('#alertpicture').text('Type de fichier non autorisé').css("color", "#FF0000");
 
            resultat = false;
        }
@@ -125,8 +130,9 @@ $(document).ready(function(){
             $('#alertprice').text('');
         }
     });
-    $('#inputPicture').change(function(){
-        if(document.getElementById("inputFile").value === ""){
+    $('input[type="file"]').change(function(e){
+        var file = e.target.files[0].name;
+        if(file.value === null){
             $('#alertpicture').text('Ce champ est requis').css("color", "#FF0000");
         }else{
             $('#alertpicture').text('');

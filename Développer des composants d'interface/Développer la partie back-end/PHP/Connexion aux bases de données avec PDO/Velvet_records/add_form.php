@@ -83,7 +83,6 @@ include('select_artist.php');
                     <?php
                 }
                 ?>
-
             </div>
             <div class="form-group">
                 <label for="inputLabel">Label</label>
@@ -97,7 +96,6 @@ include('select_artist.php');
                     <?php
                 }
                 ?>
-
             </div>
             <div class="form-group">
                 <label for="inputPrice">Price(&nbsp;&euro;&nbsp;)</label>
