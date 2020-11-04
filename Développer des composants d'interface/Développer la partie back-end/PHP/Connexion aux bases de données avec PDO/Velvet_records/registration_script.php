@@ -61,7 +61,6 @@ if(count($formError) === 0) {
 
 //Insertion du nouvel utilisateur
     $new_user->execute();
-
     header("Location:index.php");
 }else{
 $sUrl = implode("&", $formError);//On regroupe toutes les erreurs

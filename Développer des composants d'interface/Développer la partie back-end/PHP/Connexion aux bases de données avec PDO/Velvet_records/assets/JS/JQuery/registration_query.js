@@ -3,7 +3,7 @@ $(document).ready(function(){
     //////////////////////////////////////////////////REGEX/////////////////////////////////////////////////////////////////
 
     var resultat = true;
-    var regPassword = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
+    var regPassword = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[-+!?$@%_])([-+!?$@%_\w]{8,15})$/;
 
     /////////////////////////////////////////CONDITIONS DE VALIDATION///////////////////////////////////////////////////////
 
@@ -26,6 +26,7 @@ $(document).ready(function(){
                 $('#alertpassword').text('Le mot de passe est trop faible').css("color", "#FF702D");
                 resultat = false;
             }
+
         if($('#inputConfPassword').val() === ""){
             $('#inputConfPassword').attr('placeholder', 'Confirmation de mot de passe manquante').addClass('is-invalid');
             $('#alertconfpassword').text('Ce champ est requis').css("color", "#FF0000");
