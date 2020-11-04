@@ -26,7 +26,7 @@ $requete_art->closeCursor();
     </div>
     <br>
     <form enctype="multipart/form-data" method="post" action="update_script.php" id="form_up">
-        <input type="text" value="<?= $tableau_edit->disc_id ?>" name="discId">
+        <input type="hidden" value="<?= $tableau_edit->disc_id ?>" name="discId">
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="inputTitle">Title</label>
@@ -153,3 +153,5 @@ $requete_art->closeCursor();
 include("footer.php");
 ?>
 </div>
+
+            <script src="assets/JS/JQuery/update_query.js"></script>

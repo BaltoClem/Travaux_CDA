@@ -1,70 +1,73 @@
-function verif() {
+$(document).ready(function(){
 
-    ///////////////////////////////////////////////////////////EMAIL////////////////////////////////////////////////////
+    //////////////////////////////////////////////////REGEX/////////////////////////////////////////////////////////////////
 
-    var title = $("#inputTitle").val();
+    var resultat = true;
+    var regPassword = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
 
-    if (title === "") {
-        $("#title_missed").empty();
-        $("#inputTitle").css("border-color", "#FF0000");
-        var html = "<div class='alert alert-danger'role='alert'>Vous n'avez pas renseigné votre email !</div>";
-        $("#title_missed").append(html);
-    }
+    /////////////////////////////////////////CONDITIONS DE VALIDATION///////////////////////////////////////////////////////
 
-    else {
-        $("#title_missed").empty();
-        $("#inputTitle").css("border-color", "#008000");
-        var html = "<div class='alert alert-success'role='alert'>Ok !</div>";
-        $("#alerttitle").append(html);
+    $('#form_registr').submit(function(){
 
-    }
-    ///////////////////////////////////////////////////////////PASSWORD////////////////////////////////////////////////////
+        resultat=true;
 
-    var artist = $("#inputArtist").val();
-    //var reg1 = /^[0-9]+$/;
+        if($('#inputEmail').val() === ""){
+            $('#inputEmail').attr('placeholder', 'Email manquant').addClass('is-invalid');
+            $('#alertemail').text('Ce champ est requis').css("color", "#FF0000");
+            resultat = false;
+        }
+        if($('#inputPassword').val() === "") {
+            $('#inputPassword').attr('placeholder', 'Mot de passe manquant').addClass('is-invalid');
+            $('#alertpassword').text('Ce champ est requis').css("color", "#FF0000");
+            resultat = false;
+        }
+        else if(regPassword.test($('#inputPassword').val()) === false){
+                $('#inputPassword').attr('placeholder', 'Mot de passe invalide').addClass('is-invalid');
+                $('#alertpassword').text('Le mot de passe est trop faible').css("color", "#FF702D");
+                resultat = false;
+            }
+        if($('#inputConfPassword').val() === ""){
+            $('#inputConfPassword').attr('placeholder', 'Confirmation de mot de passe manquante').addClass('is-invalid');
+            $('#alertconfpassword').text('Ce champ est requis').css("color", "#FF0000");
+            resultat = false;
+        }
+        if($('#inputPassword').val() !== $('#inputConfPassword').val()){
+            $('#inputPassword').addClass('is-invalid');
+            $('#alertpassword').text('Mots de passe différents').css("color", "#FF0000");
+            $('#inputConfPassword').addClass('is-invalid');
+            $('#alertconfpassword').text('Mots de passe différents').css("color", "#FF0000");
+        }
 
-    if (artist === null) {
-        $("#artist_missed").empty();
-        $("#inputArtist").css("border-color", "#FF0000");
-        var html = "<div class='alert alert-danger'role='alert'>Vous n'avez pas renseigné votre mot de passe !</div>";
-        $("#artist_missed").append(html);
-    }
+        return resultat;
+    });
 
-    else {
-        $("#artist_missed").empty();
-        $("#inputArtist").css("border-color", "#008000");
-        var html = "<div class='alert alert-success'role='alert'>Ok !</div>";
-        $("#alertartist").append(html);
-    }
-    ///////////////////////////////////////////////////////////PASSWORD////////////////////////////////////////////////////
+////////////////////////////////////////////////MAJ INPUT SI REECRITURE/////////////////////////////////////////////////
 
-    var year = $("#inputYear").val();
-
-    if (year === "") {
-        $("#year_missed").empty();
-        $("#inputYear").css("border-color", "#FF0000");
-        var html = "<div class='alert alert-danger'role='alert'>Vous n'avez pas confirmé votre mot de passe !</div>";
-        $("#year_missed").append(html);
-    }
-    else {
-        $("#year_missed").empty();
-        $("#inputYear").css("border-color", "#008000");
-        var html = "<div class='alert alert-success'role='alert'>Ok !</div>";
-        $("#alertyear").append(html);
-    }
-
-    document.forms[0].submit();
-}
-
-$("#registr_button").click(function(event)
-{
-    /* On doit bloquer l'èvènement par défaut - ici l'envoi du formulaire -
-    * avec l'instruction preventDefault()
-    * le paramètre 'event' est un objet (nommé
-    * librement) représentant l'évènement
-    */
-    event.preventDefault();
-
-    // Appel de la fonction verif()
-    verif();
+    $('#inputEmail').keyup(function(){
+        if($('#inputEmail').val()===""){
+            $('#inputEmail').attr('placeholder', 'Email manquant').addClass('is-invalid');
+            $('#alertemail').text('Ce champ est requis').css("color", "#FF0000");
+        }else{
+            $('#inputEmail').removeClass('is-invalid');
+            $('#alertemail').text('');
+        }
+    });
+    $('#inputPassword').keyup(function(){
+        if($('#inputPassword').val()===""){
+            $('#inputPassword').attr('placeholder', 'Mot de passe manquant').addClass('is-invalid');
+            $('#alertpassword').text('Ce champ est requis').css("color", "#FF0000");
+        }else{
+            $('#inputPassword').removeClass('is-invalid');
+            $('#alertpassword').text('');
+        }
+    });
+    $('#inputConfPassword').keyup(function(){
+        if($('#inputConfPassword').val()===""){
+            $('#inputConfPassword').attr('placeholder', 'Confirmation de mot de passe manquante').addClass('is-invalid');
+            $('#alertconfpassword').text('Ce champ est requis').css("color", "#FF0000");
+        }else{
+            $('#inputConfPassword').removeClass('is-invalid');
+            $('#alertconfpassword').text('');
+        }
+    });
 });

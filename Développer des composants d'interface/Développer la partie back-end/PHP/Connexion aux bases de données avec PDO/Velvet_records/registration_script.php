@@ -2,49 +2,70 @@
 
 include("process.php");
 
-$block = false;
-$role = "user";
+if (isset($_POST['valid_registr'])){
 
+/////////////////////////////////////////////DECLARATION REGEX//////////////////////////////////////////////////////////
+
+    $passwordPattern = "/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/";
+
+/////////////////////////////////////////////DECLARATION VARIABLES//////////////////////////////////////////////////////////
+
+    $email = $_POST['email'];
+    $block = false;
+    $role = "user";
+    $password_hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
+
+////////////////////////////////////////////TABLEAU ERREUR /////////////////////////////////////////////////////////////
+
+    $formError = [];
+
+///////////////////////////////////////////REQUETES PREPAREES/////////////////////////////////////////////////////////////
+
+    /*Requête d'insertion nouvel utilisateur*/
 $new_user = $db->prepare("INSERT INTO users(user_email, user_password, user_role, user_block)
                                 VALUES(:user_email, :user_password, :user_role, :user_block)");
 
-$password_hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
-
-//Vérification d'un email déjà existant
-
-$email = $_POST['email'];
+    /* Requête de recherche d'un utilisateur déjà existant */
 $stmt = $db->prepare("SELECT * FROM users WHERE user_email=?");
 $stmt->execute([$email]);
 $user = $stmt->fetch();
+
+/////////////////////////////////////////////// CONDITIONS D'INSERTION /////////////////////////////////////////////////
+
+//Vérification d'un email déjà existant
+
     if ($user) {
-        echo "L'adresse email existe déjà";
+        $formError['emailExists'] = "Emaile=true";
     }
-    elseif($_POST['email'] ===""){
-        echo "Adresse email manquante";
-    }
-    else{
-    $new_user->bindValue(':user_email', $_POST['email'], PDO::PARAM_STR);
+    elseif(empty($_POST['email'])){
+        $formError['emailEmpty'] = "Emailm=true";
     }
 
 //Comparaison de mots de passe et vérification de robustesse
 
     if($_POST['password'] != $_POST['confirmPassword']){
-        echo "Mots de passe différents";
-
+        $formError['password'] = "passwordD=true";
     }
-    elseif(preg_match("/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/", ($_POST["password"])) && $_POST["password"] != ""){
-
-        $new_user->bindValue(':user_password', $password_hash, PDO::PARAM_STR);
+    elseif(!preg_match($passwordPattern, ($_POST["password"])) || empty($_POST["password"])){
+        $formError['password'] = "passwordW=true";
     }
     else{
-        echo "Mot de passe manquant ou trop faible";
-        exit();
+        $password = $password_hash;
     }
 
-$new_user->bindValue(':user_block', $block, PDO::PARAM_BOOL);
-$new_user->bindValue(':user_role', $role, PDO::PARAM_STR);
+if(count($formError) === 0) {
+    $new_user->bindValue(':user_email', $email, PDO::PARAM_STR);
+    $new_user->bindValue(':user_password', $password, PDO::PARAM_STR);
+    $new_user->bindValue(':user_block', $block, PDO::PARAM_BOOL);
+    $new_user->bindValue(':user_role', $role, PDO::PARAM_STR);
 
 //Insertion du nouvel utilisateur
-$new_user->execute();
+    $new_user->execute();
 
-header("Location:index.php");
+    header("Location:index.php");
+}else{
+$sUrl = implode("&", $formError);//On regroupe toutes les erreurs
+header("Location:registration_form.php?".$sUrl);//On affiche les erreurs dans le formulaire add_form.php
+exit;
+}
+}

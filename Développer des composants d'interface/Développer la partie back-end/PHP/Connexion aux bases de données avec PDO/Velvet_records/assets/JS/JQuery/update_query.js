@@ -9,13 +9,13 @@ $(document).ready(function(){
 
 /////////////////////////////////////////CONDITIONS DE VALIDATION///////////////////////////////////////////////////////
 
-   $('#form').submit(function(){
-   resultat=true;
-       if($('#inputTitle').val() === ""){
-           $('#inputTitle').attr('placeholder', 'Titre manquant').addClass('is-invalid');
+    $('#form_up').submit(function(){
+        resultat=true;
+        if($('#inputTitle').val() === ""){
+            $('#inputTitle').attr('placeholder', 'Titre manquant').addClass('is-invalid');
             $('#alerttitle').text('Ce champ est requis').css("color", "#FF0000");
-           resultat = false;
-       }
+            resultat = false;
+        }
         if($('#inputArtist').val() === null){
             $('#inputArtist').addClass('is-invalid');
             $('#alertartist').text('Ce champ est requis').css("color", "#FF0000");
@@ -58,22 +58,18 @@ $(document).ready(function(){
 
             resultat = false;
         }
-       if(document.getElementById("inputFile").value.length === 0){
-           $('#inputPicture').addClass('is-invalid');
-           $('#alertpicture').text('Ce champ est requis').css("color", "#FF0000");
-           resultat = false;
-       }
-       else if(document.getElementById("inputFile").size > 5 * 1024 * 1024){
-           $('#inputPicture').addClass('is-invalid');
-           $('#alertpicture').text('Taille trop grande').css("color", "#FF0000");
-       }
-       else if(regFile.test($('#inputFile').val())=== false){
-               $('#inputPicture').addClass('is-invalid');
-               $('#alertpicture').text('Type de fichier non autorisé').css("color", "#FF0000");
 
-           resultat = false;
-       }
-       return resultat;
+        if(document.getElementById("inputFile").value.length !== 0 && document.getElementById("inputFile").size > 5 * 1024 * 1024){
+            $('#inputPicture').addClass('is-invalid');
+            $('#alertpicture').text('Taille trop grande').css("color", "#FF0000");
+        }
+        else if(document.getElementById("inputFile").value.length !== 0 && regFile.test($('#inputFile').val())=== false){
+            $('#inputPicture').addClass('is-invalid');
+            $('#alertpicture').text('Type de fichier non autorisé').css("color", "#FF0000");
+
+            resultat = false;
+        }
+        return resultat;
     });
 
 ////////////////////////////////////////////////MAJ INPUT SI REECRITURE/////////////////////////////////////////////////
@@ -134,14 +130,6 @@ $(document).ready(function(){
         }else{
             $('#inputPrice').removeClass('is-invalid');
             $('#alertprice').text('');
-        }
-    });
-    $('input[type="file"]').change(function(e){
-        var file = e.target.files[0].name;
-        if(file.value === null){
-            $('#alertpicture').text('Ce champ est requis').css("color", "#FF0000");
-        }else{
-            $('#alertpicture').text('');
         }
     });
 });
