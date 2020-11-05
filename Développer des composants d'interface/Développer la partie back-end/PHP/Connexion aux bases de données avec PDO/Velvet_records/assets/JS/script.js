@@ -1,29 +1,39 @@
 //Alerte pour suppression
 
-function conf_delete() {
-    Swal.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
-    }).then((result) => {
-        if (result.isConfirmed) {
-            Swal.fire(
-                'Deleted!',
-                'Your file has been deleted.',
-                'success'
-            )
-        }
+function validateDelete() {
+    event.preventDefault(); //prevent form submit
+    var form = document.forms["myForm"]; //storing the form
+    swal({
+        title: "Etes-vous sûr ?",
+        text: "En cas d'annulation, votre vinyle ne sera pas supprimé!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
     })
+        .then((willDelete) => {
+            if (willDelete) {
+                form.submit();
+            } else {
+                swal({
+                    text:"Le vinyle n'a pas été supprimé!",
+                    icon: "success"
+                });
+            }
+        });
 }
 
-function conf_add() {
-    Swal.fire({
-        icon: 'success',
-        title: 'Great !',
-        text: 'A new disc appears in the list!'
-    })
+//Alerte pour confirmation d'ajout de vinyle
+
+function validateAdd() {
+    var formadd = document.forms["add_form"]; //storing the form
+    swal({
+        icon: "success",
+        text: "Votre vinyle a bien été ajouté !",
+        buttons: false,
+        timer: 3000
+    }).then((willAdd) => {
+        if (willAdd) {
+            formadd.submit();
+        }
+    });
 }

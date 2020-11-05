@@ -124,7 +124,7 @@ include('select_artist.php');
                 ?>
             </div>
             <div class="row justify-content-center">
-                <input type="submit" class="btn btn-success" name="valid_add" id="add_button" value="Valider">
+                <input type="submit" class="btn btn-success" name="valid_add" onclick="validateAdd()" id="add_button" value="Valider">
                 <a href="index.php"><button type="button" class="btn btn-secondary ml-4">Retour</button></a>
             </div>
             <br>

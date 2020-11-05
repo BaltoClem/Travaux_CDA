@@ -11,12 +11,18 @@ $(document).ready(function() {
         resultat = true;
 
         if ($('#inputPassword').val() === "") {
-            $('#inputPassword').attr('placeholder', 'Email manquant').addClass('is-invalid');
+            $('#inputPassword').attr('placeholder', 'Mot de passe manquant').addClass('is-invalid');
             $('#alertpassword').text('Ce champ est requis').css("color", "#FF0000");
             resultat = false;
         }
+        else if(regPassword.test($('#inputPassword').val()) === false){
+                $('#inputPassword').attr('placeholder', 'Mot de passe invalide').addClass('is-invalid');
+                $('#alertpassword').text('Le format est invalide').css("color", "#FF702D");
+
+                resultat = false;
+            }
         if ($('#inputConfPassword').val() === "") {
-            $('#inputConfPassword').attr('placeholder', 'Email manquant').addClass('is-invalid');
+            $('#inputConfPassword').attr('placeholder', 'Confirmation de mot de passe manquante').addClass('is-invalid');
             $('#alertconfpassword').text('Ce champ est requis').css("color", "#FF0000");
             resultat = false;
         }

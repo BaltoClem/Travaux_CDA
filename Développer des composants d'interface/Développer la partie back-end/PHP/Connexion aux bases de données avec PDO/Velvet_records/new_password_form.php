@@ -67,3 +67,4 @@ include('footer.php');
 ?>
 
     <script src="assets/JS/JQuery/new_password.js"></script>
+
