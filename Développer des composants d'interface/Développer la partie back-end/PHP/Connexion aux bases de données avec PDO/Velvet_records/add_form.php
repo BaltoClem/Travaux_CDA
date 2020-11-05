@@ -135,4 +135,4 @@ include('select_artist.php');
 <?php
 include("footer.php");
 ?>
-        <script src="assets/JS/JQuery/add_query.js"></script>
+        <script src="assets/JS/JQuery/add.js"></script>

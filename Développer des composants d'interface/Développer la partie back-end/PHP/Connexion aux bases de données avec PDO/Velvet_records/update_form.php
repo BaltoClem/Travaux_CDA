@@ -154,4 +154,4 @@ include("footer.php");
 ?>
 </div>
 
-            <script src="assets/JS/JQuery/update_query.js"></script>
+            <script src="assets/JS/JQuery/update.js"></script>

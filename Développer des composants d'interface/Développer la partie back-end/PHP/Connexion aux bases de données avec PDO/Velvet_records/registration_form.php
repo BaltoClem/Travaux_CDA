@@ -73,4 +73,4 @@ include('header.php');
 
     ?>
 
-    <script src="assets/JS/JQuery/registration_query.js"></script>
+    <script src="assets/JS/JQuery/registration.js"></script>

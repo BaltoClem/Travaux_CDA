@@ -28,10 +28,10 @@ if(isset($_GET["tries"]))
     <div class="row justify-content-center">
         <div class="h3">Authentification</div>
     </div>
-    <form action="login_script.php" method="post">
+    <form action="login_script.php" method="post" id="login_form">
         <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+            <label for="inputEmail">Email address</label>
+            <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" name="email">
             <small class="form-text" id="alertemail"></small>
             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
             <?php
@@ -50,14 +50,20 @@ if(isset($_GET["tries"]))
             ?>
         </div>
         <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+            <label for="inputPassword">Password</label>
+            <input type="password" class="form-control" id="inputPassword" name="password">
             <small class="form-text" id="alertpassword"></small>
             <?php
             if(isset($_GET["empty"]))
             {
                 ?>
                 <div class="alert alert-danger">Vous n'avez pas renseigné votre mot de passe</div>
+                <?php
+            }
+            elseif(isset($_GET["pwrong"]))
+            {
+                ?>
+                <div class="alert alert-danger">Mot de passe invalide</div>
                 <?php
             }
             ?>
@@ -76,3 +82,4 @@ if(isset($_GET["tries"]))
 include('footer.php');
 
 ?>
+    <script src="assets/JS/JQuery/login.js"></script>

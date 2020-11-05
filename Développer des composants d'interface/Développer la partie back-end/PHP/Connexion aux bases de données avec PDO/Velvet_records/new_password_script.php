@@ -2,36 +2,59 @@
 
 include('process.php');
 
-$userMail = $_POST['email'];
+if (isset ($_POST['new_password_valid'])){
 
-//Tentative de vérification d'un mot de passe déjà
-//$userSearch = $db->prepare("SELECT * FROM users WHERE user_email=:user_email");
-//$userSearch->bindValue(":user_email", $userMail,PDO::PARAM_STR);
-//$userSearch->fetch(PDO::FETCH_OBJ);
-//
-//if(password_verify($_POST['password'], $userSearch->user_password)){};
+/////////////////////////////////////////////DECLARATION REGEX//////////////////////////////////////////////////////////
 
-$new_password = $db->prepare("UPDATE users SET user_password=:user_password WHERE user_email=:user_email");
+    $passwordPattern = "/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[-+!?$@%_])([-+!?$@%_\w]{8,15})$/";
 
-$new_password->bindValue(':user_email', $userMail,PDO::PARAM_STR);
+///////////////////////////////////////////DECLARATION DE VARIABLES/////////////////////////////////////////////////////
 
-$password_hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
-if($_POST['password'] === "" || $_POST['confPassword'] === ""){
-    echo "Votre mot de passe doit être renseigné";
-    exit();
-}
-    elseif($_POST['password'] != $_POST['confPassword']){
-        echo "Mots de passe différents";
-        exit();
+    $userMail = $_POST['email'];
+    $password_hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
+
+////////////////////////////////////////////TABLEAU ERREUR /////////////////////////////////////////////////////////////
+    $formError = [];
+
+///////////////////////////////////////////REQUETE PREPAREE/////////////////////////////////////////////////////////////
+
+    $new_password = $db->prepare("UPDATE users SET user_password=:user_password WHERE user_email=:user_email");
+
+/////////////////////////////////////////////////CONDITIONS DE VALIDATION///////////////////////////////////////////////
+
+    //Si un input n'est pas rempli
+    if(empty($_POST['password'])){
+        $formError['input_missed'] = "input_m=true";
     }
-        elseif(preg_match("/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/", ($_POST["password"]))){
 
-            $new_password->bindValue(':user_password', $password_hash, PDO::PARAM_STR);
-        }
-else{
-    echo "Mot de passe trop faible";
-    exit();
+    if(empty($_POST['confPassword'])) {
+        $formError['input_missed_c'] = "input_mc=true";
+    }
+
+    //Si les mots de passe sont différents
+    if($_POST['password'] != $_POST['confPassword']){
+        $formError['pass_diff'] = "password_d=true";
+    }
+
+    //Si le mot de passe ne respecte pas la regex
+    if(!preg_match("/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/", ($_POST["password"]))){
+        $formError['pass_inv'] = "password_i=true";
+    }
+    else{
+        $password_v = $password_hash;
+    }
+
+    if(count($formError) === 0) {
+        $new_password->bindValue(':user_password', $password_v, PDO::PARAM_STR);
+        $new_password->bindValue(':user_email', $userMail, PDO::PARAM_STR);
+        $new_password->execute();
+        header('Location:index.php');
+    }
+    else{
+        $sUrl = implode("&", $formError);//On regroupe toutes les erreurs
+        header("Location:new_password_form.php?".$sUrl);//On affiche les erreurs dans le formulaire add_form.php
+        exit;
+    }
 }
 
-$new_password->execute();
-header('Refresh:2;url=index.php');
+
