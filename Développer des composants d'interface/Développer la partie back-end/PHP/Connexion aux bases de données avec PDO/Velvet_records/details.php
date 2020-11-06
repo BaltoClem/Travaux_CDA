@@ -52,7 +52,6 @@ $requete_detail->closeCursor();
             <div class="form-group col-md-6">
                 <label for="inputPrice">Price&nbsp;(&euro;)</label>
                 <input type="number" class="form-control" id="inputPrice" value="<?= $tableau_detail->disc_price ?>" readonly>
-                <input type="hidden" value="<%= alldata[i]._id %>" name="std_id">
             </div>
         </div>
         <div class="row justify-content-center m-3">

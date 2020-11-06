@@ -12,11 +12,15 @@ function validateDelete() {
     })
         .then((willDelete) => {
             if (willDelete) {
+                swal({
+                    text:"Le vinyle a été supprimé!",
+                    icon: "success"
+                });
                 form.submit();
             } else {
                 swal({
                     text:"Le vinyle n'a pas été supprimé!",
-                    icon: "success"
+                    icon: "error"
                 });
             }
         });
