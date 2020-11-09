@@ -16,7 +16,10 @@ class ProfilController extends AbstractController
      */
     public function detail() :Response
     {
+        $info = ['lastname' => 'Loper', 'firstname' => 'Dave', 'email' => 'daveloper@code.dom', 'birthdate' => '01/01/1970'];
         // affichage de la page d'accueil
-        return $this->render('profil/detail.html.twig');
+        return $this->render('profil/detail.html.twig', [
+            'informations' => $info
+        ]);
     }
 }
