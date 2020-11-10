@@ -2,6 +2,8 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use phpDocumentor\Reflection\Types\Boolean;
+use phpDocumentor\Reflection\Types\Integer;
 
 //@ORM\Table(name="products") : permet de spécifier que la classe Products est associée à la table products
 /**
@@ -26,7 +28,7 @@ class Products
     }
 
     /**
-     * @ORM\Column(name="ProductName", type="string", length=40)
+     * @ORM\Column(name="ProductName", type="string", nullable=false)
      */
     private $name;
 
@@ -42,23 +44,23 @@ class Products
         return $this;
     }
     /**
-     * @ORM\Column(name="SupplierID", type="string", length=40)
+     * @ORM\Column(name="SupplierID", type="integer", length=40)
      */
     private $supplierid;
 
-    public function getSupplierId(): ?string
+    public function getSupplierId(): ?int
     {
         return $this->supplierid;
     }
 
-    public function setSupplierId(string $supplierid): self
+    public function setSupplierId(int $supplierid): self
     {
         $this->supplierid = $supplierid;
 
         return $this;
     }
     /**
-     * @ORM\Column(name="CategoryID", type="string", length=40)
+     * @ORM\Column(name="CategoryID", type="string", length=40, nullable=false)
      */
     private $categoryid;
 
@@ -70,6 +72,122 @@ class Products
     public function setCategoryId(string $categoryid): self
     {
         $this->supplierid = $categoryid;
+
+        return $this;
+    }
+    /**
+     * @ORM\Column(name="QuantityPerUnit", type="string", length=40)
+     */
+    private $quantityUnit;
+
+    public function getQuantityPerUnit(): ?string
+    {
+        return $this->quantityUnit;
+    }
+
+    public function setQuantityPerUnit(string $quantityUnit): self
+    {
+        $this->quantityUnit = $quantityUnit;
+
+        return $this;
+    }
+    /**
+     * @ORM\Column(name="UnitPrice", type="string", length=40)
+     */
+    private $unitPrice;
+
+    public function getUnitPrice(): ?string
+    {
+        return $this->unitPrice;
+    }
+
+    public function setUnitPrice(string $unitPrice): self
+    {
+        $this->unitPrice = $unitPrice;
+
+        return $this;
+    }
+    /**
+     * @ORM\Column(name="UnitsInStock", type="integer", length=40)
+     */
+    private $unitsInStock;
+
+    public function getUnitsInStock(): ?int
+    {
+        return $this->unitsInStock;
+    }
+
+    public function setUnitsInStock(int $unitsInStock): self
+    {
+        $this->unitsInStock = $unitsInStock;
+
+        return $this;
+    }
+    /**
+     * @ORM\Column(name="UnitsOnOrder", type="integer", length=40)
+     */
+    private $unitsOnOrder;
+
+    public function getUnitsOnOrder(): ?string
+    {
+        return $this->unitsOnOrder;
+    }
+
+    public function setUnitsOnOrder(string $unitsOnOrder): self
+    {
+        $this->unitsOnOrder = $unitsOnOrder;
+
+        return $this;
+    }
+    /**
+     * @ORM\Column(name="ReorderLevel", type="integer", length=40)
+     */
+    private $reorderLevel;
+
+    public function getReorderLevel(): ?string
+    {
+        return $this->reorderLevel;
+    }
+
+    public function setReorderLevel(string $reorderLevel): self
+    {
+        $this->reorderLevel = $reorderLevel;
+
+        return $this;
+    }
+    /**
+     * @ORM\Column(name="Discontinued", type="boolean", length=40, nullable=false)
+     */
+    private $discontinued;
+
+    public function getDiscontinued(): ?bool
+    {
+        return $this->discontinued;
+    }
+
+    public function setDiscontinued(boolean $discontinued): self
+    {
+        $this->discontinued = $discontinued;
+
+        return $this;
+    }
+    /**
+     * @var \Suppliers
+     *
+     * @ORM\ManyToOne(targetEntity="Suppliers", inversedBy="products")
+     * @ORM\JoinColumn(name="SupplierId", referencedColumnName="SupplierId")
+     *
+     */
+    private $suppliers;
+
+    public function getSuppliers(): ?Suppliers
+    {
+        return $this->suppliers;
+    }
+
+    public function setSuppliers(?Suppliers $suppliers): self
+    {
+        $this->suppliers = $suppliers;
 
         return $this;
     }

@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row mt-5">
             <div class="col-sm-8 offset-sm-2">
-                <h1>Vos informations</h1>
+                <h1>Vos produits</h1>
                 <table class="table table-light table-hover">
                     <thead>
                     <tr>
@@ -20,16 +20,22 @@
                         <th>Discontinued</th>
                     </tr>
                     </thead>
-                    {% for prod in obj %}
                     <tbody>
+                    {% for prod in obj %}
                     <tr>
-                            <td>{{ prod.id }}</td>
-                            <td>{{ prod.name }}</td>
-                            <td>{{ prod.supplierid }}</td>
-                            <td>{{ prod.categoryid }}</td>
+                        <td>{{ prod.id }}</td>
+                        <td>{{ prod.name }}</td>
+                        <td>{{ prod.suppliers.name }}</td>
+                        <td>{{ prod.categoryid }}</td>
+                        <td>{{ prod.quantityPerUnit }}</td>
+                        <td>{{ prod.unitPrice }}</td>
+                        <td>{{ prod.UnitsInStock }}</td>
+                        <td>{{ prod.UnitsOnOrder }}</td>
+                        <td>{{ prod.reorderLevel }}</td>
+                        <td>{{ prod.discontinued }}</td>
                     </tr>
-                    </tbody>
                     {% endfor %}
+                    </tbody>
                 </table>
             </div>
         </div>
