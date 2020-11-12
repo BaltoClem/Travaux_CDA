@@ -7,11 +7,13 @@ use App\Entity\Suppliers;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Image;
 use Symfony\Component\Validator\Constraints\Regex;
 
 class ProductsType extends AbstractType
@@ -122,7 +124,21 @@ class ProductsType extends AbstractType
                 'label' => 'Nom du fournisseur',
                 'help' => 'Sélectionnez le nom du fournisseur',
                 'placeholder' => 'Nom du fournisseur',
+            ])
+            ->add('picture', FileType::class, [
+                'label' => 'Photo de profil',
+                //unmapped => fichier non associé à aucune propriété d'entité, validation impossible avec les annotations
+                'mapped' => false,
+                // pour éviter de recharger la photo lors de l'édition du profil
+                'required' => false,
+                'constraints' => [
+                    new Image([
+                        'maxSize' => '2000k',
+                        'mimeTypesMessage' => 'Veuillez insérer une photo au format jpg, jpeg ou png'
+                    ])
+                ]
             ]);
+
     }
 
     public function configureOptions(OptionsResolver $resolver)
