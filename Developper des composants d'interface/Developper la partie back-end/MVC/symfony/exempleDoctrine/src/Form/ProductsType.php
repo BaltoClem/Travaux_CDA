@@ -66,7 +66,7 @@ class ProductsType extends AbstractType
                 ],
                 'constraints' => [
                     new Regex([
-                        'pattern' => '/^[1-9]+[.]+[0-9]{4}$/',
+                        'pattern' => '/^[0-9.]+$/',
                         'message' => 'Caratère(s) non valide(s)'
                     ]),
                 ]

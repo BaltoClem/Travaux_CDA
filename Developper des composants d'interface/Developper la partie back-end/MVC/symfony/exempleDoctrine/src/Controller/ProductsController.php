@@ -35,12 +35,19 @@ class ProductsController extends AbstractController
         $product = new Products();
         $form = $this->createForm(ProductsType::class, $product);
         $form->handleRequest($request);
-
+        // Si le formulaire est soumis et valide, alors nous allons utiliser l'objet EntityManager de Doctrine.
+        // Il nous permet d'envoyer et d'aller chercher des objets dans la base de données
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+            //Préparation à la sauvegarde des données saisies
             $entityManager->persist($product);
+            //Pour envoyer les données dans la base, nous utilisons la méthode flush()
             $entityManager->flush();
 
+            $this->addFlash(
+                'success',
+                'Produit ajouté avec succès !!'
+            );
             return $this->redirectToRoute('products_index');
         }
 

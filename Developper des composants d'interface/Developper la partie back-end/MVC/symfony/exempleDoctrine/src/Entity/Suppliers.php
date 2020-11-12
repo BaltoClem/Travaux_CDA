@@ -6,6 +6,7 @@ use App\Repository\SuppliersRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=SuppliersRepository::class)
@@ -21,56 +22,122 @@ class Suppliers
 
     /**
      * @ORM\Column(type="string", length=40)
+     * @Assert\NotBlank(
+     *     message="Veuillez renseigner le nom du fournisseur")
+     * @Assert\Regex(
+     *     pattern="/^[\s\w\#\_\-éèàçâêîôûùäaëïüö]+$/",
+     *     message="Caratère(s) non valide(s)"
+     * )
      */
     private $CompanyName;
 
     /**
      * @ORM\Column(type="string", length=30, nullable=true)
+     * @Assert\NotBlank(
+     *     message="Veuillez renseigner le nom du contact")
+     * @Assert\Regex(
+     *     pattern="/^[\s\w\#\_\-éèàçâêîôûùäaëïüö]+$/",
+     *     message="Caratère(s) non valide(s)"
+     * )
      */
     private $ContactName;
 
     /**
      * @ORM\Column(type="string", length=30, nullable=true)
+     * @Assert\NotBlank(
+     *     message="Veuillez renseigner le titre du contact")
+     * @Assert\Regex(
+     *     pattern="/^[\s\w\#\_\-éèàçâêîôûùäaëïüö]+$/",
+     *     message="Caratère(s) non valide(s)"
+     * )
      */
     private $ContactTitle;
 
     /**
      * @ORM\Column(type="string", length=60, nullable=true)
+     * @Assert\NotBlank(
+     *     message="Veuillez renseigner l'adresse du contact")
+     * @Assert\Regex(
+     *     pattern="/^[\s\w\#\_\-éèàçâêîôûùäaëïüö.0-9]+$/",
+     *     message="Caratère(s) non valide(s)"
+     * )
      */
     private $Address;
 
     /**
      * @ORM\Column(type="string", length=15, nullable=true)
+     * @Assert\NotBlank(
+     *     message="Veuillez renseigner la ville du fournisseur")
+     * @Assert\Regex(
+     *     pattern="/^[\s\w\#\_\-éèàçâêîôûùäaëïüö]+$/",
+     *     message="Caratère(s) non valide(s)"
+     * )
      */
     private $City;
 
     /**
      * @ORM\Column(type="string", length=15, nullable=true)
+     * @Assert\NotBlank(
+     *     message="Veuillez renseigner la région du fournisseur")
+     * @Assert\Regex(
+     *     pattern="/^[\s\w\#\_\-éèàçâêîôûùäaëïüö]+$/",
+     *     message="Caratère(s) non valide(s)"
+     * )
      */
     private $Region;
 
     /**
      * @ORM\Column(type="string", length=10, nullable=true)
+     * @Assert\NotBlank(
+     *     message="Veuillez renseigner le code postal du fournisseur")
+     * @Assert\Regex(
+     *     pattern="/^[\s\w\#\_\-éèàçâêîôûùäaëïüö.0-9]+$/",
+     *     message="Caratère(s) non valide(s)"
+     * )
      */
     private $PostalCode;
 
     /**
      * @ORM\Column(type="string", length=15, nullable=true)
+     * @Assert\NotBlank(
+     *     message="Veuillez renseigner le pays du fournisseur")
+     * @Assert\Regex(
+     *     pattern="/^[\s\w\#\_\-éèàçâêîôûùäaëïüö]+$/",
+     *     message="Caratère(s) non valide(s)"
+     * )
      */
     private $Country;
 
     /**
      * @ORM\Column(type="string", length=24, nullable=true)
+     * @Assert\NotBlank(
+     *     message="Veuillez renseigner le numéro de téléphone du fournisseur")
+     * @Assert\Regex(
+     *     pattern="/^[0-9]+$/",
+     *     message="Caratère(s) non valide(s)"
+     * )
      */
     private $Phone;
 
     /**
      * @ORM\Column(type="string", length=24, nullable=true)
+     * @Assert\NotBlank(
+     *     message="Veuillez renseigner le numéro de fax du fournisseur")
+     * @Assert\Regex(
+     *     pattern="/^[0-9]+$/",
+     *     message="Caratère(s) non valide(s)"
+     * )
      */
     private $Fax;
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     * @Assert\NotBlank(
+     *     message="Veuillez renseigner le numéro de fax du fournisseur")
+     * @Assert\Regex(
+     *     pattern="/^[\s\w\#\_\-éèàçâêîôûùäaëïüö.]+$/",
+     *     message="Caratère(s) non valide(s)"
+     * )
      */
     private $HomePage;
 

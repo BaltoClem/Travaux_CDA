@@ -1,4 +1,5 @@
-{{ form_start(form) }}
+{{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+
 <div class="row">
     <div class="col">
     {{ form_row(form.ProductName) }}
@@ -34,6 +35,6 @@
         {{ form_row(form.Discontinued) }}
     </div>
 </div>
-    <a href="{{ path('products_index') }}">Retour</a>
-    <button class="btn">{{ button_label|default('Sauvegarder') }}</button>
+    <a class="btn btn-info" href="{{ path('products_index') }}">Retour</a>
+    <button class="btn btn-success">{{ button_label|default('Sauvegarder') }}</button>
 {{ form_end(form) }}

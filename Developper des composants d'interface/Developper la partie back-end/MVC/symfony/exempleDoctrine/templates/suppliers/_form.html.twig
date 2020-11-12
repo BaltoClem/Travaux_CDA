@@ -1,0 +1,6 @@
+{{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+    {{ form_widget(form) }}
+    <a class="btn btn-info" href="{{ path('suppliers_index') }}">Retour</a>
+    <button class="btn btn-success
+">{{ button_label|default('Sauvegarder') }}</button>
+{{ form_end(form) }}
