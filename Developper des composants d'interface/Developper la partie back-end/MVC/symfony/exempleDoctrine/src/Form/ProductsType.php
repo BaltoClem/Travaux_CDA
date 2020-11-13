@@ -29,7 +29,7 @@ class ProductsType extends AbstractType
                 ],
                 'constraints' => [
                     new Regex([
-                        'pattern' => '/^[A-Za-zéèàçâêûîôäëüïö\_\-\s]+$/',
+                        'pattern' => '/^[A-Za-zéèàçâêûîôäëüïö\'\_\-\s]+$/',
                         'message' => 'Caratère(s) non valide(s)'
                     ]),
                 ]
