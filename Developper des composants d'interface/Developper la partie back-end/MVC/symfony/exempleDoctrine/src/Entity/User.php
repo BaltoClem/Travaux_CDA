@@ -77,19 +77,23 @@ class User implements UserInterface
     // Méthode qui retourne un tableau des roles des différents utilisateurs
     public function getRoles()
     {
-        // TODO: Implement getRoles() method.
+        if ($this->role == "administrateur")
+            return ["ROLE_ADMIN"];
+        if ($this->role == "client")
+            return ["ROLE_USER"];
+        return [];
     }
 
     // Méthode utiliser pour certaines méthodes de chiffrement
     public function getSalt()
     {
-        // TODO: Implement getSalt() method.
+        return "";
     }
 
     // Méthode qui retourne l'identifiant utiliser pour l'authentification
     public function getUsername()
     {
-        // TODO: Implement getUsername() method.
+        return $this->getEmail();
     }
 
     // Méthode qui permet d'effacer des informations sensibles (mot de passe par exemple) qui aurait pu être stocké dans l'entité.

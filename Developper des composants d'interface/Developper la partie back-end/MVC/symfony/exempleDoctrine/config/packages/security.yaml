@@ -4,6 +4,10 @@ security:
     # On définit ici comment les utilisateurs vont être récupérés (mémoire, base de données, ...)
     providers:
         users_in_memory: { memory: null }
+        from_database:
+            entity:
+                class: App\Entity\User
+                property: email
 
     # On définit ici les composants qui vont permettre d'authentifier les utilisateurs
     firewalls:
@@ -12,8 +16,13 @@ security:
             security: false
         main:
             anonymous: true
-            lazy: true
-            provider: users_in_memory
+            logout:
+                path: /logout
+                target: /
+            form_login:
+                check_path: /login
+                provider: from_database
+                default_target_path: login
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication
@@ -26,8 +35,9 @@ security:
 
     # On définit ici les niveaux d'accès à l'application
     access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/profile, roles: ROLE_USER }
     encoders:
         App\Entity\User:
             algorithm: bcrypt
+            cost : 12

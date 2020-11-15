@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 offset-sm-3">
+                <form action="{{ path('login') }}" method="post">
+                    {#  Par défaut, Symfony reconnait pour l'authentification les propriétés username et password.
+                    Pour correspondre, les name du formulaire doivent contenir ces 2 propriétés.
+                    Le _ devant fait partie de la nomenclature de Symfony.#}
+                    <label for="email">Adresse Mail</label>
+                    <input type="text" id="email" name="_username" class="form-control" value="{{ last_username }}">
+                    <label for="mdp">Mot de passe</label>
+                    <input type="password" id="mdp" name="_password" class="form-control">
+                    {% if is_granted('ROLE_USER') %}
+                    <a type="button" class="btn btn-primary mt-3" href="{{path('logout')}}">Se déconnecter</a>
+                    {% else %}
+                    <input type="submit" class="btn btn-primary mt-3" value="Se connecter">
+                    {% endif %}
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
