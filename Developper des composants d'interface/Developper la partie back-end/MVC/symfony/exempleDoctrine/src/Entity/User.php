@@ -84,13 +84,13 @@ class User implements UserInterface
         return [];
     }
 
-    // Méthode utiliser pour certaines méthodes de chiffrement
+    // Méthode utilisée pour certaines méthodes de chiffrement
     public function getSalt()
     {
         return "";
     }
 
-    // Méthode qui retourne l'identifiant utiliser pour l'authentification
+    // Méthode qui retourne l'identifiant utilisé pour l'authentification
     public function getUsername()
     {
         return $this->getEmail();

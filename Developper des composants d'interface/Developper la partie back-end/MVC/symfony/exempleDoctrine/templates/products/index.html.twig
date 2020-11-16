@@ -8,30 +8,46 @@
     <table class="table">
         <thead>
             <tr>
+                {% if is_granted ('ROLE_ADMIN') %}
                 <th>Id</th>
+                {% endif %}
                 <th>ProductName</th>
+                {% if is_granted ('ROLE_ADMIN') %}
                 <th>CategoryID</th>
                 <th>QuantityPerUnit</th>
+                {% endif %}
+                {% if is_granted ('ROLE_USER') %}
                 <th>UnitPrice</th>
+                {% endif %}
+                {% if is_granted ('ROLE_ADMIN') %}
                 <th>UnitsInStock</th>
                 <th>UnitsOnOrder</th>
                 <th>ReorderLevel</th>
                 <th>Discontinued</th>
                 <th>actions</th>
+                {% endif %}
             </tr>
         </thead>
         <tbody>
         {% for product in products %}
             <tr>
+                {% if is_granted ('ROLE_ADMIN') %}
                 <td>{{ product.id }}</td>
+                {% endif %}
                 <td>{{ product.ProductName }}</td>
+                {% if is_granted ('ROLE_ADMIN') %}
                 <td>{{ product.CategoryID }}</td>
                 <td>{{ product.QuantityPerUnit }}</td>
+                {% endif %}
+                {% if is_granted ('ROLE_USER') %}
                 <td>{{ product.UnitPrice }}</td>
+                {% endif %}
+                {% if is_granted ('ROLE_ADMIN') %}
                 <td>{{ product.UnitsInStock }}</td>
                 <td>{{ product.UnitsOnOrder }}</td>
                 <td>{{ product.ReorderLevel }}</td>
                 <td>{{ product.Discontinued ? 'Yes' : 'No' }}</td>
+                {% endif %}
                 <td>
                     <a href="{{ path('products_show', {'id': product.id}) }}">show</a>
                     <a href="{{ path('products_edit', {'id': product.id}) }}">edit</a>

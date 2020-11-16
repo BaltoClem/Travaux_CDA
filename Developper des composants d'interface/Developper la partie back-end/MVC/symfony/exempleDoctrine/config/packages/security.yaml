@@ -22,7 +22,7 @@ security:
             form_login:
                 check_path: /login
                 provider: from_database
-                default_target_path: login
+                default_target_path: products_index
 
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication
