@@ -27,12 +27,12 @@ class ProductsType extends AbstractType
                 'attr' => [
                     'placeholder' => 'Produit'
                 ],
-                'constraints' => [
+                /*'constraints' => [
                     new Regex([
                         'pattern' => '/^[A-Za-zéèàçâêûîôäëüïö\'\_\-\s]+$/',
                         'message' => 'Caratère(s) non valide(s)'
                     ]),
-                ]
+                ]*/
             ])
             ->add('CategoryID', IntegerType::class, [
                 'label' => 'N° de Catégorie',
@@ -40,12 +40,12 @@ class ProductsType extends AbstractType
                 'attr' => [
                     'placeholder' => 'N° Catégorie'
                 ],
-                'constraints' => [
+                /*'constraints' => [
                     new Regex([
                         'pattern' => '/^[1-9]+$/',
                         'message' => 'Caratère(s) non valide(s)'
                     ]),
-                ]
+                ]*/
             ])
             ->add('QuantityPerUnit', TextType::class, [
                 'label' => 'Quantité en unité',
@@ -53,12 +53,12 @@ class ProductsType extends AbstractType
                 'attr' => [
                     'placeholder' => 'Quantité en unité'
                 ],
-                'constraints' => [
+                /*'constraints' => [
                     new Regex([
                         'pattern' => '/^[0-9A-Za-zéèàçâêûîôäëüïö\_\-\s]+$/',
                         'message' => 'Caratère(s) non valide(s)'
                     ]),
-                ]
+                ]*/
             ])
             ->add('UnitPrice', NumberType::class , [
                 'label' => 'Prix Unitaire',
@@ -66,12 +66,12 @@ class ProductsType extends AbstractType
                 'attr' => [
                     'placeholder' => 'Prix unitaire'
                 ],
-                'constraints' => [
+                /*'constraints' => [
                     new Regex([
                         'pattern' => '/^[0-9.]+$/',
                         'message' => 'Caratère(s) non valide(s)'
                     ]),
-                ]
+                ]*/
             ])
             ->add('UnitsInStock', IntegerType::class , [
                 'label' => 'Unités en stock',
@@ -79,12 +79,12 @@ class ProductsType extends AbstractType
                 'attr' => [
                     'placeholder' => 'Stock'
                 ],
-                'constraints' => [
+                /*'constraints' => [
                     new Regex([
                         'pattern' => '/^[0-9]+$/',
                         'message' => 'Caratère(s) non valide(s)'
                     ]),
-                ]
+                ]*/
             ])
             ->add('UnitsOnOrder', IntegerType::class , [
                 'label' => 'Unités en commande',
@@ -92,12 +92,12 @@ class ProductsType extends AbstractType
                 'attr' => [
                     'placeholder' => 'Unités en commande'
                 ],
-                'constraints' => [
+                /*'constraints' => [
                     new Regex([
                         'pattern' => '/^[0-9]+$/',
                         'message' => 'Caratère(s) non valide(s)'
                     ]),
-                ]
+                ]*/
             ])
             ->add('ReorderLevel', IntegerType::class , [
                 'label' => 'Niveau d\'alerte de commande',
@@ -105,12 +105,12 @@ class ProductsType extends AbstractType
                 'attr' => [
                     'placeholder' => 'Alerte de commande'
                 ],
-                'constraints' => [
+                /*'constraints' => [
                     new Regex([
                         'pattern' => '/^[0-9]+$/',
                         'message' => 'Caratère(s) non valide(s)'
                     ]),
-                ]
+                ]*/
             ])
             ->add('Discontinued', CheckboxType::class, [
                 'label' => 'Produit actif',
@@ -131,12 +131,12 @@ class ProductsType extends AbstractType
                 'mapped' => false,
                 // pour éviter de recharger la photo lors de l'édition du profil
                 'required' => false,
-                'constraints' => [
+                /*'constraints' => [
                     new Image([
                         'maxSize' => '2000k',
                         'mimeTypesMessage' => 'Veuillez insérer une photo au format jpg, jpeg ou png'
                     ])
-                ]
+                ]*/
             ]);
 
     }

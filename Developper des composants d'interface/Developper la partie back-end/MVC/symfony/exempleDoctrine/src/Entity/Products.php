@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Repository\ProductsRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Constraints\Regex;
 
 /**
  * @ORM\Entity(repositoryClass=ProductsRepository::class)
@@ -19,6 +21,7 @@ class Products
 
     /**
      * @ORM\Column(type="string", length=40)
+     * @Assert\Regex("/^[a-zA-Z\s]+$/")
      */
     private $ProductName;
 

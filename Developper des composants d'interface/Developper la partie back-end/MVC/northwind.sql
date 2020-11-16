@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : Dim 15 nov. 2020 à 20:27
+-- Généré le : lun. 16 nov. 2020 à 13:50
 -- Version du serveur :  5.7.24
--- Version de PHP : 7.4.4
+-- Version de PHP : 7.4.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -185,7 +184,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `email`, `password`, `role`) VALUES
-(1, 'test@test.fr', '$2y$13$rAcOm./nf4AyEBtHwH62Puvwb3Q7NahVzOs5KK2qH64ymHvDU8xGi', 'client');
+(1, 'test@test.fr', '$2y$13$rAcOm./nf4AyEBtHwH62Puvwb3Q7NahVzOs5KK2qH64ymHvDU8xGi', 'client'),
+(2, 'testauth@test.fr', '$2y$12$93wuVWBnT2mwAaHH.MQ3eev57YRl1fhJWToo67OflENsZfHQwpJk6', 'client'),
+(3, 'testadmin@test.fr', '$2y$12$/P9W21L.GdC8/yEhVWtx/ezkc3IVh8Mc5L3xxVjPg.hxAjWE1uciC', 'administrateur');
 
 --
 -- Index pour les tables déchargées
@@ -273,7 +274,7 @@ ALTER TABLE `suppliers`
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Contraintes pour les tables déchargées
