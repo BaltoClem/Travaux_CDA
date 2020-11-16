@@ -14,7 +14,7 @@
                     <input type="text" id="email" name="_username" class="form-control" value="{{ last_username }}">
                     <label for="mdp">Mot de passe</label>
                     <input type="password" id="mdp" name="_password" class="form-control">
-                    {% if is_granted('ROLE_USER') %}
+                    {% if is_granted('ROLE_USER') or is_granted('ROLE_ADMIN') %}
                     <a type="button" class="btn btn-primary mt-3" href="{{path('logout')}}">Se déconnecter</a>
                     {% else %}
                     <input type="submit" class="btn btn-primary mt-3" value="Se connecter">
