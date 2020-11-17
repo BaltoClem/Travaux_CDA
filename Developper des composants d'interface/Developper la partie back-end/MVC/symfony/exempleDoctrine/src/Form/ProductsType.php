@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -127,6 +128,7 @@ class ProductsType extends AbstractType
             ])
             ->add('picture', FileType::class, [
                 'label' => 'Photo de profil',
+                'help' => 'Veuillez télécharger une photo',
                 //unmapped => fichier non associé à aucune propriété d'entité, validation impossible avec les annotations
                 'mapped' => false,
                 // pour éviter de recharger la photo lors de l'édition du profil
@@ -137,8 +139,14 @@ class ProductsType extends AbstractType
                         'mimeTypesMessage' => 'Veuillez insérer une photo au format jpg, jpeg ou png'
                     ])
                 ]*/
-            ]);
-
+            ])
+            ->add('comments', TextType::class, [
+                'label' => 'Commentaire',
+                'help' => 'Veuillez renseigner votre commentaire',
+                'attr' => [
+                    'placeholder' => 'Commentaire',
+                ],
+        ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

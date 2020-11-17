@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : mar. 17 nov. 2020 à 10:39
+-- Généré le : mar. 17 nov. 2020 à 13:23
 -- Version du serveur :  5.7.24
 -- Version de PHP : 7.4.12
 
@@ -20,6 +20,19 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `northwind`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `comments`
+--
+
+CREATE TABLE `comments` (
+  `id` int(11) NOT NULL,
+  `content` longtext COLLATE utf8mb4_unicode_ci,
+  `date` datetime DEFAULT NULL,
+  `update_date` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -66,7 +79,8 @@ INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_
 ('DoctrineMigrations\\Version20201110150133', '2020-11-10 15:01:49', 698),
 ('DoctrineMigrations\\Version20201110151141', '2020-11-10 15:11:52', 525),
 ('DoctrineMigrations\\Version20201112153612', '2020-11-12 15:36:36', 2298),
-('DoctrineMigrations\\Version20201113093353', '2020-11-13 09:34:52', 2514);
+('DoctrineMigrations\\Version20201113093353', '2020-11-13 09:34:52', 2514),
+('DoctrineMigrations\\Version20201117124033', '2020-11-17 12:41:14', 137);
 
 -- --------------------------------------------------------
 
@@ -193,6 +207,12 @@ INSERT INTO `user` (`id`, `email`, `password`, `role`) VALUES
 --
 
 --
+-- Index pour la table `comments`
+--
+ALTER TABLE `comments`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `customers`
 --
 ALTER TABLE `customers`
@@ -239,6 +259,12 @@ ALTER TABLE `user`
 --
 -- AUTO_INCREMENT pour les tables déchargées
 --
+
+--
+-- AUTO_INCREMENT pour la table `comments`
+--
+ALTER TABLE `comments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `customers`
