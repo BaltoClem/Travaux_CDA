@@ -19,6 +19,8 @@ class ProductsController extends AbstractController
 {
     /**
      * @Route("/", name="products_index", methods={"GET"})
+     * @param ProductsRepository $productsRepository
+     * @return Response
      */
     public function index(ProductsRepository $productsRepository): Response
     {

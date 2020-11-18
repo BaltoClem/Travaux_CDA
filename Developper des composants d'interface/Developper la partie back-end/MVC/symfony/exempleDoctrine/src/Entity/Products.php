@@ -8,9 +8,15 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Constraints\Regex;
+use Symfony\Component\Serializer\Annotation\Groups;
+use ApiPlatform\Core\Annotation\ApiResource;
 
 /**
  * @ORM\Entity(repositoryClass=ProductsRepository::class)
+ * @ApiResource(
+ *     collectionOperations={},
+ *     itemOperations={
+ *      "get"})
  */
 class Products
 {
@@ -24,6 +30,7 @@ class Products
     /**
      * @ORM\Column(type="string", length=40)
      * @Assert\Regex("/^[a-zA-Z\s]+$/")
+     * @Groups({"read:comment:full"})
      */
     private $ProductName;
 

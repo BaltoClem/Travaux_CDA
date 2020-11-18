@@ -6,18 +6,33 @@ use App\Repository\CommentsRepository;
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
 use Symfony\Component\Serializer\Annotation\Groups;
+use ApiPlatform\Core\Annotation\ApiFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 
 /**
  * @ORM\Entity(repositoryClass=CommentsRepository::class)
  * @ApiResource(
- *     attributes={
- *     "order"={"date" : "DESC"}
+ *     normalizationContext={
+ *     "groups"={"read:comment"},
+ *     "enable_max_depth"=true
  *     },
- *     normalizationContext={"groups"={"read:comment"}},
- *     collectionOperations={"get"},
- *     itemOperations={"get"}
- *
+ *     attributes={
+ *     "order"={"date":"DESC"}
+ *     },
+ *     itemOperations={
+ *      "get"={
+ *          "normalization_context"={"groups"={"read:comment", "read:comment:full"}}
+ *     },},
+ *     collectionOperations={
+ *       "post"={
+ *          "normalization_context"={"groups"={"read:comment", "read:comment:full"}},
+ *     },
+ *       "get"={
+ *          "normalization_context"={"groups"={"read:comment", "read:comment:full"}},
+ *     }
+ *     }
  * )
+ * @ApiFilter(SearchFilter::class, properties={"product": "exact"})
  */
 class Comments
 {
@@ -36,6 +51,7 @@ class Comments
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
+     * * @Groups({"read:comment"})
      */
     private $date;
 
@@ -46,11 +62,13 @@ class Comments
 
     /**
      * @ORM\ManyToOne(targetEntity=Products::class, inversedBy="comments")
+     * @Groups({"read:comment"})
      */
     private $products;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="comments")
+     * @Groups({"read:comment"})
      */
     private $user;
 
