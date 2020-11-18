@@ -12,26 +12,14 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 /**
  * @ORM\Entity(repositoryClass=CommentsRepository::class)
  * @ApiResource(
- *     normalizationContext={
- *     "groups"={"read:comment"},
- *     "enable_max_depth"=true
- *     },
  *     attributes={
- *     "order"={"date":"DESC"}
+ *     "order" = {"date" : "DESC"}
  *     },
- *     itemOperations={
- *      "get"={
- *          "normalization_context"={"groups"={"read:comment", "read:comment:full"}}
- *     },},
- *     collectionOperations={
- *       "post"={
- *          "normalization_context"={"groups"={"read:comment", "read:comment:full"}},
- *     },
- *       "get"={
- *          "normalization_context"={"groups"={"read:comment", "read:comment:full"}},
- *     }
- *     }
- * )
+ *     normalizationContext={"groups"={"read:comment", "read:comment:full"}},
+ *     collectionOperations={"get", "post"={"controller"=App\Controller\Api\CommentCreateController::class}},
+ *     itemOperations={"get"},
+ *     paginationItemsPerPage=2
+ *     )
  * @ApiFilter(SearchFilter::class, properties={"product": "exact"})
  */
 class Comments

@@ -8,9 +8,16 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Serializer\Annotation\Groups;
+use ApiPlatform\Core\Annotation\ApiResource;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
+ * @ApiResource(
+ *     collectionOperations={
+ *     "post"={"normalization_context"={"groups"={"read:comment", "read:comment:full"}}
+ *              }
+ *          },
+ *     )
  */
 
 class User implements UserInterface

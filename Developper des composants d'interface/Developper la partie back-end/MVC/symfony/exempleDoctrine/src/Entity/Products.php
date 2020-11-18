@@ -14,9 +14,11 @@ use ApiPlatform\Core\Annotation\ApiResource;
 /**
  * @ORM\Entity(repositoryClass=ProductsRepository::class)
  * @ApiResource(
- *     collectionOperations={},
- *     itemOperations={
- *      "get"})
+ *     collectionOperations={
+ *       "post"={"normalization_context"={"groups"={"read:comment", "read:comment:full"}}
+ *          }
+ *     },
+ *     )
  */
 class Products
 {
