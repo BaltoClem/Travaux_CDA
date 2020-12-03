@@ -18,7 +18,7 @@ if (isset ($_POST['new_password_valid'])){
 
 ///////////////////////////////////////////REQUETE PREPAREE/////////////////////////////////////////////////////////////
 
-    $new_password = $db->prepare("UPDATE users SET user_password=:user_password WHERE user_email=:user_email");
+    $new_password = $db->prepare("UPDATE utilisateur SET user_password=:user_password WHERE user_email=:user_email");
 
 /////////////////////////////////////////////////CONDITIONS DE VALIDATION///////////////////////////////////////////////
 

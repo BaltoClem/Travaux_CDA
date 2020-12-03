@@ -13,7 +13,7 @@ if (isset($_POST['forgot_valid'])) {
 
 /////////////////////////////////////////////////REQUETES PREPAREES ////////////////////////////////////////////////////
 
-    $pdoStat = $db->prepare("SELECT * FROM users WHERE user_email = :user_email");
+    $pdoStat = $db->prepare("SELECT * FROM utilisateur WHERE user_email = :user_email");
     $pdoStat->bindValue(':user_email', $email, PDO::PARAM_STR);
     $pdoStat->execute();
 

@@ -22,13 +22,13 @@ if (isset($_POST['valid_login'])) {
 /////////////////////////////////////////////////REQUETES PREPAREES ////////////////////////////////////////////////////
 
 //Requête préparée pour rechercher l'utilisateur correspondant à l'email renseigné
-    $pdoStat = $db->prepare("SELECT * FROM users WHERE user_email = :user_email");
+    $pdoStat = $db->prepare("SELECT * FROM utilisateur WHERE user_email = :user_email");
     $pdoStat->bindValue(':user_email', $email, PDO::PARAM_STR);
     $pdoStat->execute();
     $user = $pdoStat->fetch(PDO::FETCH_OBJ);
 
 //Requête préparée pour éventuellement bloquer l'utilisateur
-    $user_block = $db->prepare("UPDATE users
+    $user_block = $db->prepare("UPDATE utilisateur
                                     SET user_block= :user_block
                                     WHERE user_email=:user_email");
 

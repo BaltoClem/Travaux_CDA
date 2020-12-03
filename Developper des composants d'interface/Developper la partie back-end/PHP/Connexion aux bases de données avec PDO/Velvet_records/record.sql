@@ -1,57 +1,165 @@
-DROP DATABASE record;
+-- phpMyAdmin SQL Dump
+-- version 5.0.4
+-- https://www.phpmyadmin.net/
+--
+-- Hôte : localhost:3306
+-- Généré le : jeu. 03 déc. 2020 à 15:06
+-- Version du serveur :  5.7.24
+-- Version de PHP : 7.4.12
 
-CREATE DATABASE record;
-
-USE record;
-
-CREATE TABLE artist (
-	artist_id		INT PRIMARY KEY AUTO_INCREMENT,
-	artist_name		VARCHAR(255),
-	artist_url		VARCHAR(255)
-);
-
-INSERT INTO artist (artist_id, artist_name) VALUES
-(1, 'Neil Young'),
-(2, 'YES'),
-(3, 'Rolling Stones'),
-(4, 'Queens of the Stone Age'),
-(5, 'Serge Gainsbourg'),
-(6, 'AC/DC'),
-(7, 'Marillion'),
-(8, 'Bob Dylan'),
-(9, 'Fleshtones'),
-(10, 'The Clash');
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
 
 
-CREATE TABLE disc (
-	disc_id			INT PRIMARY KEY AUTO_INCREMENT,
-	disc_title		VARCHAR(255),
-	disc_year		INT,
-	disc_picture	VARCHAR(255),
-	disc_label		VARCHAR(255),
-	disc_genre		VARCHAR(255),
-	disc_price		DECIMAL(6,2),
-	artist_id		INT NULL,
-	FOREIGN KEY (artist_id) REFERENCES artist(artist_id)
-);
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
+--
+-- Base de données : `record`
+--
 
-INSERT INTO disc (disc_id, disc_title, disc_year, disc_picture, disc_label, disc_genre, disc_price, artist_id) VALUES
-	(1, 'Fugazi', 1984, 'Fugazi.jpeg', 'EMI', 'Prog', 14.99, 7),
-	(2, 'Songs for the Deaf', 2002, 'Songs for the Deaf.jpeg', 'Interscope Records', 'Rock/Stoner', 12.99, 4),
-	(3, 'Harvest Moon', 1992, 'Harvest Moon.jpeg', 'Reprise Records', 'Rock', 4.20, 1),
-	(4, 'Initials BB', 1968, 'Initials BB.jpeg', 'Philips', ' Chanson, Pop Rock', 12.99, 5),
-	(5, 'After the Gold Rush', 1970, 'After the Gold Rush.jpeg', ' Reprise Records', 'Country Rock', 20.00, 1),
-	(6, 'Broken Arrow', 1996, 'Broken Arrow.jpeg', 'Reprise Records', ' Country Rock, Classic Rock', 15.00, 1),
-	(7, 'Highway To Hell', 1979, 'Highway To Hell.jpeg', 'Atlantic', 'Hard Rock', 15.00, 6),
-	(8, 'Drama', 1980, 'Drama.jpeg', 'Atlantic', 'Prog', 15.00, 2),
-	(9, 'Year of the Horse', 1997, 'Year of the Horse.jpeg', 'Reprise Records', 'Country Rock, Classic Rock', 7.50, 1),
-	(10, 'Ragged Glory', 1990, 'Ragged Glory.jpeg', 'Reprise Records', 'Country Rock, Grunge', 11.00, 1),
-	(11, 'Rust Never Sleeps', 1979, 'Rust Never Sleeps.jpeg', 'Reprise Records', 'Classic Rock, Arena Rock', 15.00, 1),
-	(12, 'Exile on main street', 1972, 'Exile on main street.jpeg', 'Rolling Stones Records', 'Blues Rock, Classic Rock', 33.00, 1),
-	(13, 'London Calling', 1971, 'London Calling.jpeg', 'CBS', 'Punk, New Wave', 33.00, 10),
-	(14, 'Beggars Banquet', 1968, 'Beggars Banquet.jpeg', 'Rolling Stones Records', 'Blues Rock, Classic Rock', 33.00, 1),
-	(15, 'Laboratory of sound', 1995, 'Laboratory of sound.jpeg', 'Rebel Rec.', 'Rock', 33.00, 9);
-;
+-- --------------------------------------------------------
 
+--
+-- Structure de la table `artist`
+--
 
+CREATE TABLE `artist` (
+  `artist_id` int(11) NOT NULL,
+  `artist_name` varchar(255) DEFAULT NULL,
+  `artist_url` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `artist`
+--
+
+INSERT INTO `artist` (`artist_id`, `artist_name`, `artist_url`) VALUES
+(1, 'Neil Young', NULL),
+(2, 'YES', NULL),
+(3, 'Rolling Stones', NULL),
+(4, 'Queens of the Stone Age', NULL),
+(5, 'Serge Gainsbourg', NULL),
+(6, 'AC/DC', NULL),
+(7, 'Marillion', NULL),
+(8, 'Bob Dylan', NULL),
+(9, 'Fleshtones', NULL),
+(10, 'The Clash', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `disc`
+--
+
+CREATE TABLE `disc` (
+  `disc_id` int(11) NOT NULL,
+  `disc_title` varchar(255) DEFAULT NULL,
+  `disc_year` int(11) DEFAULT NULL,
+  `disc_picture` varchar(255) DEFAULT NULL,
+  `disc_label` varchar(255) DEFAULT NULL,
+  `disc_genre` varchar(255) DEFAULT NULL,
+  `disc_price` decimal(6,2) DEFAULT NULL,
+  `artist_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `disc`
+--
+
+INSERT INTO `disc` (`disc_id`, `disc_title`, `disc_year`, `disc_picture`, `disc_label`, `disc_genre`, `disc_price`, `artist_id`) VALUES
+(1, 'Fugazi', 1984, 'Fugazi.jpeg', 'EMI', 'Prog', '14.99', 7),
+(2, 'Songs for the Deaf', 2002, 'Songs for the Deaf.jpeg', 'Interscope Records', 'Rock/Stoner', '12.99', 4),
+(3, 'Harvest Moon', 1992, 'Harvest Moon.jpeg', 'Reprise Records', 'Rock', '4.20', 1),
+(4, 'Initials BB', 1968, 'Initials BB.jpeg', 'Philips', ' Chanson, Pop Rock', '12.99', 5),
+(5, 'After the Gold Rush', 1970, 'After the Gold Rush.jpeg', ' Reprise Records', 'Country Rock', '20.00', 1),
+(6, 'Broken Arrow', 1996, 'Broken Arrow.jpeg', 'Reprise Records', ' Country Rock, Classic Rock', '15.00', 1),
+(7, 'Highway To Hell', 1979, 'Highway To Hell.jpeg', 'Atlantic', 'Hard Rock', '15.00', 6),
+(8, 'Drama', 1980, 'Drama.jpeg', 'Atlantic', 'Prog', '15.00', 2),
+(9, 'Year of the Horse', 1997, 'Year of the Horse.jpeg', 'Reprise Records', 'Country Rock, Classic Rock', '7.50', 1),
+(10, 'Ragged Glory', 1990, 'Ragged Glory.jpeg', 'Reprise Records', 'Country Rock, Grunge', '11.00', 1),
+(11, 'Rust Never Sleeps', 1979, 'Rust Never Sleeps.jpeg', 'Reprise Records', 'Classic Rock, Arena Rock', '15.00', 1),
+(12, 'Exile on main street', 1972, 'Exile on main street.jpeg', 'Rolling Stones Records', 'Blues Rock, Classic Rock', '33.00', 1),
+(13, 'London Calling', 1971, 'London Calling.jpeg', 'CBS', 'Punk, New Wave', '33.00', 10),
+(14, 'Beggars Banquet', 1968, 'Beggars Banquet.jpeg', 'Rolling Stones Records', 'Blues Rock, Classic Rock', '33.00', 1),
+(15, 'Laboratory of sound', 1995, 'Laboratory of sound.jpeg', 'Rebel Rec.', 'Rock', '33.00', 9),
+(22, 'Jeannine', 1992, 'Jeannine-Double-Vinyle-Inclus-planche-de-stickers-et-poster.jpg', 'Test', 'Variété', '15.99', 2),
+(23, 'Aladdin Sane', 1992, 'aladdin-sane-10large.jpg', 'Test', 'Rock', '15.98', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `utilisateur`
+--
+
+CREATE TABLE `utilisateur` (
+  `user_email` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `user_password` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `user_role` varchar(255) NOT NULL,
+  `user_block` tinyint(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `utilisateur`
+--
+
+INSERT INTO `utilisateur` (`user_email`, `user_password`, `user_role`, `user_block`) VALUES
+('test2@test.fr', '$2y$10$cHhJTxdhCv9bX3QDloM/buzw3NYv3CasIpjTv.Vbh1mU2RY4t0qFe', 'user', 0),
+('test@test.fr', '$2y$10$d6TH8rtCoWdmgodKcmuXmOTKkMT09f1RXJxWzV2n7hLfkuPwHP/MO', 'user', 1);
+
+--
+-- Index pour les tables déchargées
+--
+
+--
+-- Index pour la table `artist`
+--
+ALTER TABLE `artist`
+  ADD PRIMARY KEY (`artist_id`);
+
+--
+-- Index pour la table `disc`
+--
+ALTER TABLE `disc`
+  ADD PRIMARY KEY (`disc_id`),
+  ADD KEY `artist_id` (`artist_id`);
+
+--
+-- Index pour la table `utilisateur`
+--
+ALTER TABLE `utilisateur`
+  ADD PRIMARY KEY (`user_email`);
+
+--
+-- AUTO_INCREMENT pour les tables déchargées
+--
+
+--
+-- AUTO_INCREMENT pour la table `artist`
+--
+ALTER TABLE `artist`
+  MODIFY `artist_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT pour la table `disc`
+--
+ALTER TABLE `disc`
+  MODIFY `disc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+
+--
+-- Contraintes pour les tables déchargées
+--
+
+--
+-- Contraintes pour la table `disc`
+--
+ALTER TABLE `disc`
+  ADD CONSTRAINT `disc_ibfk_1` FOREIGN KEY (`artist_id`) REFERENCES `artist` (`artist_id`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

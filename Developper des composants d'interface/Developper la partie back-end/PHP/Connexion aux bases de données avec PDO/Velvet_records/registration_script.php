@@ -22,11 +22,11 @@ if (isset($_POST['valid_registr'])){
 ///////////////////////////////////////////REQUETES PREPAREES/////////////////////////////////////////////////////////////
 
     /*Requête d'insertion nouvel utilisateur*/
-$new_user = $db->prepare("INSERT INTO users(user_email, user_password, user_role, user_block)
+$new_user = $db->prepare("INSERT INTO utilisateur(user_email, user_password, user_role, user_block)
                                 VALUES(:user_email, :user_password, :user_role, :user_block)");
 
     /* Requête de recherche d'un utilisateur déjà existant */
-$stmt = $db->prepare("SELECT * FROM users WHERE user_email=?");
+$stmt = $db->prepare("SELECT * FROM utilisateur WHERE user_email=?");
 $stmt->execute([$email]);
 $user = $stmt->fetch();
 
