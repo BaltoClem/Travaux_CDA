@@ -12,7 +12,7 @@ catch (Exception $e)
    die('Fin du script');
 }
 
-$str_requete = "SELECT * FROM regions JOIN departements ON departements.dep_reg_id = regions.reg_id";
+$str_requete = "SELECT * FROM regions JOIN departements ON departements.dep_reg_id = regions.reg_id WHERE dep_reg_id=".$_GET['reg_id'];
 $result = $db->query($str_requete);
 
 foreach($result as $dep){
