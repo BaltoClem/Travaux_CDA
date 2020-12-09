@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:v-on="http://www.w3.org/1999/xhtml">
     <head>
         <title>My first Vue app</title>
         <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
-        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     </head>
 <!---------------------------------------- RELIER DES ELEMENTS DE FORMULAIRE ------------------------------------------>
     <!-- <body>
@@ -63,31 +63,29 @@
 <!--        });-->
 <!--    </script>-->
 <!--    </body>-->
+
+<!------------------------------------------------------- AXIOS ------------------------------------------------------->
+
 <body>
     <div id="app">
-        <h1>Liste des produits</h1>
-        <div v-for="item in info">
-            {{ item.disc_title }}
-        </div>
+        <button v-on:click="updateList()">Voir la liste</button>
+        <ul>
+            <li v-for="list in lists">{{ list.disc_title }}</li>
+        </ul>
     </div>
 
     <script>
-        new Vue({
+        var app = new Vue({
             el: '#app',
-            data () {
-                return {
-                    info: null
-                }
+            data: {
+                lists : []
             },
-            mounted () {
-                axios
-                    .get('listeproduits.php')
-                    .then(response => (this.info = response))
-                    console.log(response.data);
+            methods:{
+                updateList(){
+                    axios.get('listeproduits.php').then(reponse => this.lists = reponse.data);
+                }
             }
-        })
-        console.log(response.data);
-
+        });
     </script>
     </body>
 </html>
