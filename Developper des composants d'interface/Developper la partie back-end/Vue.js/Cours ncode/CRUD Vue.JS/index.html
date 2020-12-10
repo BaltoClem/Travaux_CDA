@@ -27,7 +27,7 @@
                 <h3 class="text-info">Register Users</h3>
             </div>
             <div class="col-lg-6">
-                <button id="btn_add" class="btn btn-info">
+                <button id="btn_add" class="btn btn-info" @click="showAddModal=true">
                     <i class="fas fa-user"></i>&nbsp;&nbsp;Add New User
                 </button>
             </div>
@@ -60,8 +60,8 @@
                             <td>ExempleName</td>
                             <td>test@test.fr</td>
                             <td>0123456789</td>
-                            <td><a href="#" class="text-success"><i class="fas fa-edit"></i></a></td>
-                            <td><a href="#" class="text-danger"><i class="fas fa-trash alt"></i></a></td>
+                            <td><a href="#" class="text-success" @click="showEditModal=true"><i class="fas fa-edit"></i></a></td>
+                            <td><a href="#" class="text-danger" @click="showDeleteModal=true"><i class="fas fa-trash alt"></i></a></td>
                         </tr>
                         <tr class="text-center">
                             <td>1</td>
@@ -87,12 +87,12 @@
 
 <!--    Fenêtre d'ajout d'un nouvel utilisateur-->
 
-    <div id="overlay">
+    <div id="overlay_add" v-if="showAddModal">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Add New User</h5>
-                    <button type="button" class="close btn btn-danger">
+                    <button type="button" class="close btn btn-danger" @click="showAddModal=false">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -109,9 +109,64 @@
                             <input type="tel" name="phone" class="form-control form-control-lg" placeholder="Telephone">
                         </div>
                         <div class="form-group mt-3">
-                            <button id="btn_add_mod" class="btn btn-info btn-lg">Validate</button>
+                            <button id="btn_add_mod" class="btn btn-info btn-lg" @click="showAddModal=false">Validate</button>
                         </div>
                     </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--    Fenêtre de modification d'un utilisateur-->
+
+    <div id="overlay_edit" v-if="showEditModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit User</h5>
+                    <button type="button" class="close btn btn-danger" @click="showEditModal=false">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body p-4">
+                    <form action="#" method="post">
+                        <div class="form-group mt-3">
+                            <input type="text" name="name" class="form-control form-control-lg" placeholder="Name">
+                        </div>
+                        <div class="form-group mt-3">
+                            <input type="email" name="email" class="form-control form-control-lg" placeholder="E-mail">
+                        </div>
+                        <div class="form-group mt-3">
+                            <input type="tel" name="phone" class="form-control form-control-lg" placeholder="Telephone">
+                        </div>
+                        <div class="form-group mt-3">
+                            <button id="btn_edit_mod" class="btn btn-info btn-lg" @click="showEditModal=false">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--    Fenêtre de suppression d'un utilisateur-->
+
+    <div id="overlay_delete" v-if="showDeleteModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Delete User</h5>
+                    <button type="button" class="close btn btn-danger" @click="showDeleteModal=false">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body p-4">
+                    <h4 class="text-danger">Do you really want to delete this user ?</h4>
+                    <h5>You are deleting 'user'</h5>
+                    <hr>
+                    <button class="btn btn-success btn-lg" @click="showDeleteModal=false">YES</button>
+                    <button class="btn btn-danger btn-lg" @click="showDeleteModal=false">NO</button>
                 </div>
             </div>
         </div>
