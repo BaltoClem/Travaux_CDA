@@ -1,0 +1,17 @@
+#title_crud{
+    font-size: 25px;
+}
+
+#btn_add{
+    float: right;
+    color: white;
+}
+
+.fa-user{
+    color: white;
+}
+
+#btn_add_mod{
+    width: 100%;
+    color: white;
+}

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>CRUD Vue.JS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+          integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<div id="app">
+    <div class="container-fluid">
+        <div class="row bg-dark">
+            <div class="col-lg-12">
+                <p id="title_crud" class="text-center text-light display-4 pt-2">CRUD Vue.JS</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row mt-3">
+            <div class="col-lg-6">
+                <h3 class="text-info">Register Users</h3>
+            </div>
+            <div class="col-lg-6">
+                <button id="btn_add" class="btn btn-info">
+                    <i class="fas fa-user"></i>&nbsp;&nbsp;Add New User
+                </button>
+            </div>
+        </div>
+        <hr class="bg-info">
+        <div class="alert alert-danger" v-if="errorMsg">
+            Error Message
+        </div>
+        <div class="alert alert-success" v-if="successMsg">
+            Success Message
+        </div>
+
+<!--        Displaying Records-->
+        <div class="row">
+            <div class="col-lg-12">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr class="text-center bg-info text-light">
+                            <th>ID</th>
+                            <th>Nom</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="text-center">
+                            <td>1</td>
+                            <td>ExempleName</td>
+                            <td>test@test.fr</td>
+                            <td>0123456789</td>
+                            <td><a href="#" class="text-success"><i class="fas fa-edit"></i></a></td>
+                            <td><a href="#" class="text-danger"><i class="fas fa-trash alt"></i></a></td>
+                        </tr>
+                        <tr class="text-center">
+                            <td>1</td>
+                            <td>ExempleName</td>
+                            <td>test@test.fr</td>
+                            <td>0123456789</td>
+                            <td><a href="#" class="text-success"><i class="fas fa-edit"></i></a></td>
+                            <td><a href="#" class="text-danger"><i class="fas fa-trash alt"></i></a></td>
+                        </tr>
+                        <tr class="text-center">
+                            <td>1</td>
+                            <td>ExempleName</td>
+                            <td>test@test.fr</td>
+                            <td>0123456789</td>
+                            <td><a href="#" class="text-success"><i class="fas fa-edit"></i></a></td>
+                            <td><a href="#" class="text-danger"><i class="fas fa-trash alt"></i></a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+<!--    Fenêtre d'ajout d'un nouvel utilisateur-->
+
+    <div id="overlay">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add New User</h5>
+                    <button type="button" class="close btn btn-danger">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body p-4">
+                    <form action="#" method="post">
+                        <div class="form-group mt-3">
+                            <input type="text" name="name" class="form-control form-control-lg" placeholder="Name">
+                        </div>
+                        <div class="form-group mt-3">
+                            <input type="email" name="email" class="form-control form-control-lg" placeholder="E-mail">
+                        </div>
+                        <div class="form-group mt-3">
+                            <input type="tel" name="phone" class="form-control form-control-lg" placeholder="Telephone">
+                        </div>
+                        <div class="form-group mt-3">
+                            <button id="btn_add_mod" class="btn btn-info btn-lg">Validate</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
+        integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"
+        integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
