@@ -34,22 +34,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-  </component>
-  <component name="RunManager">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Cours ncode/Exercices" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -62,21 +47,12 @@
       <workItem from="1605533130498" duration="135000" />
       <workItem from="1605533399670" duration="94000" />
       <workItem from="1605598716218" duration="3359000" />
-      <workItem from="1607505449269" duration="8779000" />
+      <workItem from="1607505449269" duration="9416000" />
+      <workItem from="1607586382772" duration="269000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="254" y="89" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605600081134">
-      <screen x="0" y="0" width="1600" height="870" />
-    </state>
-    <state x="254" y="89" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1600.870/1600.-435.1920.1050@0.0.1600.870" timestamp="1605600081134" />
-    <state x="580" y="189" key="FileChooserDialogImpl" timestamp="1605602121414">
-      <screen x="0" y="0" width="1600" height="870" />
-    </state>
-    <state x="580" y="189" key="FileChooserDialogImpl/0.0.1600.870/1600.-435.1920.1050@0.0.1600.870" timestamp="1605602121414" />
   </component>
 </project>
