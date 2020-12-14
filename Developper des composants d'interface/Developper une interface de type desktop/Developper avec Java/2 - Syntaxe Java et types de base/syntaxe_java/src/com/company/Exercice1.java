@@ -6,6 +6,9 @@ public class Exercice1 {
 
     public static void main(String[] args)
     {
+
+        System.out.println("**** Surface du cercle (14/12/2020) ****");
+
         Scanner scanner = new Scanner(System.in) ;
 
         double rayon;
