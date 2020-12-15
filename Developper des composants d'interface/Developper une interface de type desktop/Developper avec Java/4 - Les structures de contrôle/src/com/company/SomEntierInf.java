@@ -1,5 +1,3 @@
-//////////////////////////////////////////////////// NON REUSSI ////////////////////////////////////////////////////////
-
 package com.company;
 import java.util.Scanner;
 
@@ -11,11 +9,11 @@ public class SomEntierInf {
 
         System.out.println("Veuillez saisir un entier :");
         int nb = scanner_entInf.nextInt();
+        int somme = 0;
 
-        for(int i=0; i<=nb; i++){
-            nb += nb;
-            i++;
+        for(int i = 1; i <= nb ; i++){
+            somme = somme + i;
         }
-        System.out.println(nb);
+        System.out.println("La somme des entiers inférieurs à N est de : " + somme);
     }
 }
