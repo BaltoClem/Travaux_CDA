@@ -24,9 +24,8 @@ public class Exercice2 {
         nY = nX - nY;
         nX = nX - nY;
 
-        System.out.println("Inversement, 'nX' vaut désormais: " + nX);
-        System.out.print("Inversement, 'nY' vaut désormais: " + nY);
-
+        System.out.println("En inversant, 'nX' vaut désormais: " + nX);
+        System.out.print("En inversant, 'nY' vaut désormais: " + nY);
 
     }
 
