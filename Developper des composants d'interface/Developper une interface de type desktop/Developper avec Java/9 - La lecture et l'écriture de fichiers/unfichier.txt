@@ -8,3 +8,13 @@ bonjour 6 fois
 bonjour 7 fois
 bonjour 8 fois
 bonjour 9 fois
+bonjour 0 fois
+bonjour 1 fois
+bonjour 2 fois
+bonjour 3 fois
+bonjour 4 fois
+bonjour 5 fois
+bonjour 6 fois
+bonjour 7 fois
+bonjour 8 fois
+bonjour 9 fois

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/2 - Syntaxe Java et types de base/2 - Syntaxe Java et types de base.iml" filepath="$PROJECT_DIR$/2 - Syntaxe Java et types de base/2 - Syntaxe Java et types de base.iml" />
+      <module fileurl="file://$PROJECT_DIR$/3 - Operateurs/3 - Operateurs.iml" filepath="$PROJECT_DIR$/3 - Operateurs/3 - Operateurs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/4 - Les structures de contrôle/4 - Les structures de contrôle.iml" filepath="$PROJECT_DIR$/4 - Les structures de contrôle/4 - Les structures de contrôle.iml" />
+      <module fileurl="file://$PROJECT_DIR$/5 - Tableau listes et autres structures de données/5 - Tableau listes et autres structures de données.iml" filepath="$PROJECT_DIR$/5 - Tableau listes et autres structures de données/5 - Tableau listes et autres structures de données.iml" />
+      <module fileurl="file://$PROJECT_DIR$/6 - Les fonctions/6 - Les fonctions.iml" filepath="$PROJECT_DIR$/6 - Les fonctions/6 - Les fonctions.iml" />
+      <module fileurl="file://$PROJECT_DIR$/7 - Les classes et les objets/7 - Les classes et les objets.iml" filepath="$PROJECT_DIR$/7 - Les classes et les objets/7 - Les classes et les objets.iml" />
+      <module fileurl="file://$PROJECT_DIR$/8 - Les exceptions/8 - Les exceptions.iml" filepath="$PROJECT_DIR$/8 - Les exceptions/8 - Les exceptions.iml" />
+      <module fileurl="file://$PROJECT_DIR$/9 - La lecture et l'écriture de fichiers/9 - La lecture et l'écriture de fichiers.iml" filepath="$PROJECT_DIR$/9 - La lecture et l'écriture de fichiers/9 - La lecture et l'écriture de fichiers.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Developper avec Java.iml" filepath="$PROJECT_DIR$/Developper avec Java.iml" />
+    </modules>
+  </component>
+</project>
