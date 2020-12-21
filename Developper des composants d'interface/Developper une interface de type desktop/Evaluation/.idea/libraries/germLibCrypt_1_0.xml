@@ -1,10 +1,10 @@
 <component name="libraryTable">
   <library name="germLibCrypt-1.0">
     <CLASSES>
-      <root url="jar://$USER_HOME$/Downloads/germLibCrypt-1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/germLibCrypt-1.0.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$USER_HOME$/Downloads/germLibCrypt-1.0-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/germLibCrypt-1.0-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES />
   </library>
