@@ -3,9 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="de9c20d9-5856-445b-8566-77f8cef9120b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Evaluation/com/company/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Evaluation/com/company/Encode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Evaluation/test/TransCoderTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Evaluation/test/TransCoderTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Evaluation/tools/TransCoder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Evaluation/tools/TransCoder.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/TransCoderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/TransCoderTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tools/TransCoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tools/TransCoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tools/TransCoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/tools/TransCoder.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,12 +114,18 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/germLibCrypt-1.0-javadoc.jar" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/td" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="RunManager" selected="Application.TransCoder">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Balto\Desktop\Travaux_CDA\Developper des composants d'interface\Developper une interface de type desktop\Evaluation\src" />
+      <recent name="C:\Users\Balto\Desktop\Travaux_CDA\Developper des composants d'interface\Developper une interface de type desktop\Evaluation" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.TransCoderTest.createMapTest">
     <configuration name="Encode" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.company.Encode" />
       <module name="Evaluation" />
@@ -142,11 +150,11 @@
       </method>
     </configuration>
     <configuration name="TransCoder" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="tools.TransCoder" />
+      <option name="MAIN_CLASS_NAME" value="com.company.tools.TransCoder" />
       <module name="Evaluation" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="tools.*" />
+          <option name="PATTERN" value="com.company.tools.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -183,14 +191,32 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TransCoderTest.createMapTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Evaluation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test" />
+      <option name="MAIN_CLASS_NAME" value="test.TransCoderTest" />
+      <option name="METHOD_NAME" value="createMapTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.Main" />
       <item itemvalue="JUnit.ReadKeyTest.readKeyTest" />
       <item itemvalue="Application.Encode" />
       <item itemvalue="Application.TransCoder" />
+      <item itemvalue="JUnit.TransCoderTest.createMapTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TransCoderTest.createMapTest" />
         <item itemvalue="Application.TransCoder" />
         <item itemvalue="Application.Encode" />
         <item itemvalue="JUnit.ReadKeyTest.readKeyTest" />
@@ -207,7 +233,7 @@
       <option name="presentableId" value="Default" />
       <updated>1608555332986</updated>
       <workItem from="1608555336207" duration="8561000" />
-      <workItem from="1608624275832" duration="3663000" />
+      <workItem from="1608624275832" duration="8074000" />
     </task>
     <task id="LOCAL-00001" summary="Eval JAVA Une première classe">
       <created>1608566250308</created>
@@ -216,7 +242,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608566250308</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Eval JAVA">
+      <created>1608628250737</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1608628250737</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -236,6 +269,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Eval JAVA Une première classe" />
-    <option name="LAST_COMMIT_MESSAGE" value="Eval JAVA Une première classe" />
+    <MESSAGE value="Eval JAVA" />
+    <option name="LAST_COMMIT_MESSAGE" value="Eval JAVA" />
   </component>
 </project>
