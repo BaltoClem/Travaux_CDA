@@ -1,11 +1,12 @@
 package test;
 
-import org.germain.tool.ManaBox;
 import com.company.tools.Transcoder;
+import org.germain.tool.ManaBox;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class ReadKeyTest {
+public class TestKey {
+
     @Test
     public void readKeyTest() {
         // La clé cryptée donnée plus haut
@@ -14,14 +15,25 @@ public class ReadKeyTest {
         String keyDecrypted = "CFfrkowl.aDzyS:eHjsGPZgMApWvRYVmtnK!BuU IQiEXTxbqhLdNJO,'c";
         // le test d'égalité entre la clé attendue et la sortie de la méthode de la librairie. Si le décryptage ne fonctionne pas nous aurons le message définit ici
         Assert.assertEquals("La librairie de décryptage est mal installée",keyDecrypted, ManaBox.decrypt(keyCrypted));
+
     }
 
     @Test
-    public void createMapTest(){
-        String testGermain = "6lUjKOzUj4e/Gelw9c6sDLqHniwulClN6XSayZ+HRF/kbZx+CMf95jxrhm4YFSY26OnxVlsrzGkO00IMeAFs3g==";
-        TransCoder transcodeTest = new TransCoder(testGermain);
-        Assert.assertNotNull(transcodeTest.getEncode());
-        System.out.println(transcodeTest.getEncode().toString());
+    public void genTranscoder(){
+        String keyCrypted = "6Qe0IsEEH1utWRe7UKzGMiDTytOB3HS1dEfIB4imna3IRHXHRn5ZrvKFEcPjmPgKYGuytG+gDAl1m2DdHalJQg==";
+        Transcoder transcoder = new Transcoder(keyCrypted);
+
+        Assert.assertNotNull(transcoder);
+        Assert.assertNotNull(transcoder.getEncode());
+        System.out.println(transcoder.getEncode().toString());
+        /*Assert.assertNotNull(transcoder.getDecode());
+        System.out.println(transcoder.getDecode().toString());*/
+    }
+
+    @Test
+    public void arrayAlphabet(){
+        String alph = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String couple = alph.charAt(1) + alph.substring(0,1);
+        System.out.println(couple);
     }
 }
-
