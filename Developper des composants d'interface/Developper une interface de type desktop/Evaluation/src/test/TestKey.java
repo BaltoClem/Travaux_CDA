@@ -9,6 +9,7 @@ public class TestKey {
 
     @Test
     public void readKeyTest() {
+
         // La clé cryptée donnée plus haut
         String keyCrypted = "6Qe0IsEEH1utWRe7UKzGMiDTytOB3HS1dEfIB4imna3IRHXHRn5ZrvKFEcPjmPgKYGuytG+gDAl1m2DdHalJQg==";
         // La clé décryptée que nous devrions obtenir
@@ -20,10 +21,10 @@ public class TestKey {
 
     @Test
     public void genTranscoder(){
+
         String keyCrypted = "6Qe0IsEEH1utWRe7UKzGMiDTytOB3HS1dEfIB4imna3IRHXHRn5ZrvKFEcPjmPgKYGuytG+gDAl1m2DdHalJQg==";
         Transcoder transcoder = new Transcoder(keyCrypted);
 
-        Assert.assertNotNull(transcoder);
         Assert.assertNotNull(transcoder.getEncode());
         System.out.println(transcoder.getEncode().toString());
         Assert.assertNotNull(transcoder.getDecode());
@@ -32,8 +33,13 @@ public class TestKey {
 
     @Test
     public void arrayAlphabet(){
+
         String alph = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         String couple = alph.charAt(1) + alph.substring(0,1);
         System.out.println(couple);
+    }
+
+    @Test
+    public void encodeTest(){
     }
 }

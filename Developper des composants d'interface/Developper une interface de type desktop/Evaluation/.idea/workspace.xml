@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="de9c20d9-5856-445b-8566-77f8cef9120b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/tools/Transcoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/tools/Transcoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/TestKey.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/TestKey.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,20 +125,7 @@
       <recent name="C:\Users\Balto\Desktop\Travaux_CDA\Developper des composants d'interface\Developper une interface de type desktop\Evaluation" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TestKey.genTranscoder">
-    <configuration name="Encode" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.company.Encode" />
-      <module name="Evaluation" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.company.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.TestKey.encodeTest">
     <configuration name="TransCoder" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.company.tools.TransCoder" />
       <module name="Evaluation" />
@@ -146,6 +135,17 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -161,6 +161,22 @@
       <option name="PACKAGE_NAME" value="test" />
       <option name="MAIN_CLASS_NAME" value="test.TestKey" />
       <option name="METHOD_NAME" value="arrayAlphabet" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestKey.encodeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Evaluation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="test" />
+      <option name="MAIN_CLASS_NAME" value="test.TestKey" />
+      <option name="METHOD_NAME" value="encodeTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -199,19 +215,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Encode" />
       <item itemvalue="Application.TransCoder" />
       <item itemvalue="JUnit.TransCoderTest.createMapTest" />
       <item itemvalue="JUnit.TestKey.genTranscoder" />
       <item itemvalue="JUnit.TestKey.arrayAlphabet" />
+      <item itemvalue="JUnit.TestKey.encodeTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TestKey.encodeTest" />
         <item itemvalue="JUnit.TestKey.genTranscoder" />
         <item itemvalue="JUnit.TestKey.arrayAlphabet" />
         <item itemvalue="JUnit.TransCoderTest.createMapTest" />
         <item itemvalue="Application.TransCoder" />
-        <item itemvalue="Application.Encode" />
       </list>
     </recent_temporary>
   </component>
@@ -227,7 +243,7 @@
       <workItem from="1608624275832" duration="9273000" />
       <workItem from="1608641859280" duration="11254000" />
       <workItem from="1608711110830" duration="10731000" />
-      <workItem from="1608729026955" duration="419000" />
+      <workItem from="1608729026955" duration="6293000" />
     </task>
     <task id="LOCAL-00001" summary="Eval JAVA Une première classe">
       <created>1608566250308</created>
@@ -278,7 +294,21 @@
       <option name="project" value="LOCAL" />
       <updated>1608720951791</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Eval JAVA création package model">
+      <created>1608729501276</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1608729501276</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Eval JAVA création package model">
+      <created>1608729515411</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1608729515411</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -303,6 +333,7 @@
     <MESSAGE value="Eval JAVA : Boucle encodage" />
     <MESSAGE value="Eval JAVA : Boucle mapping encodage ok" />
     <MESSAGE value="Eval JAVA : Boucle mapping decodage ok" />
-    <option name="LAST_COMMIT_MESSAGE" value="Eval JAVA : Boucle mapping decodage ok" />
+    <MESSAGE value="Eval JAVA création package model" />
+    <option name="LAST_COMMIT_MESSAGE" value="Eval JAVA création package model" />
   </component>
 </project>

@@ -68,13 +68,14 @@ public class Transcoder {
 
     public String encode(String msg){
         // méthode qui prend une string codée et qui renvoie
-        // une string décodée
+        // une string décodée (Char -> String)
+
         return msg;
     }
 
     public String decode(String msg){
-        // méthode qui prend une string et qui renvoie
-        // une string codée
+        // méthode qui prend une string décodée et qui renvoie
+        // une string codée (String -> Char)
         return msg;
     }
 }
