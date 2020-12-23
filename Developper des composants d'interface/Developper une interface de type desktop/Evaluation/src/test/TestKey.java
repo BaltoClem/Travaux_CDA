@@ -26,8 +26,8 @@ public class TestKey {
         Assert.assertNotNull(transcoder);
         Assert.assertNotNull(transcoder.getEncode());
         System.out.println(transcoder.getEncode().toString());
-        /*Assert.assertNotNull(transcoder.getDecode());
-        System.out.println(transcoder.getDecode().toString());*/
+        Assert.assertNotNull(transcoder.getDecode());
+        System.out.println(transcoder.getDecode().toString());
     }
 
     @Test
