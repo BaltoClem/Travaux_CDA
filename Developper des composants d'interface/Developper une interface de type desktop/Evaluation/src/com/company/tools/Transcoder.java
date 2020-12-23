@@ -21,26 +21,33 @@ public class Transcoder {
         String key = ManaBox.decrypt(keyCrypted);
 
         //Boucles de génération de maps
-        
+
+        //Boucle pour encoder la clé cryptée
+
         String alph = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         char[]keyArray = key.toCharArray();
-        //char[] lettre = alph.toCharArray();
 
         for(int i = 0; i <= key.length(); i++){
 
-            if(i > 25 && i < 51 ){
-                String couple1 = alph.charAt(1) + alph.substring(i, i+1);
+            if(i >= 0 && i <= 25){
+                String couple1 = alph.charAt(0) + alph.substring(i, i+1);
                 encode.put(keyArray[i], couple1);
             }
-            else if(i > 51 ){
-                String couple2 = alph.charAt(2) + alph.substring(i, i+1);
+            else if(i >= 26 && i <= 51 ){
+                String alph2 = alph + alph;
+                String couple2 = alph.charAt(1) + alph2.substring(i, i+1);
                 encode.put(keyArray[i], couple2);
             }
-            else{
-                String couple3 = alph.charAt(0) + alph.substring(i, i+1);
+            else if(i >= 52 && i < 58){
+                String alph3 = alph + alph + alph;
+                String couple3 = alph.charAt(2) + alph3.substring(i, i+1);
                 encode.put(keyArray[i], couple3);
             }
         }
+        //Boucle pour décoder le code en couple de lettres et obtenir une phrase finale
+
+
+
     }
 
     public String encode(String msg){

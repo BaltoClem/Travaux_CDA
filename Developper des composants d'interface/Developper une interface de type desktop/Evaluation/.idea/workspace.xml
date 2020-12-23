@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="de9c20d9-5856-445b-8566-77f8cef9120b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/tools/Transcoder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/TransCoderTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/tools/Transcoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/tools/Transcoder.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,13 +151,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -238,7 +239,8 @@
       <updated>1608555332986</updated>
       <workItem from="1608555336207" duration="8561000" />
       <workItem from="1608624275832" duration="9273000" />
-      <workItem from="1608641859280" duration="11005000" />
+      <workItem from="1608641859280" duration="11254000" />
+      <workItem from="1608711110830" duration="5410000" />
     </task>
     <task id="LOCAL-00001" summary="Eval JAVA Une première classe">
       <created>1608566250308</created>
@@ -261,7 +263,21 @@
       <option name="project" value="LOCAL" />
       <updated>1608634282736</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Eval JAVA : Boucle encodage">
+      <created>1608653061013</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1608653061013</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Eval JAVA : Boucle encodage">
+      <created>1608653088484</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1608653088484</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -283,6 +299,7 @@
     <MESSAGE value="Eval JAVA Une première classe" />
     <MESSAGE value="Eval JAVA" />
     <MESSAGE value="Constructeur Test Transcoder Eval JAVA" />
-    <option name="LAST_COMMIT_MESSAGE" value="Constructeur Test Transcoder Eval JAVA" />
+    <MESSAGE value="Eval JAVA : Boucle encodage" />
+    <option name="LAST_COMMIT_MESSAGE" value="Eval JAVA : Boucle encodage" />
   </component>
 </project>
