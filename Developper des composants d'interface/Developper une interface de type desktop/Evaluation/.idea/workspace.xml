@@ -115,6 +115,7 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="inlay.hints.JAVA" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -125,7 +126,7 @@
       <recent name="C:\Users\Balto\Desktop\Travaux_CDA\Developper des composants d'interface\Developper une interface de type desktop\Evaluation" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TestKey.encodeTest">
+  <component name="RunManager" selected="JUnit.TestKey.genTranscoder">
     <configuration name="TransCoder" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.company.tools.TransCoder" />
       <module name="Evaluation" />
@@ -139,13 +140,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -223,8 +226,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TestKey.encodeTest" />
         <item itemvalue="JUnit.TestKey.genTranscoder" />
+        <item itemvalue="JUnit.TestKey.encodeTest" />
         <item itemvalue="JUnit.TestKey.arrayAlphabet" />
         <item itemvalue="JUnit.TransCoderTest.createMapTest" />
         <item itemvalue="Application.TransCoder" />
@@ -243,7 +246,8 @@
       <workItem from="1608624275832" duration="9273000" />
       <workItem from="1608641859280" duration="11254000" />
       <workItem from="1608711110830" duration="10731000" />
-      <workItem from="1608729026955" duration="6293000" />
+      <workItem from="1608729026955" duration="7838000" />
+      <workItem from="1608795243109" duration="6166000" />
     </task>
     <task id="LOCAL-00001" summary="Eval JAVA Une première classe">
       <created>1608566250308</created>
@@ -308,7 +312,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608729515411</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Eval JAVA début création fonction encode et decode">
+      <created>1608738645156</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1608738645156</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -334,6 +345,7 @@
     <MESSAGE value="Eval JAVA : Boucle mapping encodage ok" />
     <MESSAGE value="Eval JAVA : Boucle mapping decodage ok" />
     <MESSAGE value="Eval JAVA création package model" />
-    <option name="LAST_COMMIT_MESSAGE" value="Eval JAVA création package model" />
+    <MESSAGE value="Eval JAVA début création fonction encode et decode" />
+    <option name="LAST_COMMIT_MESSAGE" value="Eval JAVA début création fonction encode et decode" />
   </component>
 </project>

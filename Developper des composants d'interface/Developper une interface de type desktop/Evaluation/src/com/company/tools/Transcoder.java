@@ -65,10 +65,18 @@ public class Transcoder {
             }
         }
     }
-
     public String encode(String msg){
         // méthode qui prend une string codée et qui renvoie
         // une string décodée (Char -> String)
+
+        String keyToEncode = ManaBox.decrypt(msg);
+        String alph = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        char[]keyToEncodeArray = keyToEncode.toCharArray();
+
+        for(int i = 0; i <= msg.length(); i++){
+
+            //encode.put(keyToEncodeArray[i], )
+        }
 
         return msg;
     }
