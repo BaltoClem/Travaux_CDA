@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="de9c20d9-5856-445b-8566-77f8cef9120b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Evaluation.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/model/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/model/Message.java" afterDir="false" />
-    </list>
+    <list default="true" id="de9c20d9-5856-445b-8566-77f8cef9120b" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -247,7 +243,7 @@
       <workItem from="1608729026955" duration="7838000" />
       <workItem from="1608795243109" duration="6396000" />
       <workItem from="1609750221015" duration="885000" />
-      <workItem from="1609769649634" duration="1019000" />
+      <workItem from="1609769649634" duration="1194000" />
     </task>
     <task id="LOCAL-00001" summary="Eval JAVA Une première classe">
       <created>1608566250308</created>
@@ -333,7 +329,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608807588535</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Correction Eval Java">
+      <created>1609770823310</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1609770823310</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -361,6 +364,7 @@
     <MESSAGE value="Eval JAVA création package model" />
     <MESSAGE value="Eval JAVA début création fonction encode et decode" />
     <MESSAGE value="Eval JAVA méthodes encode et decode en cours" />
-    <option name="LAST_COMMIT_MESSAGE" value="Eval JAVA méthodes encode et decode en cours" />
+    <MESSAGE value="Correction Eval Java" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correction Eval Java" />
   </component>
 </project>
