@@ -6,8 +6,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class CreateDataBase {
-    static final String driver = "com.company.jdbc.Driver";
-    static final String url = "http://localhost/phpmyadmin/";
+    static final String driver = "com.mysql.jdbc.Driver";
+    static final String url = "jdbc:mysql://localhost/?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 
     static final String user = "root";
     static final String pass = "";
@@ -16,7 +16,7 @@ public class CreateDataBase {
         Connection conn =null;
         Statement st = null;
         try{
-            Class.forName("com.company.jdbc.Driver");
+            Class.forName("com.mysql.jdbc.Driver");
             System.out.println("Connecting to database...");
             conn = DriverManager.getConnection(url,user,pass);
 
