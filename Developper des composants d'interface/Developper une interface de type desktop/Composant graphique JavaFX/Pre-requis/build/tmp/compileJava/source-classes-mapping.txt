@@ -1,0 +1,2 @@
+afpa/moi/org/App.java
+ afpa.moi.org.App
