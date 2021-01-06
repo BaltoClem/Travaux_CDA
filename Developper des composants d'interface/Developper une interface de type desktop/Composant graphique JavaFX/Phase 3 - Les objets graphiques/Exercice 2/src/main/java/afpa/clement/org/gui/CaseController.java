@@ -1,6 +1,5 @@
 package afpa.clement.org.gui;
 
-import javafx.scene.Group;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -27,25 +26,98 @@ public class CaseController {
     public void key_released1(KeyEvent keyEvent) {
         label1.setText(textfield1.getText());
     }
-// if() pour si la case couleur de fond est cochée
+
     public void mouse_clicked_red(MouseEvent mouseEvent) {
         fond_rouge_button.setSelected(true);
         fond_bleu_button.setSelected(false);
         fond_vert_button.setSelected(false);
-        label1.setStyle("-fx-background-color: red;");
+        if(couleur_fond_choice.isSelected()) {
+            label1.setStyle("-fx-background-color: red;");
+        }
     }
 
     public void mouse_clicked_blue(MouseEvent mouseEvent) {
         fond_rouge_button.setSelected(false);
         fond_bleu_button.setSelected(true);
         fond_vert_button.setSelected(false);
-        label1.setStyle("-fx-background-color: blue;");
+        if(couleur_fond_choice.isSelected()) {
+            label1.setStyle("-fx-background-color: blue;");
+        }
     }
 
     public void mouse_clicked_green(MouseEvent mouseEvent) {
         fond_rouge_button.setSelected(false);
         fond_bleu_button.setSelected(false);
         fond_vert_button.setSelected(true);
-        label1.setStyle("-fx-background-color: green;");
+        if(couleur_fond_choice.isSelected()) {
+            label1.setStyle("-fx-background-color: green;");
+        }
+    }
+
+    public void mouse_clicked2(MouseEvent mouseEvent) {
+        if(!couleur_fond_choice.isSelected()){
+            label1.setStyle("-fx-background-color: none;");
+            fond_rouge_button.setSelected(false);
+            fond_bleu_button.setSelected(false);
+            fond_vert_button.setSelected(false);
+        }
+    }
+
+    public void mouse_clicked2_red(MouseEvent mouseEvent) {
+        texte_rouge_button.setSelected(true);
+        texte_blanc_button.setSelected(false);
+        texte_noir_button.setSelected(false);
+        if(couleur_texte_choice.isSelected()){
+            label1.setStyle("-fx-text-fill: red;");
+        }
+    }
+
+    public void mouse_clicked2_black(MouseEvent mouseEvent) {
+        texte_rouge_button.setSelected(false);
+        texte_blanc_button.setSelected(false);
+        texte_noir_button.setSelected(true);
+        if(couleur_texte_choice.isSelected()){
+            label1.setStyle("-fx-text-fill: black;");
+        }
+    }
+
+    public void mouse_clicked2_white(MouseEvent mouseEvent) {
+        texte_rouge_button.setSelected(false);
+        texte_blanc_button.setSelected(true);
+        texte_noir_button.setSelected(false);
+        if(couleur_texte_choice.isSelected()){
+            label1.setStyle("-fx-text-fill: white;");
+        }
+    }
+
+    public void mouse_clicked3(MouseEvent mouseEvent) {
+        if(!couleur_texte_choice.isSelected()){
+            label1.setStyle("-fx-text-fill: black;");
+            texte_rouge_button.setSelected(false);
+            texte_blanc_button.setSelected(false);
+            texte_noir_button.setSelected(false);
+        }
+    }
+
+    public void mouse_clicked_min(MouseEvent mouseEvent) {
+        casse_maj_button.setSelected(false);
+        if(casse_min_button.isSelected()){
+            String text = label1.getText();
+            label1.setText(text.toLowerCase());
+        }
+    }
+
+    public void mouse_clicked_maj(MouseEvent mouseEvent) {
+        casse_min_button.setSelected(false);
+        if(casse_maj_button.isSelected()){
+            String text = label1.getText();
+            label1.setText(text.toUpperCase());
+        }
+    }
+
+    public void mouse_clicked4(MouseEvent mouseEvent) {
+        if(!casse_choice.isSelected()){
+            label1.setText(textfield1.getText());
+        }
     }
 }

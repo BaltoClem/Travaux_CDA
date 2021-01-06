@@ -19,9 +19,9 @@
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0">
                <children>
-                  <CheckBox fx:id="couleur_fond_choice" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Couleur du fond" />
-                  <CheckBox fx:id="couleur_texte_choice" layoutX="14.0" layoutY="40.0" mnemonicParsing="false" text="Couleur du texte" />
-                  <CheckBox fx:id="casse_choice" layoutX="14.0" layoutY="69.0" mnemonicParsing="false" text="Casse" />
+                  <CheckBox fx:id="couleur_fond_choice" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#mouse_clicked2" text="Couleur du fond" />
+                  <CheckBox fx:id="couleur_texte_choice" layoutX="14.0" layoutY="40.0" mnemonicParsing="false" onMouseClicked="#mouse_clicked3" text="Couleur du texte" />
+                  <CheckBox fx:id="casse_choice" layoutX="14.0" layoutY="69.0" mnemonicParsing="false" onMouseClicked="#mouse_clicked4" text="Casse" />
                </children>
             </AnchorPane>
         </content>
@@ -42,9 +42,9 @@
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <RadioButton fx:id="texte_rouge_button" layoutX="14.0" layoutY="24.0" mnemonicParsing="false" text="Rouge" />
-                  <RadioButton fx:id="texte_noir_button" layoutX="14.0" layoutY="77.0" mnemonicParsing="false" text="Noir" />
-                  <RadioButton fx:id="texte_blanc_button" layoutX="14.0" layoutY="51.0" mnemonicParsing="false" selected="true" text="Blanc" />
+                  <RadioButton fx:id="texte_rouge_button" layoutX="14.0" layoutY="24.0" mnemonicParsing="false" onMouseClicked="#mouse_clicked2_red" text="Rouge" />
+                  <RadioButton fx:id="texte_noir_button" layoutX="14.0" layoutY="77.0" mnemonicParsing="false" onMouseClicked="#mouse_clicked2_black" text="Noir" />
+                  <RadioButton fx:id="texte_blanc_button" layoutX="14.0" layoutY="51.0" mnemonicParsing="false" onMouseClicked="#mouse_clicked2_white" text="Blanc" />
                </children>
             </AnchorPane>
          </content>
@@ -53,8 +53,8 @@
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <RadioButton fx:id="casse_min_button" layoutX="14.0" layoutY="24.0" mnemonicParsing="false" text="Minuscule" />
-                  <RadioButton fx:id="casse_maj_button" layoutX="14.0" layoutY="49.0" mnemonicParsing="false" selected="true" text="Majuscule" />
+                  <RadioButton fx:id="casse_min_button" layoutX="14.0" layoutY="24.0" mnemonicParsing="false" onMouseClicked="#mouse_clicked_min" text="Minuscule" />
+                  <RadioButton fx:id="casse_maj_button" layoutX="14.0" layoutY="49.0" mnemonicParsing="false" onMouseClicked="#mouse_clicked_maj" text="Majuscule" />
                </children>
             </AnchorPane>
          </content>
