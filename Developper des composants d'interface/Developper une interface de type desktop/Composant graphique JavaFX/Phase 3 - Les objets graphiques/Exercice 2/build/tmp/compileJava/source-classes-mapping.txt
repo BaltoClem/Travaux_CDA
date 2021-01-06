@@ -1,0 +1,4 @@
+afpa/clement/org/CasesACocher.java
+ afpa.clement.org.CasesACocher
+afpa/clement/org/gui/CaseController.java
+ afpa.clement.org.gui.CaseController

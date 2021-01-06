@@ -28,4 +28,4 @@ javafx {
     modules = ['javafx.base', 'javafx.controls','javafx.fxml']
 }
 
-mainClassName = 'afpa.moi.org.CasesACocher'
+mainClassName = 'afpa.clement.org.CasesACocher'

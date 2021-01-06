@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="afpa.clement.org.gui.CaseController">
+   <children>
+      <TextField fx:id="textfield1" layoutX="46.0" layoutY="72.0" onKeyReleased="#key_released1" text="Votre texte ici" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="250.0" AnchorPane.topAnchor="50.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TitledPane fx:id="choix_pane" animated="false" layoutX="376.0" layoutY="50.0" prefHeight="132.0" prefWidth="210.0" text="Choix">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0">
+               <children>
+                  <CheckBox fx:id="couleur_fond_choice" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Couleur du fond" />
+                  <CheckBox fx:id="couleur_texte_choice" layoutX="14.0" layoutY="40.0" mnemonicParsing="false" text="Couleur du texte" />
+                  <CheckBox fx:id="casse_choice" layoutX="14.0" layoutY="69.0" mnemonicParsing="false" text="Casse" />
+               </children>
+            </AnchorPane>
+        </content>
+      </TitledPane>
+      <Label fx:id="label1" layoutX="39.0" layoutY="116.0" prefHeight="40.0" prefWidth="330.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="250.0" AnchorPane.topAnchor="100.0" />
+      <TitledPane fx:id="fond_pane" animated="false" layoutX="42.0" layoutY="221.0" prefHeight="158.0" prefWidth="143.0" text="Fond">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <RadioButton fx:id="fond_rouge_button" layoutX="14.0" layoutY="21.0" mnemonicParsing="false" onMouseClicked="#mouse_clicked_red" text="Rouge" />
+                  <RadioButton fx:id="fond_bleu_button" layoutX="14.0" layoutY="77.0" mnemonicParsing="false" onMouseClicked="#mouse_clicked_blue" text="Bleu" />
+                  <RadioButton fx:id="fond_vert_button" layoutX="14.0" layoutY="49.0" mnemonicParsing="false" onMouseClicked="#mouse_clicked_green" text="Vert" />
+               </children>
+            </AnchorPane>
+        </content>
+      </TitledPane>
+      <TitledPane fx:id="texte_pane" animated="false" layoutX="229.0" layoutY="221.0" prefHeight="158.0" prefWidth="143.0" text="Texte">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <RadioButton fx:id="texte_rouge_button" layoutX="14.0" layoutY="24.0" mnemonicParsing="false" text="Rouge" />
+                  <RadioButton fx:id="texte_noir_button" layoutX="14.0" layoutY="77.0" mnemonicParsing="false" text="Noir" />
+                  <RadioButton fx:id="texte_blanc_button" layoutX="14.0" layoutY="51.0" mnemonicParsing="false" selected="true" text="Blanc" />
+               </children>
+            </AnchorPane>
+         </content>
+      </TitledPane>
+      <TitledPane fx:id="casse_pane" animated="false" layoutX="419.0" layoutY="221.0" prefHeight="158.0" prefWidth="143.0" text="Casse">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <RadioButton fx:id="casse_min_button" layoutX="14.0" layoutY="24.0" mnemonicParsing="false" text="Minuscule" />
+                  <RadioButton fx:id="casse_maj_button" layoutX="14.0" layoutY="49.0" mnemonicParsing="false" selected="true" text="Majuscule" />
+               </children>
+            </AnchorPane>
+         </content>
+      </TitledPane>
+   </children>
+</AnchorPane>
