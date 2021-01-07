@@ -38,9 +38,4 @@ public class TestKey {
         String couple = alph.charAt(1) + alph.substring(0,1);
         System.out.println(couple);
     }
-
-    @Test
-    public void encodeTest(){
-
-    }
 }
