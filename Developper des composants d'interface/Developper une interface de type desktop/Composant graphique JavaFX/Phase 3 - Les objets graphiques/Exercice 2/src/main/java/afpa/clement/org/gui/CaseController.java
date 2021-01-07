@@ -55,12 +55,13 @@ public class CaseController {
     }
 
     public void mouse_clicked2(MouseEvent mouseEvent) {
-        if(!couleur_fond_choice.isSelected()){
-            label1.setStyle("-fx-background-color: none;");
+        fond_pane.setDisable(!couleur_fond_choice.isSelected());
+         /*if(!couleur_fond_choice.isSelected()){
+           label1.setStyle("-fx-background-color: none;");
             fond_rouge_button.setSelected(false);
             fond_bleu_button.setSelected(false);
             fond_vert_button.setSelected(false);
-        }
+        }*/
     }
 
     public void mouse_clicked2_red(MouseEvent mouseEvent) {
@@ -91,12 +92,13 @@ public class CaseController {
     }
 
     public void mouse_clicked3(MouseEvent mouseEvent) {
-        if(!couleur_texte_choice.isSelected()){
+        texte_pane.setDisable(!couleur_texte_choice.isSelected());
+        /*if(!couleur_texte_choice.isSelected()){
             label1.setStyle("-fx-text-fill: black;");
             texte_rouge_button.setSelected(false);
             texte_blanc_button.setSelected(false);
             texte_noir_button.setSelected(false);
-        }
+        }*/
     }
 
     public void mouse_clicked_min(MouseEvent mouseEvent) {
@@ -116,8 +118,9 @@ public class CaseController {
     }
 
     public void mouse_clicked4(MouseEvent mouseEvent) {
-        if(!casse_choice.isSelected()){
+        casse_pane.setDisable(!casse_choice.isSelected());
+        /*if(!casse_choice.isSelected()){
             label1.setText(textfield1.getText());
-        }
+        }*/
     }
 }
