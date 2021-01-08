@@ -1,9 +1,9 @@
 package afpa.clement.org;
 
 public class Client {
-    private String col_nom;
-    private String col_prenom;
-    private String col_ville;
+    private String nom;
+    private String prenom;
+    private String ville;
 
     /**
      *Constructeur par défaut
@@ -17,32 +17,32 @@ public class Client {
      * @param v :ville du client
      */
     public Client(String p, String n, String v) {
-        this.col_prenom = p;
-        this.col_nom = n;
-        this.col_ville = v;
+        this.prenom = p;
+        this.nom = n;
+        this.ville = v;
     }
 
-    public String getCol_ville() {
-        return col_ville;
+    public String getNom() {
+        return nom;
     }
 
-    public void setCol_ville(String col_ville) {
-        this.col_ville = col_ville;
+    public void setNom(String nom) {
+        this.nom = nom;
     }
 
-    public String getCol_prenom() {
-        return col_prenom;
+    public String getPrenom() {
+        return prenom;
     }
 
-    public void setCol_prenom(String col_prenom) {
-        this.col_prenom = col_prenom;
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
     }
 
-    public String getCol_nom() {
-        return col_nom;
+    public String getVille() {
+        return ville;
     }
 
-    public void setCol_nom(String col_nom) {
-        this.col_nom = col_nom;
+    public void setVille(String ville) {
+        this.ville = ville;
     }
 }
