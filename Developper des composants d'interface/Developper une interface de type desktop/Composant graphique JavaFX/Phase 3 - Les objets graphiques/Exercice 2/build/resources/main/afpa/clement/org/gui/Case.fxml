@@ -5,6 +5,7 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -15,7 +16,7 @@
             <Font size="14.0" />
          </font>
       </TextField>
-      <TitledPane fx:id="choix_pane" animated="false" layoutX="376.0" layoutY="50.0" prefHeight="132.0" prefWidth="210.0" text="Choix">
+      <TitledPane fx:id="choix_pane" animated="false" collapsible="false" layoutX="376.0" layoutY="50.0" prefHeight="132.0" prefWidth="210.0" text="Choix">
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0">
                <children>
@@ -27,34 +28,43 @@
         </content>
       </TitledPane>
       <Label fx:id="label1" layoutX="39.0" layoutY="116.0" prefHeight="40.0" prefWidth="330.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="250.0" AnchorPane.topAnchor="100.0" />
-      <TitledPane fx:id="fond_pane" animated="false" layoutX="42.0" layoutY="221.0" prefHeight="158.0" prefWidth="143.0" text="Fond">
+      <TitledPane fx:id="fond_pane" animated="false" collapsible="false" disable="true" layoutX="42.0" layoutY="221.0" prefHeight="158.0" prefWidth="143.0" text="Fond">
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <RadioButton fx:id="fond_rouge_button" layoutX="14.0" layoutY="21.0" mnemonicParsing="false" onMouseClicked="#mouse_clicked_red" text="Rouge" />
-                  <RadioButton fx:id="fond_bleu_button" layoutX="14.0" layoutY="77.0" mnemonicParsing="false" onMouseClicked="#mouse_clicked_blue" text="Bleu" />
-                  <RadioButton fx:id="fond_vert_button" layoutX="14.0" layoutY="49.0" mnemonicParsing="false" onMouseClicked="#mouse_clicked_green" text="Vert" />
+                  <RadioButton fx:id="fond_rouge_button" layoutX="14.0" layoutY="21.0" mnemonicParsing="false" onMouseClicked="#mouse_clicked_red" text="Rouge">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="grp_fond" />
+                     </toggleGroup></RadioButton>
+                  <RadioButton fx:id="fond_bleu_button" layoutX="14.0" layoutY="77.0" mnemonicParsing="false" onMouseClicked="#mouse_clicked_blue" text="Bleu" toggleGroup="$grp_fond" />
+                  <RadioButton fx:id="fond_vert_button" layoutX="14.0" layoutY="49.0" mnemonicParsing="false" onMouseClicked="#mouse_clicked_green" text="Vert" toggleGroup="$grp_fond" />
                </children>
             </AnchorPane>
         </content>
       </TitledPane>
-      <TitledPane fx:id="texte_pane" animated="false" layoutX="229.0" layoutY="221.0" prefHeight="158.0" prefWidth="143.0" text="Texte">
+      <TitledPane fx:id="texte_pane" animated="false" collapsible="false" disable="true" layoutX="229.0" layoutY="221.0" prefHeight="158.0" prefWidth="143.0" text="Texte">
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <RadioButton fx:id="texte_rouge_button" layoutX="14.0" layoutY="24.0" mnemonicParsing="false" onMouseClicked="#mouse_clicked2_red" text="Rouge" />
-                  <RadioButton fx:id="texte_noir_button" layoutX="14.0" layoutY="77.0" mnemonicParsing="false" onMouseClicked="#mouse_clicked2_black" text="Noir" />
-                  <RadioButton fx:id="texte_blanc_button" layoutX="14.0" layoutY="51.0" mnemonicParsing="false" onMouseClicked="#mouse_clicked2_white" text="Blanc" />
+                  <RadioButton fx:id="texte_rouge_button" layoutX="14.0" layoutY="24.0" mnemonicParsing="false" onMouseClicked="#mouse_clicked2_red" text="Rouge">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="grp_texte" />
+                     </toggleGroup></RadioButton>
+                  <RadioButton fx:id="texte_noir_button" layoutX="14.0" layoutY="77.0" mnemonicParsing="false" onMouseClicked="#mouse_clicked2_black" text="Noir" toggleGroup="$grp_texte" />
+                  <RadioButton fx:id="texte_blanc_button" layoutX="14.0" layoutY="51.0" mnemonicParsing="false" onMouseClicked="#mouse_clicked2_white" text="Blanc" toggleGroup="$grp_texte" />
                </children>
             </AnchorPane>
          </content>
       </TitledPane>
-      <TitledPane fx:id="casse_pane" animated="false" layoutX="419.0" layoutY="221.0" prefHeight="158.0" prefWidth="143.0" text="Casse">
+      <TitledPane fx:id="casse_pane" animated="false" collapsible="false" disable="true" layoutX="419.0" layoutY="221.0" prefHeight="158.0" prefWidth="143.0" text="Casse">
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                <children>
-                  <RadioButton fx:id="casse_min_button" layoutX="14.0" layoutY="24.0" mnemonicParsing="false" onMouseClicked="#mouse_clicked_min" text="Minuscule" />
-                  <RadioButton fx:id="casse_maj_button" layoutX="14.0" layoutY="49.0" mnemonicParsing="false" onMouseClicked="#mouse_clicked_maj" text="Majuscule" />
+                  <RadioButton fx:id="casse_min_button" layoutX="14.0" layoutY="24.0" mnemonicParsing="false" onMouseClicked="#mouse_clicked_min" text="Minuscule">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="grp_casse" />
+                     </toggleGroup></RadioButton>
+                  <RadioButton fx:id="casse_maj_button" layoutX="14.0" layoutY="49.0" mnemonicParsing="false" onMouseClicked="#mouse_clicked_maj" text="Majuscule" toggleGroup="$grp_casse" />
                </children>
             </AnchorPane>
          </content>
