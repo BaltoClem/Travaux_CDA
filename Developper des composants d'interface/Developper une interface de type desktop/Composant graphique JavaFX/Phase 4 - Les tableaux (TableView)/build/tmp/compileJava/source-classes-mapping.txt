@@ -2,5 +2,7 @@ afpa/clement/org/Tableaux.java
  afpa.clement.org.Tableaux
 afpa/clement/org/Client.java
  afpa.clement.org.Client
+afpa/clement/org/gui/TabController2.java
+ afpa.clement.org.gui.TabController2
 afpa/clement/org/gui/TabController.java
  afpa.clement.org.gui.TabController
