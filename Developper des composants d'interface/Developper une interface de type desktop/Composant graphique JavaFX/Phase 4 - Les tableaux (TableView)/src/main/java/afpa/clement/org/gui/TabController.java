@@ -10,9 +10,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class TabController<Client>{
+public class TabController<Client> {
     @FXML
-    private TableView<Client> lst_clients;
+    private TableView<afpa.clement.org.Client> lst_clients;
     @FXML
     private TableColumn<Client, String> col_prenom;
     @FXML
@@ -30,14 +30,16 @@ public class TabController<Client>{
     public Button btn_supprimer;
     public Button btn_annuler;
 
-    ObservableList<afpa.clement.org.Client> model = FXCollections.observableArrayList();
+    static ObservableList<afpa.clement.org.Client> model = FXCollections.observableArrayList();
 
+    //@Override
     public void initialize(URL url, ResourceBundle rb) {
         //initialisation du modèle
         model.add(new afpa.clement.org.Client("Josh", "Homme", "Joshua Tree"));
         model.add(new afpa.clement.org.Client("Dave", "Grohl", "Warren"));
         model.add(new afpa.clement.org.Client("Krist", "Novoselic", "Compton"));
         model.add(new afpa.clement.org.Client("Robert", "Trujillo", "Santa Monica"));
+
         //On rend le tableau non-éditable
         lst_clients.setEditable(false);
 
@@ -47,7 +49,7 @@ public class TabController<Client>{
         col_ville.setCellValueFactory(new PropertyValueFactory<>("ville"));
 
         // On indique au TableView quel modèle observer pour trouver les données
-        //lst_clients.setItems(model);
+        lst_clients.setItems(model);
     }
 
 }
