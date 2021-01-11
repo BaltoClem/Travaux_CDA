@@ -9,7 +9,7 @@ plugins {
 group 'afpa.clement.org'
 version '1.0-SNAPSHOT'
 
-// Pour les fichiers fxml, css...
+// Pour les fichiers fxml, css..., inutile dans resources
 sourceSets.main.resources.srcDirs("src/main/java").includes.addAll(["**/*.fxml", "**/*.css","**/*.png"])
 sourceSets.main.resources.srcDirs("src/main/resources").includes.addAll(["**/*.*"])
 
