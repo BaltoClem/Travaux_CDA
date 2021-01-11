@@ -21,8 +21,10 @@
         android:id="@+id/entre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Entrez votre texte ici/>"
+        android:layout_marginTop="160dp"
+        android:hint="Entrez votre texte ici"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -30,10 +32,10 @@
         android:id="@+id/go"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="524dp"
-        android:text="Go !"
+        android:layout_marginTop="464dp"
+        android:text="Go"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

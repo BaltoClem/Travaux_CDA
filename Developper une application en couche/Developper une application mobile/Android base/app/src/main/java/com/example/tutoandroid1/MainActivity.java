@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity  implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private TextView resultat;
     private EditText entre;
@@ -23,12 +23,12 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         entre = findViewById(R.id.entre);
         go = findViewById(R.id.go);
 
-        go.setOnContextClickListener((View.OnContextClickListener) this);
+        go.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        if(v == go){
+        if(v==go){
             resultat.setText(entre.getText());
         }
     }
