@@ -1,8 +1,10 @@
 package afpa.clement.org.gui;
 
+import afpa.clement.org.Client;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
@@ -10,9 +12,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class TabController<Client> {
+public class TabController implements Initializable {
     @FXML
-    private TableView<afpa.clement.org.Client> lst_clients;
+    private TableView<Client> lst_clients;
     @FXML
     private TableColumn<Client, String> col_prenom;
     @FXML
@@ -29,27 +31,36 @@ public class TabController<Client> {
     public Button btn_sauver;
     public Button btn_supprimer;
     public Button btn_annuler;
+    public static ObservableList<Client> listClients = FXCollections.observableArrayList();
 
-    static ObservableList<afpa.clement.org.Client> model = FXCollections.observableArrayList();
 
-    //@Override
+
+    @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //initialisation du modèle
-        model.add(new afpa.clement.org.Client("Josh", "Homme", "Joshua Tree"));
-        model.add(new afpa.clement.org.Client("Dave", "Grohl", "Warren"));
-        model.add(new afpa.clement.org.Client("Krist", "Novoselic", "Compton"));
-        model.add(new afpa.clement.org.Client("Robert", "Trujillo", "Santa Monica"));
+        refresh();
+    }
+
+    //initialisation du modèle
+    public void refresh(){
+
+        listClients.clear();
+        listClients.addAll(
+                new Client("Donald", "Duck", "Disney"),
+                new Client("Mickey", "Mouse", "Disney")
+        );
 
         //On rend le tableau non-éditable
         lst_clients.setEditable(false);
 
+        lst_clients.setItems(listClients);
+
         // Jonction du tableau avec les données
-        col_prenom.setCellValueFactory(new PropertyValueFactory<>("prenom"));
-        col_nom.setCellValueFactory(new PropertyValueFactory<>("nom"));
-        col_ville.setCellValueFactory(new PropertyValueFactory<>("ville"));
+        col_prenom.setCellValueFactory(new PropertyValueFactory<Client, String>("prenom"));
+        col_nom.setCellValueFactory(new PropertyValueFactory<Client, String>("nom"));
+        col_ville.setCellValueFactory(new PropertyValueFactory<Client, String>("ville"));
 
         // On indique au TableView quel modèle observer pour trouver les données
-        lst_clients.setItems(model);
+        lst_clients.setItems(listClients);
     }
 
 }

@@ -12,14 +12,14 @@ public class Client {
 
     /**
      * Constructeur avec paramètres
-     * @param n : nom du client
-     * @param p :prénom du client
-     * @param v :ville du client
+     * @param nom : nom du client
+     * @param prenom :prénom du client
+     * @param ville :ville du client
      */
-    public Client(String p, String n, String v) {
-        this.prenom = p;
-        this.nom = n;
-        this.ville = v;
+    public Client(String prenom, String nom, String ville) {
+        this.prenom = prenom;
+        this.nom = nom;
+        this.ville = ville;
     }
 
     public String getNom() {
