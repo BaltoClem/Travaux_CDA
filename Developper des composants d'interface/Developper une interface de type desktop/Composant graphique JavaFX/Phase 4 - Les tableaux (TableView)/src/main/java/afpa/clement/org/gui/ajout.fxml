@@ -39,6 +39,9 @@
                   <Button fx:id="btnAnnul" mnemonicParsing="false" onAction="#annule" text="Annuler" />
                   <Button fx:id="btnRetour" layoutX="146.0" layoutY="10.0" mnemonicParsing="false" onAction="#retour" text="Retour" />
                </children>
+               <padding>
+                  <Insets right="10.0" />
+               </padding>
             </HBox>
          </children>
          <padding>
