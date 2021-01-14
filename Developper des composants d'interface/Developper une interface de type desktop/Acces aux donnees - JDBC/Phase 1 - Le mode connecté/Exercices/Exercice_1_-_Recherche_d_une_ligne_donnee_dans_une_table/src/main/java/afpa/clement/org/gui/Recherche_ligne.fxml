@@ -7,12 +7,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="afpa.clement.org.gui.RechercheLigneController">
    <children>
       <Label fx:id="label_code_fourni" layoutX="56.0" layoutY="40.0" text="Code fourniseur" />
       <TextField fx:id="txtfield_code_fourni" layoutX="160.0" layoutY="36.0" prefHeight="25.0" prefWidth="226.0" />
-      <Button fx:id="btn_rechercher" layoutX="411.0" layoutY="36.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="137.0" text="Rechercher" />
+      <Button fx:id="btn_rechercher" layoutX="411.0" layoutY="36.0" mnemonicParsing="false" onMouseClicked="#rechercheFournis" prefHeight="25.0" prefWidth="137.0" text="Rechercher" />
       <TitledPane fx:id="pane_infos_fourni" animated="false" collapsible="false" layoutX="47.0" layoutY="91.0" prefHeight="295.0" prefWidth="506.0" text="Informations fournisseur">
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
