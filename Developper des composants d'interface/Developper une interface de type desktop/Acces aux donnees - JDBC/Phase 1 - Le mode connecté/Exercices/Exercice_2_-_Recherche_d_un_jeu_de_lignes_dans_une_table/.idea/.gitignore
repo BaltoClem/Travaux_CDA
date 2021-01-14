@@ -1,0 +1,8 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Datasource local storage ignored files
+/../../../../../../../../../../../../:\Users\Balto\Desktop\Travaux_CDA\Developper des composants d'interface\Developper une interface de type desktop\Acces aux donnees - JDBC\Phase 1 - Le mode connecté\Exercices\Exercice_2_-_Recherche_d_un_jeu_de_lignes_dans_une_table\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
