@@ -18,7 +18,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/org/afpa/gui/menu.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/org/afpa/gui/client.fxml"));
         scene = new Scene(root);
         stage = new Stage();
         stage.setResizable(false);

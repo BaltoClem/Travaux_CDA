@@ -1,0 +1,10 @@
+org/afpa/DAL/Client.java
+ org.afpa.DAL.Client
+org/afpa/DAL/HotelDB.java
+ org.afpa.DAL.HotelDB
+org/afpa/App.java
+ org.afpa.App
+org/afpa/DAL/ClientDAO.java
+ org.afpa.DAL.ClientDAO
+org/afpa/gui/ClientController.java
+ org.afpa.gui.ClientController
