@@ -21,7 +21,7 @@
             <Image url="@img/valise.png" />
          </image>
       </ImageView>
-      <TableView fx:id="tab_clients" layoutX="14.0" layoutY="16.0" prefHeight="431.0" prefWidth="222.0">
+      <TableView fx:id="tab_clients" layoutX="14.0" layoutY="16.0" onMouseClicked="#afficheClient" prefHeight="431.0" prefWidth="222.0">
         <columns>
           <TableColumn fx:id="col_nom_client" prefWidth="75.0" text="Nom" />
           <TableColumn fx:id="col_prenom_client" prefWidth="75.0" text="Prénom" />
@@ -40,7 +40,7 @@
       <Group fx:id="grp_details_ajout" layoutX="400.0" layoutY="25.0" visible="false">
          <children>
             <TextArea fx:id="txtarea_details_ajout" prefHeight="419.0" prefWidth="222.0" />
-            <Label fx:id="lbl_details" layoutX="23.0" layoutY="20.0" text="Détails">
+            <Label fx:id="lbl_ajout_client" layoutX="23.0" layoutY="20.0" text="Ajout client">
                <font>
                   <Font name="System Bold" size="21.0" />
                </font>
@@ -69,8 +69,46 @@
             <TextField fx:id="txt_ville_ajout" layoutX="90.0" layoutY="239.0" prefHeight="25.0" prefWidth="117.0" />
             <HBox layoutX="42.0" layoutY="340.0" spacing="50.0">
                <children>
-                  <Button mnemonicParsing="false" text="OK" />
-                  <Button mnemonicParsing="false" text="Annuler" />
+                  <Button fx:id="btn_ok_ajout" mnemonicParsing="false" onMouseClicked="#btn_ajout_client" text="OK" />
+                  <Button fx:id="bouton_annul_ajout" mnemonicParsing="false" onMouseClicked="#effaceRenseignement" text="Annuler" />
+               </children>
+            </HBox>
+         </children>
+      </Group>
+      <Group fx:id="grp_details_modif" layoutX="400.0" layoutY="25.0" visible="false">
+         <children>
+            <TextArea fx:id="txtarea_details_modif" prefHeight="419.0" prefWidth="222.0" />
+            <Label fx:id="lbl_modif_client" alignment="CENTER" contentDisplay="CENTER" layoutX="18.0" layoutY="20.0" text="Modification client">
+               <font>
+                  <Font name="System Bold" size="21.0" />
+               </font>
+            </Label>
+            <VBox layoutX="23.0" layoutY="89.0" prefHeight="175.0" prefWidth="67.0" spacing="50.0">
+               <children>
+                  <Label text="Nom">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label text="Prénom">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label text="Ville">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <TextField fx:id="txt_nom_modif" layoutX="90.0" layoutY="89.0" prefHeight="25.0" prefWidth="117.0" />
+            <TextField fx:id="txt_prenom_modif" layoutX="90.0" layoutY="164.0" prefHeight="25.0" prefWidth="117.0" />
+            <TextField fx:id="txt_ville_modif" layoutX="90.0" layoutY="239.0" prefHeight="25.0" prefWidth="117.0" />
+            <HBox layoutX="42.0" layoutY="340.0" spacing="50.0">
+               <children>
+                  <Button fx:id="btn_ok_modif" mnemonicParsing="false" onMouseClicked="#btn_modif_client" text="OK" />
+                  <Button fx:id="bouton_annul_modif" mnemonicParsing="false" onMouseClicked="#effaceRenseignement" text="Annuler" />
                </children>
             </HBox>
          </children>
