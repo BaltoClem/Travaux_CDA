@@ -18,7 +18,6 @@ public class ClientDAO {
 
     public ArrayList<Client> listAll(){
         ArrayList<Client> listeClient = new ArrayList<>();
-
         try{
             Statement stm = hotelDB.getCon().createStatement();
             ResultSet res = stm.executeQuery("SELECT * FROM client");
