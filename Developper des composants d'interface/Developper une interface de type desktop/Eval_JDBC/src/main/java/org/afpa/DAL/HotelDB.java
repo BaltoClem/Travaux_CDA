@@ -5,15 +5,15 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class HotelDB {
-    private final String URL_HOTEL = "jdbc:mysql://localhost:3306/hotel";
-    private final String USR_HOTEL = "root";
-    private final String PWD_HOTEL = "";
-    public Connection con = null;
+    private static Connection con;
+    private static String URL_HOTEL = "jdbc:mysql://localhost:3306/hotel";;
+    private static String USR_HOTEL = "root";
+    private static String PWD_HOTEL = "";
 
     public HotelDB() throws SQLException{
     }
 
-    public Connection getCon() throws SQLException{
+    public static Connection getCon() throws SQLException{
         con = DriverManager.getConnection(URL_HOTEL, USR_HOTEL, PWD_HOTEL);
 
         return con;

@@ -113,5 +113,43 @@
             </HBox>
          </children>
       </Group>
+      <Group fx:id="grp_details_suppr" layoutX="400.0" layoutY="25.0" visible="false">
+         <children>
+            <TextArea fx:id="txtarea_details_suppr" prefHeight="419.0" prefWidth="222.0" />
+            <Label fx:id="lbl_suppr_client" alignment="CENTER" contentDisplay="CENTER" layoutX="18.0" layoutY="20.0" text="Suppression client">
+               <font>
+                  <Font name="System Bold" size="21.0" />
+               </font>
+            </Label>
+            <VBox layoutX="23.0" layoutY="89.0" prefHeight="175.0" prefWidth="67.0" spacing="50.0">
+               <children>
+                  <Label text="Nom">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label text="Prénom">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label text="Ville">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <TextField fx:id="txt_nom_suppr" layoutX="90.0" layoutY="89.0" prefHeight="25.0" prefWidth="117.0" />
+            <TextField fx:id="txt_prenom_suppr" layoutX="90.0" layoutY="164.0" prefHeight="25.0" prefWidth="117.0" />
+            <TextField fx:id="txt_ville_suppr" layoutX="90.0" layoutY="239.0" prefHeight="25.0" prefWidth="117.0" />
+            <HBox layoutX="42.0" layoutY="340.0" spacing="50.0">
+               <children>
+                  <Button fx:id="btn_ok_suppr" mnemonicParsing="false" onMouseClicked="#btn_suppr_client" text="OK" />
+                  <Button fx:id="bouton_annul_suppr" mnemonicParsing="false" onMouseClicked="#effaceRenseignement" text="Annuler" />
+               </children>
+            </HBox>
+         </children>
+      </Group>
    </children>
 </AnchorPane>
