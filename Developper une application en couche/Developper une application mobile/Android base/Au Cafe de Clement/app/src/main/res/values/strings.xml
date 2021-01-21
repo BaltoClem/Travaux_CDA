@@ -9,4 +9,11 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="les_desserts_du_caf_de_cl_ment">Les desserts du Café de Clément</string>
+    <string name="donut_description">Donuts fourrés au chocolat et nappés d\'un glaçage coloré</string>
+    <string name="ice_cream_description">Sandwiches à la crème glacée avec leurs gaufrettes au chocolat et leur garniture parfum vanille</string>
+    <string name="froyo_description">Yogourt glacé en libre-service de première qualité</string>
+    <string name="donut_order_message">Vous avez commandé un Donut</string>
+    <string name="ice_cream_order_message">Vous avez commandé une Glace</string>
+    <string name="froyo_order_message">Vous avez commandé un Froyo</string>
 </resources>
