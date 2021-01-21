@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">deuxActivite</string>
+    <string name="envoyer">Envoyer</string>
+    <string name="activitedeux">Seconde Activité</string>
+    <string name="message_re_u">Message reçu</string>
+    <string name="entrez_un_message">Entrez un message</string>
+    <string name="r_pondre">Répondre</string>
+    <string name="r_ponse">Réponse</string>
+    <string name="envoi">Envoi</string>
+    <string name="r_ponse_de_la_2_me_vue">Réponse de la 2ème vue</string>
+</resources>
