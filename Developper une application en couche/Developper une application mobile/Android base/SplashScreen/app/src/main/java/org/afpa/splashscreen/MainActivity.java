@@ -13,7 +13,6 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static int SPLASH_SCREEN = 5000;
     Animation topAnim, bottomAnim;
     ImageView logo;
     TextView desc;
@@ -38,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         logo.setAnimation(topAnim);
         desc.setAnimation(bottomAnim);
 
+        int SPLASH_SCREEN = 5000;
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -45,6 +45,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }
-        },SPLASH_SCREEN);
+        }, SPLASH_SCREEN);
     }
 }
