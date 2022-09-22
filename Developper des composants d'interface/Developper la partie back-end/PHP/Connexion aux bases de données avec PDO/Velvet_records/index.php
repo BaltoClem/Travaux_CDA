@@ -26,7 +26,7 @@ $requete_last_disc->closeCursor();
                 <header>
                             <div class="video-section-list">
                                 <div class="row justify-content-left">
-                                <p class="h1">Liste des disques&nbsp(<?php echo $nb_disc ?>)</p>
+                                <!-- <p class="h1">Liste des disques&nbsp(<?php echo $nb_disc ?>)</p> -->
                                 </div>
                                     <video id="video-elem-list" preload autoplay loop muted>
                                         <source src="assets/video/Turntable.mp4" type="video/mp4">

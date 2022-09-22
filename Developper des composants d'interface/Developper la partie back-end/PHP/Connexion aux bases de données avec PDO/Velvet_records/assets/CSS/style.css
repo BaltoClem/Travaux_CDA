@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet');
+
 /* Général */
 
 header, body{
+    font-family: 'Permanent Marker';
     background-color: antiquewhite;
 }
 
@@ -8,9 +11,14 @@ header, body{
 
 nav{
     background-color:tan;
+    
 }
 .dropdown-menu{
     background-color: #D2B48C;
+}
+
+#vr_logo{
+    width : 6rem;
 }
 
 /* Intégration de la vidéo des listes */
@@ -75,6 +83,10 @@ video::-webkit-media-controls{
 
 .card {
     width: 22rem;
+}
+
+.card-body, .card-header{
+    background-color: #D2B48C;
 }
 
 .img-fluid, .card-img-top{

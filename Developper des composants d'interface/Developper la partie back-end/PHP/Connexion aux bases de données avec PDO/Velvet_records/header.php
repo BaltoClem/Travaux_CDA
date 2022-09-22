@@ -13,6 +13,6 @@ session_start()
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="assets\CSS\style.css">
 </head>
-<div class="container">
+<div class="container col-12 m-0 p-0">
 <?php include("navbar_header.php");?>
 </div>

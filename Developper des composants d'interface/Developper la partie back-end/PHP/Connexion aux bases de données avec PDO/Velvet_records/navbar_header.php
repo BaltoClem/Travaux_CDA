@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light">
-  <a class="navbar-brand" href="#">Velvet_Records</a>
+ <img id="vr_logo" src="assets/pictures/logo_vr.png" alt="logo">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
